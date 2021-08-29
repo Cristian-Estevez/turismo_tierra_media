@@ -1,4 +1,4 @@
-package turismo_tierra_media;
+package turismoenlatierramedia;
 
 public class UsuarioException extends Exception {
 

@@ -1,4 +1,4 @@
-package turismo_tierra_media;
+package turismoenlatierramedia;
 
 public enum TipoDeAtraccion {
 	
