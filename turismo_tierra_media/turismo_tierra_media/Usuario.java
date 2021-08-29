@@ -19,12 +19,12 @@ public class Usuario {
 
 	public void comprarProducto(Producto atraccion) throws UsuarioException {
 
-		if ((this.atraccionFavorita == atraccion.TipoDeAtraccion) && (this.getMonedasDeOro() >= atraccion.costo)
+		if ((this.getMonedasDeOro() >= atraccion.costo)
 				&& (this.tiempoDisponible >= atraccion.tiempoDeDuracion)) {
 
-			this.productos = new Producto[CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO];
+			/* this.productos = new Producto[CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO];
 			this.productos[libre] = new Producto(costo, tiempoDeDuracion, tipoDeAtraccion);
-			this.libre++;
+			this.libre++; */
 			this.monedasDeOro -= atraccion.costo;
 			this.tiempoDisponible -= atraccion.tiempoDeDuracion;
 
