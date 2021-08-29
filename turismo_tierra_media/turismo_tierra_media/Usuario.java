@@ -10,7 +10,7 @@ public class Usuario {
 	private int libre = 0;
 	private final static int CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO = 1000; // hasta que veamos listas
 
-	public Usuario(String nombre, double monedasDeOro, double tiempoDisponible, Atraccion atraccionFavorita) {
+	public Usuario(String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
 		this.nombre = nombre;
 		this.monedasDeOro = monedasDeOro;
 		this.tiempoDisponible = tiempoDisponible;
