@@ -1,0 +1,10 @@
+De Aventura:
+tipo porcentual: Bosque Negro + Mordor 20% off = $ 22.4
+tipo paquete: Moria + Mordor + Bosque Negro = $ 30
+
+De Paisajes:
+tipo Porcentual: Minas Tirith + Abismo de Helm 20% off = $ 8
+tipo AxB: Minas Tirith + Erebor, gratis Abismo de Helm = $ 17
+
+de Degustacion:
+tipo absoluta: Lothlórien + La Comarca = $ 36
