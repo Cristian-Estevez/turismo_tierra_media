@@ -15,8 +15,6 @@ import turismoenlatierramedia.UsuarioException;
 public class UsuarioTest {
 
 	Usuario eowyn, gandalf, sam, galadriel;
-	
-	// ¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡ ESTOS TEST VA A HABER QUE MODIFICARLOS CUANDO LA CLASE PRODUCTO SEA ABSTRACTA!!!!!!!!!
 	Producto mordor, atraccionMuyCostosa, atraccionMuyLarga;
 	Producto[] productosEsperados;  
 	
