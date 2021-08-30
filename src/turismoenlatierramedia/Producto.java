@@ -7,20 +7,20 @@ public class Producto {
 	private double tiempoDeduracion;
 	private TipoDeAtraccion tipoDeAtraccion;
 	
-	public double getCosto() {
-		
+	public double getCosto() {		
 		return costo;
 	}
+	
 	public void setCosto(double costo) {
 		this.costo = costo;
 	}
-	public double getTiempoDeduracion() {
+	
+	public double getTiempoDeDuracion() {
 		return tiempoDeduracion;
 	}
+	
 	public void setTiempoDeduracion(double tiempoDeduracion) {
 		this.tiempoDeduracion = tiempoDeduracion;
-	}
-	
-	
+	}	
 
 }
