@@ -7,6 +7,14 @@ public class Producto {
 	private double tiempoDeduracion;
 	private TipoDeAtraccion tipoDeAtraccion;
 	
+	public Producto(String nombre, double costo, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
+		this.nombre = nombre;
+		this.costo = costo;
+		this.tiempoDeduracion = tiempoDeDuracion;
+		this.tipoDeAtraccion = tipoDeAtraccion;
+		
+	}
+	
 	public double getCosto() {		
 		return costo;
 	}

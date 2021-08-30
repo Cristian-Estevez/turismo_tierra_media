@@ -57,7 +57,7 @@ public class Usuario {
 		return this.monedasDeOro;
 	}
 
-	public Producto getProductosComprados() {
+	public Producto[] getProductosComprados() {
 		return this.productos;
 	}
 
