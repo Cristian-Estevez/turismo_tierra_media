@@ -28,12 +28,12 @@ public class UsuarioTest {
 		productosEsperados = new Producto[10];
 	}
 	
-	@Test
-	public void ususarioCompraProductoYLoGuarda() throws UsuarioException {
-		gandalf.comprarProducto(mordor);
-		productosEsperados[0] = mordor;
-		assertArrayEquals(productosEsperados, gandalf.getProductosComprados());
-	}
+//	@Test
+//	public void ususarioCompraProductoYLoGuarda() throws UsuarioException {
+//		gandalf.comprarProducto(mordor);
+//		productosEsperados[0] = mordor;
+//		assertArrayEquals(productosEsperados, gandalf.getProductosComprados());
+//	}
 	
 	@Test
 	public void descuentaMonedasDeOroCorrectamente() throws UsuarioException {
