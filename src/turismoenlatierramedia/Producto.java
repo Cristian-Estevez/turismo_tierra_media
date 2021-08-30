@@ -7,15 +7,15 @@ package turismoenlatierramedia;
  */
 public class Producto {
 	
-	private String nombre;
-	private double costo;
-	private double tiempoDeduracion;
-	private TipoDeAtraccion tipoDeAtraccion;
+	protected String nombre;
+	protected double costo;
+	protected double tiempoDeDuracion;
+	protected TipoDeAtraccion tipoDeAtraccion;
 	
 	public Producto(String nombre, double costo, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
 		this.nombre = nombre;
 		this.costo = costo;
-		this.tiempoDeduracion = tiempoDeDuracion;
+		this.tiempoDeDuracion = tiempoDeDuracion;
 		this.tipoDeAtraccion = tipoDeAtraccion;		
 	}
 	
@@ -28,11 +28,11 @@ public class Producto {
 	}
 	
 	public double getTiempoDeDuracion() {
-		return tiempoDeduracion;
+		return tiempoDeDuracion;
 	}
 	
 	public void setTiempoDeduracion(double tiempoDeduracion) {
-		this.tiempoDeduracion = tiempoDeduracion;
+		this.tiempoDeDuracion = tiempoDeduracion;
 	}	
 
 }
