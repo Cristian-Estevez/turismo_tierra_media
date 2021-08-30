@@ -18,7 +18,7 @@ public class Atraccion extends Producto {
 	}
 
 	public int getLugaresDisponibles() {
-		return cupoDiario -= plazasOcupadas;
+		return cupoDiario - plazasOcupadas;
 	}
 	
 	public int getCupoDiario() {

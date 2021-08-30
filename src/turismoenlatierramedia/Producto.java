@@ -5,7 +5,7 @@ package turismoenlatierramedia;
  * @author Nahuel Serantes Cortéz, Cristian Estevez
  *
  */
-public class Producto {
+public abstract class Producto {
 	
 	protected String nombre;
 	protected double costo;
