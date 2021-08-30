@@ -1,5 +1,10 @@
 package turismoenlatierramedia;
 
+/**
+ * 
+ * @author Nahuel Serantes Cortéz, Cristian Estevez
+ *
+ */
 public class Producto {
 	
 	private String nombre;
@@ -11,8 +16,7 @@ public class Producto {
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoDeduracion = tiempoDeDuracion;
-		this.tipoDeAtraccion = tipoDeAtraccion;
-		
+		this.tipoDeAtraccion = tipoDeAtraccion;		
 	}
 	
 	public double getCosto() {		
