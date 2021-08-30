@@ -13,7 +13,7 @@ public class Usuario {
 	private TipoDeAtraccion atraccionFavorita;
 	private Producto[] productos;
 	private int libre = 0;
-	private final static int CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO = 1000; // hasta que veamos listas
+	private final static int CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO = 10; // hasta que veamos listas
 
 	public Usuario(String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
 		this.nombre = nombre;
@@ -57,7 +57,7 @@ public class Usuario {
 		return this.monedasDeOro;
 	}
 
-	public Producto getProductosComprados() {
+	public Producto[] getProductosComprados() {
 		return this.productos;
 	}
 
