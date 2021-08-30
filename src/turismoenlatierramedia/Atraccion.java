@@ -12,7 +12,6 @@ public class Atraccion extends Producto {
 	private int plazasOcupadas;
 
 	public Atraccion(String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
-
 		super(nombre, costo, tiempoDeDuracion, tipoDeAtraccion);
 		this.cupoDiario = cupo;
 	}
@@ -21,12 +20,12 @@ public class Atraccion extends Producto {
 		return cupoDiario - plazasOcupadas;
 	}
 	
-	public int getCupoDiario() {
-		return cupoDiario;
+	public void ocuparPlaza() throws AtraccionException {
+		if (cupoDiario == plazasOcupadas) {
+			throw new AtraccionException("No hay más cupo para esta atracción");
+		} else {
+			plazasOcupadas++;
+		}
 	}
 	
-	public int getPlazasOcupadas() {
-		return plazasOcupadas;
-	}
-
 }

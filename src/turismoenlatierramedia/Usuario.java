@@ -1,5 +1,8 @@
 package turismoenlatierramedia;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 
  * @author Micaela Trisi
@@ -11,16 +14,14 @@ public class Usuario {
 	private double monedasDeOro;
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
-	private Producto[] productos;
-	private int libre = 0;
-	private final static int CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO = 10; // hasta que veamos listas
+	private List<Producto> productos;
 
 	public Usuario(String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
 		this.nombre = nombre;
 		this.monedasDeOro = monedasDeOro;
 		this.tiempoDisponible = tiempoDisponible;
 		this.atraccionFavorita = atraccionFavorita;
-		productos = new Producto[CANTIDAD_MAXIMA_DE_PRODUCTOS_POR_USUARIO];
+		this.productos =  new ArrayList<Producto>();
 	}
 
 	/*
@@ -34,9 +35,9 @@ public class Usuario {
 
 		if ((this.getMonedasDeOro() >= atraccion.getCosto())
 				&& (this.tiempoDisponible >= atraccion.getTiempoDeDuracion())) {
-		
-			this.productos[libre] = atraccion;
-			this.libre++; 
+//		
+//			this.productos[libre] = atraccion;
+//			this.libre++; 
 			this.monedasDeOro -= atraccion.getCosto();
 			this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
 
@@ -57,7 +58,7 @@ public class Usuario {
 		return this.monedasDeOro;
 	}
 
-	public Producto[] getProductosComprados() {
+	public List<Producto> getProductosComprados() {
 		return this.productos;
 	}
 
