@@ -1,0 +1,8 @@
+5
+TipoDeAtraccion,TipoPromocion,AtraccionA, AtraccionB, Descuento
+Aventura,Porcentual,Bosque Negro,Mordor,-20%
+Aventura,Absoluta,Moria,Mordor,-8
+Paisajes,Porcentual,Minas Tirith,Abismo de Helm,-20%
+Paisajes,AxB,Minas Tirith,Erebor,-5
+Degustacion,Absoluta,Lothlorien,La Comarca,-2
+
