@@ -34,9 +34,9 @@ public class Promocion extends Producto {
 		return lugaresDisponibles;
 	}
 
-	public void ocuparLugar(Atraccion[] atraccionesIncluidas) {
-		for (int i = 0; i < atraccionesIncluidas.length; i++) {
-
+	public void ocuparLugar() throws AtraccionException {		
+		for (Atraccion atraccion : atraccionesIncluidas) {
+            atraccion.ocuparPlaza();
 		}
 	}
 

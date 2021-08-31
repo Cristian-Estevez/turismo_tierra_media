@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import turismoenlatierramedia.Atraccion;
+import turismoenlatierramedia.AtraccionException;
 import turismoenlatierramedia.Promocion;
 import turismoenlatierramedia.TipoDeAtraccion;
 
@@ -61,6 +62,15 @@ public class PromocionTest {
 				                + mordor.getTiempoDeDuracion()
 				                + lothlorien.getTiempoDeDuracion();
 		assertEquals(tiempoEsperado, promoNueva.getTiempoDeDuracion(), 0);
+	}
+	@Test
+	public void ocupaUnLugar() throws AtraccionException {
+		promoNueva.ocuparLugar();
+		assertEquals(3, mordor.getLugaresDisponibles());
+		assertEquals(9, dorien.getLugaresDisponibles());
+		assertEquals(11, mardelplata.getLugaresDisponibles());
+		assertEquals(29, lothlorien.getLugaresDisponibles());
+
 	}
 
 }
