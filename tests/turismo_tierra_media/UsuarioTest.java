@@ -1,7 +1,9 @@
 package turismo_tierra_media;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +18,7 @@ public class UsuarioTest {
 
 	Usuario eowyn, gandalf, sam, galadriel;
 	Producto mordor, atraccionMuyCostosa, atraccionMuyLarga;
-	Producto[] productosEsperados;  
+	List<Producto> productosEsperados;  
 	
 	@Before
 	public void setup() {
@@ -25,15 +27,15 @@ public class UsuarioTest {
 		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
 		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
 		mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
-		productosEsperados = new Producto[10];
+		productosEsperados = new ArrayList<Producto>();
 	}
 	
-//	@Test
-//	public void ususarioCompraProductoYLoGuarda() throws UsuarioException {
-//		gandalf.comprarProducto(mordor);
-//		productosEsperados[0] = mordor;
-//		assertArrayEquals(productosEsperados, gandalf.getProductosComprados());
-//	}
+	@Test
+	public void ususarioCompraProductoYLoGuarda() throws UsuarioException {
+		gandalf.comprarProducto(mordor);
+		productosEsperados.add(mordor);
+		assertEquals(productosEsperados, gandalf.getProductosComprados());
+	}
 	
 	@Test
 	public void descuentaMonedasDeOroCorrectamente() throws UsuarioException {

@@ -35,12 +35,16 @@ public class Usuario {
 
 		if ((this.getMonedasDeOro() >= atraccion.getCosto())
 				&& (this.tiempoDisponible >= atraccion.getTiempoDeDuracion())) {
-//		
-//			this.productos[libre] = atraccion;
-//			this.libre++; 
 			this.monedasDeOro -= atraccion.getCosto();
 			this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
-
+			this.productos.add(atraccion);
+			if (atraccion.getClass() == Atraccion.class) {
+				try {
+					((Atraccion) atraccion).ocuparPlaza();
+				} catch (AtraccionException e) {
+					e.printStackTrace();
+				}
+			}
 		} else
 			throw new UsuarioException(	"El usuario tiene monedas o tiempo insuficientes");
 
@@ -65,5 +69,7 @@ public class Usuario {
 	public TipoDeAtraccion getTipoDeAtraccionFavorita() {
 		return this.atraccionFavorita;
 	}
+	
+	
 
 }
