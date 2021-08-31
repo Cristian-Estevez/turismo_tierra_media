@@ -26,6 +26,9 @@ public class UsuarioTest {
 		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
 		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
 		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		
+		// orden de los parametros para construir atracción:
+		// (nombre, costo, tiempoDeDuracion, cupo, tipoDeAtraccion)
 		mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
 		productosEsperados = new ArrayList<Producto>();
 	}
@@ -56,4 +59,16 @@ public class UsuarioTest {
 		gandalf.comprarProducto(atraccionMuyLarga);
 	}
 
+	@Test
+	public void devuelveAtraccionFavoritaCorrectamente() {
+		TipoDeAtraccion atraccionEsperada = TipoDeAtraccion.AVENTURA;
+		assertEquals(atraccionEsperada, eowyn.getTipoDeAtraccionFavorita());
+	}
+	
+	@Test
+	public void descuentaCorrectamenteElTiempoDisponibleAlComprar() throws UsuarioException {
+		double tiempoDesponibleEsperado = 1;
+		galadriel.comprarProducto(mordor);
+		assertEquals(tiempoDesponibleEsperado, galadriel.getTiempoDisponible(), 0);
+	}
 }
