@@ -1,10 +1,6 @@
 package turismoenlatierramedia;
 
-/**
- * 
- * @author Nahuel Serantes Cortéz, Cristian Estevez
- *
- */
+
 public abstract class Producto {
 
 	protected String nombre;
@@ -12,7 +8,9 @@ public abstract class Producto {
 	protected double tiempoDeDuracion;
 	protected TipoDeAtraccion tipoDeAtraccion;
 
-	public Producto(String nombre, double costo, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
+	public Producto(String nombre, double costo
+					, double tiempoDeDuracion
+					, TipoDeAtraccion tipoDeAtraccion) {
 
 		this.nombre = nombre;
 		this.costo = costo;
@@ -22,7 +20,6 @@ public abstract class Producto {
 
 	public Producto(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
 		this.nombre = nombre;
-
 		this.tiempoDeDuracion = tiempoDeDuracion;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
@@ -31,7 +28,7 @@ public abstract class Producto {
 		return costo;
 	}
 
-	public void setCosto(double costo) {
+	protected void setCosto(double costo) {
 		this.costo = costo;
 	}
 
@@ -43,4 +40,5 @@ public abstract class Producto {
 		this.tiempoDeDuracion = tiempoDeduracion;
 	}
 
+	
 }

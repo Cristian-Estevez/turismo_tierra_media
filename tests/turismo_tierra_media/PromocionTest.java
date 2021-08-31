@@ -13,35 +13,53 @@ import turismoenlatierramedia.Promocion;
 import turismoenlatierramedia.TipoDeAtraccion;
 
 public class PromocionTest {
-Atraccion mordor, dorien, mardelplata;
-List <Atraccion> listaDeAtracciones ;
-Promocion promoNueva ;
 	
+	Atraccion moria, minasDeTirith, laComarca, mordor, 
+	  		  abismoDeHelm, lothlorien, erebor, bosqueNegro,
+	  		  unaConPocoCupo, dorien, mardelplata;
+	
+	List<Atraccion> listaDeAtraccionesA, listaDeAtraccionesB;
+	Promocion promoNueva;
+
 	@Before
 	public void setUp() throws Exception {
-		mordor = new Atraccion("Mordor", 25, 3, 44, TipoDeAtraccion.AVENTURA);
+		// orden de los parametros para construir atracción:
+		// (nombre, costo, tiempoDeDuracion, cupo, tipoDeAtraccion)
+		// (String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
+
+		moria = new Atraccion("Moria", 10, 2, 6,  TipoDeAtraccion.AVENTURA);
+		minasDeTirith = new Atraccion("Minas de Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
+		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
+		mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
+		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
+		lothlorien = new Atraccion("Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
+		erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
+		bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
+		unaConPocoCupo = new Atraccion("Una con poco cupo", 3, 1, 2, TipoDeAtraccion.DEGUSTACION);
 		dorien = new Atraccion("Mordor", 25, 3, 10, TipoDeAtraccion.AVENTURA);
 		mardelplata = new Atraccion("Mordor", 25, 3, 12, TipoDeAtraccion.AVENTURA);
-		listaDeAtracciones=new ArrayList<Atraccion> ();
-		listaDeAtracciones.add(mordor);
-		listaDeAtracciones.add(dorien);
-		listaDeAtracciones.add(mardelplata);
-		promoNueva= new Promocion("Nueva",22,TipoDeAtraccion.AVENTURA,listaDeAtracciones) ;
+
+		listaDeAtraccionesA= new ArrayList<Atraccion>();
+		listaDeAtraccionesA.add(mordor);
+		listaDeAtraccionesA.add(dorien);
+		listaDeAtraccionesA.add(mardelplata);
 		
-		
+		promoNueva = new Promocion("Nueva", 22, TipoDeAtraccion.AVENTURA, listaDeAtraccionesA);
 	}
 
 	@Test
-	public void test() {
-		int cuposEsperados =10;
+	public void obtenerCuposDisponibles() {
+		int cuposEsperados = 10;
 		assertEquals(cuposEsperados, promoNueva.getLugaresDisponibles());
-		
-		// public Promocion(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion,
-		
-		
-		
-		
-		
+	}
+	
+	@Test
+	public void devuelveCorrectamenteTiempoDeDuracion() {
+		double tiempoEsperado = mardelplata.getTiempoDeDuracion() 
+				                + dorien.getTiempoDeDuracion() 
+				                + mordor.getTiempoDeDuracion();
+		System.out.println(tiempoEsperado);
+		assertEquals(tiempoEsperado, promoNueva.getTiempoDeDuracion(), 0);
 	}
 
 }
