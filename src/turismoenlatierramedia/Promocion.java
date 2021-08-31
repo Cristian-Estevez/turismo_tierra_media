@@ -42,17 +42,8 @@ public class Promocion extends Producto {
 
 	@Override
 	public double getTiempoDeDuracion() {
-		double tiempoTotalDeDuracion = 0;
-//		
-//		Iterator<Atraccion> iter = atraccionesIncluidas.iterator();
-//		while (iter.hasNext()) {
-//			System.out.println(iter.next().getNombre());
-//			iter.next();
-//		}
-//		
+		double tiempoTotalDeDuracion = 0;		
 		for (Atraccion atraccion : atraccionesIncluidas) {
-			System.out.println(atraccion.getNombre());
-			System.out.println(atraccion.getTiempoDeDuracion());
 			tiempoTotalDeDuracion += atraccion.getTiempoDeDuracion();
 		}
 		return tiempoTotalDeDuracion;

@@ -60,8 +60,6 @@ public class PromocionTest {
 				                + dorien.getTiempoDeDuracion() 
 				                + mordor.getTiempoDeDuracion()
 				                + lothlorien.getTiempoDeDuracion();
-								
-		System.out.println(tiempoEsperado);
 		assertEquals(tiempoEsperado, promoNueva.getTiempoDeDuracion(), 0);
 	}
 
