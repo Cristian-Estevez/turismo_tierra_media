@@ -36,20 +36,21 @@ public class PromocionTest {
 		erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
 		bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
 		unaConPocoCupo = new Atraccion("Una con poco cupo", 3, 1, 2, TipoDeAtraccion.DEGUSTACION);
-		dorien = new Atraccion("Mordor", 25, 3, 10, TipoDeAtraccion.AVENTURA);
-		mardelplata = new Atraccion("Mordor", 25, 3, 12, TipoDeAtraccion.AVENTURA);
+		dorien = new Atraccion("Dorien", 25, 3, 10, TipoDeAtraccion.AVENTURA);
+		mardelplata = new Atraccion("Mar del Plata", 25, 3, 12, TipoDeAtraccion.AVENTURA);
 
 		listaDeAtraccionesA= new ArrayList<Atraccion>();
 		listaDeAtraccionesA.add(mordor);
 		listaDeAtraccionesA.add(dorien);
 		listaDeAtraccionesA.add(mardelplata);
+		listaDeAtraccionesA.add(lothlorien);
 		
 		promoNueva = new Promocion("Nueva", 22, TipoDeAtraccion.AVENTURA, listaDeAtraccionesA);
 	}
 
 	@Test
 	public void obtenerCuposDisponibles() {
-		int cuposEsperados = 10;
+		int cuposEsperados = 4;
 		assertEquals(cuposEsperados, promoNueva.getLugaresDisponibles());
 	}
 	
@@ -57,7 +58,9 @@ public class PromocionTest {
 	public void devuelveCorrectamenteTiempoDeDuracion() {
 		double tiempoEsperado = mardelplata.getTiempoDeDuracion() 
 				                + dorien.getTiempoDeDuracion() 
-				                + mordor.getTiempoDeDuracion();
+				                + mordor.getTiempoDeDuracion()
+				                + lothlorien.getTiempoDeDuracion();
+								
 		System.out.println(tiempoEsperado);
 		assertEquals(tiempoEsperado, promoNueva.getTiempoDeDuracion(), 0);
 	}
