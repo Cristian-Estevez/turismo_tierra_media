@@ -1,10 +1,5 @@
 package turismoenlatierramedia;
 
-/**
- * 
- * @author Micaela Trisi
- *
- */
 
 public class Atraccion extends Producto {
 

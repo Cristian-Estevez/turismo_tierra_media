@@ -3,11 +3,7 @@ package turismoenlatierramedia;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 
- * @author Micaela Trisi
- *
- */
+
 public class Usuario {
 
 	private String nombre;
@@ -44,7 +40,7 @@ public class Usuario {
 				try {
 					((Atraccion) atraccion).ocuparPlaza();
 				} catch (AtraccionException e) {
-					e.printStackTrace();
+					System.out.println(e.getMessage());;
 				}
 			}
 		} else

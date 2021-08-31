@@ -17,7 +17,7 @@ import turismoenlatierramedia.UsuarioException;
 public class UsuarioTest {
 
 	Usuario eowyn, gandalf, sam, galadriel;
-	Producto mordor, atraccionMuyCostosa, atraccionMuyLarga;
+	Atraccion mordor, atraccionMuyCostosa, atraccionMuyLarga;
 	List<Producto> productosEsperados;  
 	
 	@Before
