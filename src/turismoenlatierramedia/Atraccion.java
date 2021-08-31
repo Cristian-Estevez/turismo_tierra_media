@@ -6,11 +6,17 @@ public class Atraccion extends Producto {
 	private int cupoDiario;
 	private int plazasOcupadas;
 
-	public Atraccion(String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
+	public Atraccion(String nombre, double costo
+					 , double tiempoDeDuracion, int cupo
+					 , TipoDeAtraccion tipoDeAtraccion) {
 		super(nombre, costo, tiempoDeDuracion, tipoDeAtraccion);
 		this.cupoDiario = cupo;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+	
 	public int getLugaresDisponibles() {
 		return cupoDiario - plazasOcupadas;
 	}

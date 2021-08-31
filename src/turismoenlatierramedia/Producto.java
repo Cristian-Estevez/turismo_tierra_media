@@ -8,7 +8,9 @@ public abstract class Producto {
 	protected double tiempoDeDuracion;
 	protected TipoDeAtraccion tipoDeAtraccion;
 
-	public Producto(String nombre, double costo, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
+	public Producto(String nombre, double costo
+					, double tiempoDeDuracion
+					, TipoDeAtraccion tipoDeAtraccion) {
 
 		this.nombre = nombre;
 		this.costo = costo;

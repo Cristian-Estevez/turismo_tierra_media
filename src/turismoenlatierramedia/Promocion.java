@@ -1,11 +1,11 @@
 package turismoenlatierramedia;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class Promocion extends Producto {
 	
 	protected List<Atraccion> atraccionesIncluidas;
-	protected String nombre;
 
 	public Promocion(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion
 			, List<Atraccion> atraccionesIncluidas) {
@@ -16,7 +16,8 @@ public class Promocion extends Producto {
 	
 	/**
 	 * 
-	 * @return
+	 * @return devuelve la menor cantidad de plazas disponibles de las atracciones 
+	 * de la lista atraccionesIncluidas 
 	 */
 	public int getLugaresDisponibles() {
 		int lugaresDisponibles = 0;
@@ -39,9 +40,19 @@ public class Promocion extends Producto {
 		}
 	}
 
-	public double calcularTiempoDeDuracion(Atraccion[] atraccionesIncluidas) {
+	@Override
+	public double getTiempoDeDuracion() {
 		double tiempoTotalDeDuracion = 0;
+//		
+//		Iterator<Atraccion> iter = atraccionesIncluidas.iterator();
+//		while (iter.hasNext()) {
+//			System.out.println(iter.next().getNombre());
+//			iter.next();
+//		}
+//		
 		for (Atraccion atraccion : atraccionesIncluidas) {
+			System.out.println(atraccion.getNombre());
+			System.out.println(atraccion.getTiempoDeDuracion());
 			tiempoTotalDeDuracion += atraccion.getTiempoDeDuracion();
 		}
 		return tiempoTotalDeDuracion;
