@@ -1,5 +1,6 @@
 package turismoenlatierramedia;
 
-public class PromocionPorcentual {
+public class PromocionPorcentual extends Promocion{
 
+	
 }
