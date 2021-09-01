@@ -36,13 +36,13 @@ public class Usuario {
 			this.monedasDeOro -= atraccion.getCosto();
 			this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
 			this.productos.add(atraccion);
-			if (atraccion.getClass() == Atraccion.class) {
-				try {
-					((Atraccion) atraccion).ocuparPlaza();
-				} catch (AtraccionException e) {
-					System.out.println(e.getMessage());;
-				}
+			
+			try {
+				atraccion.ocuparPlaza();
+			} catch (AtraccionException e) {
+				System.out.println(e.getMessage());
 			}
+
 		} else
 			throw new UsuarioException(	"El usuario tiene monedas o tiempo insuficientes");
 
