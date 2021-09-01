@@ -52,5 +52,12 @@ public abstract class Promocion extends Producto {
 		}
 		return tiempoTotalDeDuracion;
 	}
+	
+	@Override
+	public String toString() {
+		return "Promocion de tipo Absoluta: \nNombre = " + nombre  +  "\nCosto en promoción = "
+				+ costo + "\nTiempo De Duracion = " + tiempoDeDuracion + "\nTipo De Atraccion = " + tipoDeAtraccion
+				+ "\nLugares Disponibles() = " + getLugaresDisponibles()   + "\nAtracciones Incluidas = " + atraccionesIncluidas;
+	}
 
 }
