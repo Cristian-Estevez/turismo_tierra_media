@@ -63,14 +63,19 @@ public class PromocionTest {
 				                + lothlorien.getTiempoDeDuracion();
 		assertEquals(tiempoEsperado, promoNueva.getTiempoDeDuracion(), 0);
 	}
+	
 	@Test
 	public void ocupaUnLugar() throws AtraccionException {
-		promoNueva.ocuparLugar();
-		assertEquals(3, mordor.getLugaresDisponibles());
-		assertEquals(9, dorien.getLugaresDisponibles());
-		assertEquals(11, mardelplata.getLugaresDisponibles());
-		assertEquals(29, lothlorien.getLugaresDisponibles());
-
+		int lugaresEsperadosMordor = mordor.getLugaresDisponibles() - 1;
+		int lugaresEsperadosDorien = dorien.getLugaresDisponibles() - 1;
+		int lugaresEsperadosMarDelPlata = mardelplata.getLugaresDisponibles() - 1;
+		int lugaresEsperadoslLothlorien = lothlorien.getLugaresDisponibles() - 1;
+		
+		promoNueva.ocuparPlaza();
+		assertEquals(lugaresEsperadosMordor, mordor.getLugaresDisponibles());
+		assertEquals(lugaresEsperadosDorien, dorien.getLugaresDisponibles());
+		assertEquals(lugaresEsperadosMarDelPlata, mardelplata.getLugaresDisponibles());
+		assertEquals(lugaresEsperadoslLothlorien, lothlorien.getLugaresDisponibles());
 	}
 
 }

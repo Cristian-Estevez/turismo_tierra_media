@@ -1,6 +1,5 @@
 package turismoenlatierramedia;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class Promocion extends Producto {
@@ -34,7 +33,7 @@ public class Promocion extends Producto {
 		return lugaresDisponibles;
 	}
 
-	public void ocuparLugar() throws AtraccionException {		
+	public void ocuparPlaza() throws AtraccionException {		
 		for (Atraccion atraccion : atraccionesIncluidas) {
             atraccion.ocuparPlaza();
 		}
