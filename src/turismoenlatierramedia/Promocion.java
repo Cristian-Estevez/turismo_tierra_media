@@ -60,4 +60,7 @@ public abstract class Promocion extends Producto {
 				+ "\nLugares Disponibles() = " + getLugaresDisponibles()   + "\nAtracciones Incluidas = " + atraccionesIncluidas;
 	}
 
+	public boolean esPromocion() {
+		return true;
+	}
 }

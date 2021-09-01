@@ -50,6 +50,8 @@ public abstract class Producto {
 		return tipoDeAtraccion;
 	}
 
+	protected abstract boolean esPromocion(); 
+	
 	protected abstract void ocuparPlaza() throws AtraccionException;
 	
 	

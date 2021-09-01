@@ -32,4 +32,10 @@ public class Atraccion extends Producto {
 				+ ", Tipo De Atraccion = " + tipoDeAtraccion + ", Lugares Disponibles = " + getLugaresDisponibles() + "]";
 	}
 
+	@Override
+	protected boolean esPromocion() {
+		return false;
+	}
+
+	
 }
