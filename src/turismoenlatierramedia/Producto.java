@@ -40,5 +40,8 @@ public abstract class Producto {
 		this.tiempoDeDuracion = tiempoDeduracion;
 	}
 
+	public TipoDeAtraccion getTipo() {
+		return tipoDeAtraccion;
+	}
 	
 }
