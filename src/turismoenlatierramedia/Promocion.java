@@ -2,7 +2,7 @@ package turismoenlatierramedia;
 
 import java.util.List;
 
-public class Promocion extends Producto {
+public abstract class Promocion extends Producto {
 	
 	protected List<Atraccion> atraccionesIncluidas;
 
@@ -12,7 +12,13 @@ public class Promocion extends Producto {
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 
-	
+	//Constructor llamado por PromocionAbsoluta
+	public Promocion(String nombre, TipoDeAtraccion tipo, double costo, List<Atraccion> atraccionesIncluidas) {
+		super(nombre, tipo, costo);
+		this.atraccionesIncluidas = atraccionesIncluidas;
+	}
+
+
 	/**
 	 * 
 	 * @return devuelve la menor cantidad de plazas disponibles de las atracciones 
@@ -39,7 +45,6 @@ public class Promocion extends Producto {
 		}
 	}
 
-	@Override
 	public double getTiempoDeDuracion() {
 		double tiempoTotalDeDuracion = 0;		
 		for (Atraccion atraccion : atraccionesIncluidas) {

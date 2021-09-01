@@ -24,6 +24,12 @@ public abstract class Producto {
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
 
+	public Producto(String nombre, TipoDeAtraccion tipo, double costo) {
+		this.nombre = nombre;
+		this.tipoDeAtraccion = tipo;
+		this.costo = costo;
+	}
+
 	public double getCosto() {
 		return costo;
 	}
