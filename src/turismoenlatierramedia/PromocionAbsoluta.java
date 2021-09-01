@@ -18,4 +18,6 @@ public class PromocionAbsoluta extends Promocion{
 		}
 		return tiempoTotal;
 	}
+	
+	
 }

@@ -49,5 +49,8 @@ public abstract class Producto {
 	public TipoDeAtraccion getTipo() {
 		return tipoDeAtraccion;
 	}
+
+	protected abstract void ocuparPlaza() throws AtraccionException;
+	
 	
 }
