@@ -1,5 +1,6 @@
 package turismoenlatierramedia;
 
+import java.util.Objects;
 
 public abstract class Producto {
 
@@ -58,6 +59,26 @@ public abstract class Producto {
 	protected abstract boolean esPromocion(); 
 	
 	protected abstract void ocuparPlaza() throws AtraccionException;
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(costo, nombre, tiempoDeDuracion, tipoDeAtraccion);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return Double.doubleToLongBits(costo) == Double.doubleToLongBits(other.costo)
+				&& Objects.equals(nombre, other.nombre)
+				&& Double.doubleToLongBits(tiempoDeDuracion) == Double.doubleToLongBits(other.tiempoDeDuracion)
+				&& tipoDeAtraccion == other.tipoDeAtraccion;
+	}
 	
 	
 }
