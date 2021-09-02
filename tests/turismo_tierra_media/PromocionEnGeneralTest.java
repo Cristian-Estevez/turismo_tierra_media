@@ -10,17 +10,17 @@ import org.junit.Test;
 
 import turismoenlatierramedia.Atraccion;
 import turismoenlatierramedia.AtraccionException;
-import turismoenlatierramedia.Promocion;
+import turismoenlatierramedia.PromocionAbsoluta;
 import turismoenlatierramedia.TipoDeAtraccion;
 
-public class PromocionTest {
+public class PromocionEnGeneralTest {
 	
 	Atraccion moria, minasDeTirith, laComarca, mordor, 
 	  		  abismoDeHelm, lothlorien, erebor, bosqueNegro,
 	  		  unaConPocoCupo, dorien, mardelplata;
 	
 	List<Atraccion> listaDeAtraccionesA, listaDeAtraccionesB;
-	Promocion promoNueva;
+	PromocionAbsoluta promoNueva;
 
 	@Before
 	public void setUp() throws Exception {
@@ -46,7 +46,7 @@ public class PromocionTest {
 		listaDeAtraccionesA.add(mardelplata);
 		listaDeAtraccionesA.add(lothlorien);
 		
-		promoNueva = new Promocion("Nueva", 22, TipoDeAtraccion.AVENTURA, listaDeAtraccionesA);
+		promoNueva = new PromocionAbsoluta("Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
 	}
 
 	@Test

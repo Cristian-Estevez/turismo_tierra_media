@@ -18,6 +18,11 @@ public abstract class Promocion extends Producto {
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 
+	// Constructor para PromocionPorcentual
+	public Promocion(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
+		super(nombre, tipo);
+		this.atraccionesIncluidas = atraccionesIncluidas;
+	}
 
 	/**
 	 * 
