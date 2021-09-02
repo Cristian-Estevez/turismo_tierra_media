@@ -2,16 +2,24 @@ package turismoenlatierramedia;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
 
 	public static void main(String[] args) {
 		
+		Scanner scan = new Scanner(System.in);
+		
+		System.out.println("Binevenido a la agencia de turismo de tierra Media");
+		System.out.println("Precione la tecla 'Enter' Para comenzar:");
+		
+//		scan.next();		
+		
 		String rutaArchivoUsuarios = "archivos/usuarios.in";
 		ConstructorDeUsuario constructorUsuario;
 		ArrayList<Usuario> usuarios;
 		
-		String rutaArchivoAtracciones = "archivos/atracciones";
+		String rutaArchivoAtracciones = "archivos/atracciones.in";
 		ConstructorDeAtraccion constructorAtraccion;
 		ArrayList<Atraccion> atracciones;
 		
@@ -29,11 +37,10 @@ public class App {
 		try {			
 			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
 			atracciones = constructorAtraccion.crearListaAtracciones();
+			System.out.println("Se cargaron satisfacoriamente "+ atracciones.size() + " atracciones a la lista de atracciones.");
 		} catch (FileNotFoundException e) {
 			System.err.println("No se encontró el archivo de atracciones al momento de crearlas.");
 		}
-		
-		
 		
 
 		// leer promos

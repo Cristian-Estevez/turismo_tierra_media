@@ -1,4 +1,4 @@
-package turismo_tierra_media;
+package turismoenlatierramedia;
 
 import static org.junit.Assert.assertEquals;
 
