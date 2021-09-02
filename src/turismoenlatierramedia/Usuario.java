@@ -2,6 +2,7 @@ package turismoenlatierramedia;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Usuario {
@@ -66,6 +67,26 @@ public class Usuario {
 
 	public TipoDeAtraccion getTipoDeAtraccionFavorita() {
 		return this.atraccionFavorita;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(atraccionFavorita, monedasDeOro, nombre, productos, tiempoDisponible);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		return atraccionFavorita == other.atraccionFavorita
+				&& Double.doubleToLongBits(monedasDeOro) == Double.doubleToLongBits(other.monedasDeOro)
+				&& Objects.equals(nombre, other.nombre) && Objects.equals(productos, other.productos)
+				&& Double.doubleToLongBits(tiempoDisponible) == Double.doubleToLongBits(other.tiempoDisponible);
 	}
 	
 	

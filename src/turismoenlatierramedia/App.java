@@ -1,37 +1,28 @@
 package turismoenlatierramedia;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class App {
 
 	public static void main(String[] args) {
-		List<Usuario> usuarios = new ArrayList<Usuario>();
+		
+		ConstructorDeUsuario constructorUsuario;
+		ArrayList<Usuario> usuarios, atracciones;
+		
+		
 		// leer usuarios y llenar la lista
-		String pathToFile = "archivos/usuarios.in";
 		try {
-			File myObj = new File(pathToFile);
-			Scanner myReader = new Scanner(myObj);
-			myReader.nextLine(); // saltar la primera
-			myReader.nextLine(); // y segunda linea
-			while (myReader.hasNextLine()) {
-				String[] u = myReader.nextLine().split(",");
-
-				usuarios.add(new Usuario(u[0], Double.parseDouble(u[1]), Double.parseDouble(u[2]),
-						TipoDeAtraccion.valueOf(u[3])));
-			}
-			myReader.close();
+			constructorUsuario = new ConstructorDeUsuario("archivos/usuarios.in");
+			usuarios =  constructorUsuario.crearListaUsuarios();
+			System.out.println("Se cargaron satisfacoriamente "+ usuarios.size() + " usuarios a la lista de usuarios.");
 		} catch (FileNotFoundException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
+			System.err.println("No se encuentra el archivo en disco para crear usuarios.");
 		}
-		// funciona?
-		for (Usuario usuario : usuarios) {
-			System.out.println(usuario.getNombre());
-		}
+
+		
+		// leer atracciones y llenar la lista
+		
 
 		// leer promos
 
