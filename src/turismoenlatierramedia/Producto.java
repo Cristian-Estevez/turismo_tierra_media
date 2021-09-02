@@ -30,6 +30,11 @@ public abstract class Producto {
 		this.costo = costo;
 	}
 
+	public Producto(String nombre2, TipoDeAtraccion tipo) {
+		this.nombre = nombre;
+		this.tipoDeAtraccion = tipo;
+	}
+
 	public double getCosto() {
 		return costo;
 	}
@@ -50,6 +55,8 @@ public abstract class Producto {
 		return tipoDeAtraccion;
 	}
 
+	protected abstract boolean esPromocion(); 
+	
 	protected abstract void ocuparPlaza() throws AtraccionException;
 	
 	

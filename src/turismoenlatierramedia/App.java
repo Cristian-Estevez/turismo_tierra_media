@@ -11,7 +11,7 @@ public class App {
 	public static void main(String[] args) {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		// leer usuarios y llenar la lista
-		String pathToFile = "usuarios.in";
+		String pathToFile = "archivos/usuarios.in";
 		try {
 			File myObj = new File(pathToFile);
 			Scanner myReader = new Scanner(myObj);

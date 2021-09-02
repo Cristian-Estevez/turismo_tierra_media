@@ -18,6 +18,11 @@ public abstract class Promocion extends Producto {
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 
+	// Constructor para PromocionPorcentual
+	public Promocion(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
+		super(nombre, tipo);
+		this.atraccionesIncluidas = atraccionesIncluidas;
+	}
 
 	/**
 	 * 
@@ -52,5 +57,15 @@ public abstract class Promocion extends Producto {
 		}
 		return tiempoTotalDeDuracion;
 	}
+	
+	@Override
+	public String toString() {
+		return "Promocion de tipo Absoluta: \nNombre = " + nombre  +  "\nCosto en promoción = "
+				+ costo + "\nTiempo De Duracion = " + tiempoDeDuracion + "\nTipo De Atraccion = " + tipoDeAtraccion
+				+ "\nLugares Disponibles() = " + getLugaresDisponibles()   + "\nAtracciones Incluidas = " + atraccionesIncluidas;
+	}
 
+	public boolean esPromocion() {
+		return true;
+	}
 }
