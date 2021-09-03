@@ -25,7 +25,9 @@ public class App {
 		
 		String rutaArchivoPromociones = "archivos/promociones.in";
 		ConstructorDePromociones constructorPromocion;
-		ArrayList<Promocion> productos = null;
+		ArrayList<Promocion> promociones = null;
+		
+		ArrayList<Producto> productos = null;
 		
 		
 		// leer usuarios y llenar la lista
@@ -50,15 +52,25 @@ public class App {
 		// leer promos
 		try {
 			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
-			productos = constructorPromocion.crearListaPromociones();
-			System.out.println("Se cargaron satisfacoriamente "+ productos.size() + " promociones a la lista de promociones.");
+			promociones = constructorPromocion.crearListaPromociones();
+			System.out.println("Se cargaron satisfacoriamente "+ promociones.size() + " promociones a la lista de promociones.");
 		} catch (ConstructorDePromocionException e) {
 			System.err.println(e.getMessage());
 		} catch (FileNotFoundException e) {
 			System.out.println("No se encontró el archivo de promociones al momento de crearlas.");
 		}
 		
-		// por cada usuario
+		// CREAR ARRAY productos (ya está declarado arriba, debe contener todas las promos y las atracciones por separado
+		
+		
+		// loopear por cada usuario
+		
+		/**
+		 * pregunto preferencia al user, 
+		 * ordeno el array productos
+		 */
+		
+		
 		// sugerir promos
 		// hay cupo? monedas? tiempo?
 
