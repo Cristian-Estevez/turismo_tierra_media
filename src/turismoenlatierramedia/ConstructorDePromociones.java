@@ -48,14 +48,22 @@ public class ConstructorDePromociones {
 						promociones.add(new PromocionAxB(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), atraccionesParaConstruirPromo));
 						break;
 					}
-					case "absoluta":
-					case "porcentual":{
+					case "absoluta":{
 						String[] atraccionesABuscar = new String[cantidadDeParametros - 4];
 						for (int i = 4, k = 0; i < tmp.length; i++, k++) {
 							atraccionesABuscar[k] = tmp[i];
 						}
 						atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
 						promociones.add(new PromocionAbsoluta(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), Double.parseDouble(tmp[3]), atraccionesParaConstruirPromo));
+						break;
+					}
+					case "porcentual":{
+						String[] atraccionesABuscar = new String[cantidadDeParametros - 4];
+						for (int i = 4, k = 0; i < tmp.length; i++, k++) {
+							atraccionesABuscar[k] = tmp[i];
+						}
+						atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
+						promociones.add(new PromocionPorcentual(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), Double.parseDouble(tmp[3]), atraccionesParaConstruirPromo));
 						break;
 					}
 					default:{
