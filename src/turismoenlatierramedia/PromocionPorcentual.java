@@ -17,4 +17,9 @@ public class PromocionPorcentual extends Promocion{
 		double descuentoTotal = (porcentajeDescuento * valorTotal) / 100; 
 		return valorTotal - descuentoTotal;
 	}
+
+	@Override
+	public String getTipoDePromocion() {
+		return "Promocion Porcentual";
+	}
 }

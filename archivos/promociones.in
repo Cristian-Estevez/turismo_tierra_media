@@ -1,6 +1,7 @@
+5
 TipoDePromo,nombre,tipoDeAtraccion,Descuento/valor,atracciones.....
 Porcentual,Promo Aventura,AVENTURA,20,Bosque Negro,Mordor
 Absoluta,Todo Aventura,AVENTURA,30,Moria,Mordor
 Porcentual,Promo Paisajes,PAISAJE,20,Minas Tirith,Abismo de Helm
-AxB,Pack Paisajes,PAISAJE,Minas Tirith,Erebor,Abismo de Helm
+AxB,Pack Paisajes,PAISAJE,Minas de Tirith,Erebor,Abismo de Helm
 Absoluta,Sabores de Tierra Media,DEGUSTACION,36,Lothlorien,La Comarca

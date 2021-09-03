@@ -25,4 +25,9 @@ public class PromocionAxB extends Promocion{
 		}
 		return costo;
 	}
+
+	@Override
+	public String getTipoDePromocion() {
+		return "Promocion AxB";
+	}
 }
