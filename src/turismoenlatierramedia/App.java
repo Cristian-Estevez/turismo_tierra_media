@@ -17,13 +17,16 @@ public class App {
 		
 		String rutaArchivoUsuarios = "archivos/usuarios.in";
 		ConstructorDeUsuario constructorUsuario;
-		ArrayList<Usuario> usuarios;
+		ArrayList<Usuario> usuarios = null;
 		
 		String rutaArchivoAtracciones = "archivos/atracciones.in";
 		ConstructorDeAtraccion constructorAtraccion;
-		ArrayList<Atraccion> atracciones;
+		ArrayList<Atraccion> atracciones = null;
 		
-		ArrayList<Producto> productos;
+		String rutaArchivoPromociones = "archivos/promociones.in";
+		ConstructorDePromociones constructorPromocion;
+		ArrayList<Promocion> productos = null;
+		
 		
 		// leer usuarios y llenar la lista
 		try {			
@@ -45,6 +48,15 @@ public class App {
 		
 
 		// leer promos
+		try {
+			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
+			productos = constructorPromocion.crearListaPromociones();
+			System.out.println("Se cargaron satisfacoriamente "+ productos.size() + " atracciones a la lista de atracciones.");
+		} catch (ConstructorDePromocionException e) {
+			System.err.println(e.getMessage());
+		} catch (FileNotFoundException e) {
+			System.out.println("No se encontró el archivo de promociones al momento de crearlas.");
+		}
 		
 		// por cada usuario
 		// sugerir promos
