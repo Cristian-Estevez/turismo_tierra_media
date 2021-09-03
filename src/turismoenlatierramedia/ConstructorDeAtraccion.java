@@ -29,4 +29,3 @@ public class ConstructorDeAtraccion {
 		return atracciones;
 	}
 }
-// (String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion)

@@ -58,10 +58,13 @@ public abstract class Promocion extends Producto {
 		return tiempoTotalDeDuracion;
 	}
 	
+	public abstract String getTipoDePromocion();
+		
+	
 	@Override
 	public String toString() {
-		return "Promocion de tipo Absoluta: \nNombre = " + nombre  +  "\nCosto en promoción = "
-				+ costo + "\nTiempo De Duracion = " + tiempoDeDuracion + "\nTipo De Atraccion = " + tipoDeAtraccion
+		return "Promocion de tipo "+ this.getTipoDePromocion() + ": \nNombre = " + this.getNombre()  +  "\nCosto en promoción = "
+				+ costo + "\nTiempo De Duracion = " + this.getTiempoDeDuracion() + "\nTipo De Atraccion = " + tipoDeAtraccion
 				+ "\nLugares Disponibles() = " + getLugaresDisponibles()   + "\nAtracciones Incluidas = " + atraccionesIncluidas;
 	}
 

@@ -31,11 +31,12 @@ public abstract class Producto {
 		this.costo = costo;
 	}
 
-	public Producto(String nombre2, TipoDeAtraccion tipo) {
+	public Producto(String nombre, TipoDeAtraccion tipo) {
 		this.nombre = nombre;
 		this.tipoDeAtraccion = tipo;
 	}
 
+		
 	public double getCosto() {
 		return costo;
 	}
@@ -56,10 +57,14 @@ public abstract class Producto {
 		return tipoDeAtraccion;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+	
 	protected abstract boolean esPromocion(); 
 	
 	protected abstract void ocuparPlaza() throws AtraccionException;
-
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(costo, nombre, tiempoDeDuracion, tipoDeAtraccion);

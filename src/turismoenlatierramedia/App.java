@@ -10,8 +10,8 @@ public class App {
 		
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.println("Binevenido a la agencia de turismo de tierra Media");
-		System.out.println("Precione la tecla 'Enter' Para comenzar:");
+		System.out.println("Bienvenido a la agencia de turismo de tierra Media");
+		System.out.println("Presione la tecla 'Enter' Para comenzar:");
 		
 //		scan.next();		
 		
@@ -23,6 +23,7 @@ public class App {
 		ConstructorDeAtraccion constructorAtraccion;
 		ArrayList<Atraccion> atracciones;
 		
+		ArrayList<Producto> productos;
 		
 		// leer usuarios y llenar la lista
 		try {			
@@ -44,7 +45,7 @@ public class App {
 		
 
 		// leer promos
-
+		
 		// por cada usuario
 		// sugerir promos
 		// hay cupo? monedas? tiempo?

@@ -1,7 +1,5 @@
 package turismoenlatierramedia;
 
-import static org.junit.Assert.fail;
-
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -28,7 +26,7 @@ public class ConstructorDePromocionesTest {
 			System.err.println("No se encontró el archivo de atracciones al momento de crearlas.");
 		}
 		
-		cons1 = new ConstructorDePromociones(rutaArchivoPromociones);
+		cons1 = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
 		promociones = new ArrayList<Promocion>();
 	}
 	
