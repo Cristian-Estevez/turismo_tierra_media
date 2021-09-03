@@ -51,7 +51,7 @@ public class App {
 		try {
 			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
 			productos = constructorPromocion.crearListaPromociones();
-			System.out.println("Se cargaron satisfacoriamente "+ productos.size() + " atracciones a la lista de atracciones.");
+			System.out.println("Se cargaron satisfacoriamente "+ productos.size() + " promociones a la lista de promociones.");
 		} catch (ConstructorDePromocionException e) {
 			System.err.println(e.getMessage());
 		} catch (FileNotFoundException e) {
