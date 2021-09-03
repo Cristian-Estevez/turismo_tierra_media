@@ -1,6 +1,8 @@
 package turismoenlatierramedia;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Promocion extends Producto {
 	
@@ -71,4 +73,30 @@ public abstract class Promocion extends Producto {
 	public boolean esPromocion() {
 		return true;
 	}
+	
+	public ArrayList<Atraccion> getAtraccionesIncluidas(){
+		return (ArrayList<Atraccion>) atraccionesIncluidas;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(atraccionesIncluidas);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Promocion other = (Promocion) obj;
+		return Objects.equals(atraccionesIncluidas, other.atraccionesIncluidas);
+	}
+	
+	
 }

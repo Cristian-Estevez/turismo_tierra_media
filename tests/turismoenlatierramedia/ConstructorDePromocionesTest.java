@@ -1,5 +1,8 @@
 package turismoenlatierramedia;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -14,9 +17,16 @@ public class ConstructorDePromocionesTest {
 	ConstructorDeAtraccion constructorAtraccion;
 	ArrayList<Atraccion> atracciones;
 	ArrayList<Promocion> promociones;
+	Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo;
 	
 	@Before
-	public void setup() throws FileNotFoundException {
+	public void setup() throws FileNotFoundException {		
+		eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
+		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
+		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
+		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
+		
 		atracciones = new ArrayList<Atraccion>();
 		try {			
 			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
@@ -31,9 +41,19 @@ public class ConstructorDePromocionesTest {
 	}
 	
 	@Test
-	public void construccionDePromosAxBDesdeArchivo() throws ConstructorDePromocionException {
+	public void construccionDePromosDesdeArchivo() throws ConstructorDePromocionException {
 		promociones = cons1.crearListaPromociones();
-		System.out.println(promociones);
+		assertEquals(promociones.get(0).getAtraccionesIncluidas().get(0), atracciones.get(1));
+		assertTrue(promociones.get(0).getAtraccionesIncluidas().contains(atracciones.get(1)));
+	}
+	
+	
+	@Test
+	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws ConstructorDePromocionException, UsuarioException {
+		promociones = cons1.crearListaPromociones();
+		int plazasDisponiblesEsperadas = promociones.get(0).getLugaresDisponibles() - 1;
+		userAdineradoYConMuchoTiempo.comprarProducto(promociones.get(0));
+		assertEquals(plazasDisponiblesEsperadas, promociones.get(0).getLugaresDisponibles());
 	}
 
 }

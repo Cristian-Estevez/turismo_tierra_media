@@ -37,26 +37,37 @@ public class ConstructorDePromociones {
 			for (int j = 0; j < cantidadDePromosACargar; j++) {
 				tmp = br.readLine().split(",");
 				tipoDePromocion = tmp[0].toLowerCase();
+				int cantidadDeParametros = tmp.length;				
 				switch (tipoDePromocion) {
-				case "axb": {
-					int cantidadDeParametros = tmp.length;
-					String[] atraccionesABuscar = new String[cantidadDeParametros - 3];
-					for (int i = 3, k = 0; i < tmp.length; i++, k++) {
-						atraccionesABuscar[k] = tmp[i];
+					case "axb": {
+						String[] atraccionesABuscar = new String[cantidadDeParametros - 3];
+						for (int i = 3, k = 0; i < tmp.length; i++, k++) {
+							atraccionesABuscar[k] = tmp[i];
+						}
+						atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);					 
+						promociones.add(new PromocionAxB(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), atraccionesParaConstruirPromo));
+						break;
 					}
-					atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);					
-					PromocionAxB promoTmp = new PromocionAxB(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), atraccionesParaConstruirPromo); 
-					promociones.add(promoTmp);
-					break;
-				}
-				
-			}	
+					case "absoluta":
+					case "porcentual":{
+						String[] atraccionesABuscar = new String[cantidadDeParametros - 4];
+						for (int i = 4, k = 0; i < tmp.length; i++, k++) {
+							atraccionesABuscar[k] = tmp[i];
+						}
+						atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
+						promociones.add(new PromocionAbsoluta(tmp[1], TipoDeAtraccion.valueOf(tmp[2]), Double.parseDouble(tmp[3]), atraccionesParaConstruirPromo));
+						break;
+					}
+					default:{
+						System.err.println("El primer parámetro recibido no es un tipo de promoción válido.");
+						break;
+					}
+				}	
 			}
 		} catch (IOException e) {
 			throw new ConstructorDePromocionException(
 					"Hubo un error al leer una linea Del archivo para crear promociones.");
-		}
-		System.out.println("Se cargaron correctamente " + promociones.size() + " promociones.");
+		}		
 		return promociones;
 	}
 
