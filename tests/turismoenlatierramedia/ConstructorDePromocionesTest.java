@@ -1,5 +1,8 @@
 package turismoenlatierramedia;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -31,9 +34,10 @@ public class ConstructorDePromocionesTest {
 	}
 	
 	@Test
-	public void construccionDePromosAxBDesdeArchivo() throws ConstructorDePromocionException {
+	public void construccionDePromosDesdeArchivo() throws ConstructorDePromocionException {
 		promociones = cons1.crearListaPromociones();
-		System.out.println(promociones);
+		assertEquals(promociones.get(0).getAtraccionesIncluidas().get(0), atracciones.get(1));
+		assertTrue(promociones.get(0).getAtraccionesIncluidas().contains(atracciones.get(1)));
 	}
 
 }
