@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class ConstructorDePromociones {
@@ -82,9 +83,13 @@ public class ConstructorDePromociones {
 	private ArrayList<Atraccion> getObjetosAtracciones(String[] atraccionesABuscar) {
 		ArrayList<Atraccion> listaDeAtracciones = new ArrayList<Atraccion>();
 		for (String atraccion : atraccionesABuscar) {
-			for (Atraccion atraccionEnParque : atraccionesDesdeApp) {
+			boolean encontrado = false;
+			Iterator<Atraccion> iter = atraccionesDesdeApp.iterator();
+			while (!encontrado && iter.hasNext()) { 
+				Atraccion atraccionEnParque = iter.next();
 				if (atraccion.equals(atraccionEnParque.getNombre())) {
 					listaDeAtracciones.add(atraccionEnParque);
+					encontrado = true;
 				}
 			}
 		}

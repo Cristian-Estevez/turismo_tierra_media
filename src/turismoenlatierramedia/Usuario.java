@@ -33,7 +33,7 @@ public class Usuario {
 
 		if ((this.getMonedasDeOro() >= atraccion.getCosto()) && 
 			(this.tiempoDisponible >= atraccion.getTiempoDeDuracion())) {
-			
+			// chequear
 			this.monedasDeOro -= atraccion.getCosto();
 			this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
 			this.productos.add(atraccion);
@@ -42,7 +42,7 @@ public class Usuario {
 				atraccion.ocuparPlaza();
 			} catch (AtraccionException e) {
 				System.out.println(e.getMessage());
-			}
+			}  // esto validar anteas de ofrecerla en App
 
 		} else
 			throw new UsuarioException(	"El usuario tiene monedas o tiempo insuficientes");

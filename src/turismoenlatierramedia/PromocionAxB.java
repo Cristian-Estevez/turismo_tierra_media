@@ -14,13 +14,8 @@ public class PromocionAxB extends Promocion{
 
 	private double calcularCosto(List<Atraccion> atraccionesIncluidas) {
 		double costo = 0;
-		ListIterator<Atraccion> iter = atraccionesIncluidas.listIterator(atraccionesIncluidas.size());
-		int count = 0;
+		ListIterator<Atraccion> iter = atraccionesIncluidas.listIterator(atraccionesIncluidas.size() -1);
 		while(iter.hasPrevious()) {
-			if (count == 0) {
-				iter.previous();
-				count++;
-			}
 			costo += iter.previous().getCosto();
 		}
 		return costo;

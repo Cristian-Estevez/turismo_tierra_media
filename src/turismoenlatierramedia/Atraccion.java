@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Atraccion extends Producto {
 
-	private int cupoDiario;
+	private int cupoDiario; // checkear
 	private int plazasOcupadas;
 
 	public Atraccion(String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {

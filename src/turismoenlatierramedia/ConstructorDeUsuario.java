@@ -22,7 +22,7 @@ public class ConstructorDeUsuario {
 		miLector.nextLine(); // Descarta primer línea
 		usuarios = new ArrayList<Usuario>();
 		while(miLector.hasNextLine()){
-			String[] u = miLector.nextLine().split(",");			
+			String[] u = miLector.nextLine().split(",");	
 			usuarios.add(new Usuario(u[0], Double.parseDouble(u[1]), Double.parseDouble(u[2]), TipoDeAtraccion.valueOf(u[3])));
 		}
 		miLector.close();
