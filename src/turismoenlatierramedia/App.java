@@ -15,7 +15,7 @@ public class App {
 		
 //		scan.next();
 		
-		String rutaArchivoUsuarios = "archivos/usuaris.in";
+		String rutaArchivoUsuarios = "archivos/usuarios.in";
 		ConstructorDeUsuario constructorUsuario = null;
 		ArrayList<Usuario> usuarios = null;
 		
