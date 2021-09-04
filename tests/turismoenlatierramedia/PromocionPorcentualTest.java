@@ -8,11 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import turismoenlatierramedia.Atraccion;
-import turismoenlatierramedia.PromocionPorcentual;
-import turismoenlatierramedia.TipoDeAtraccion;
-import turismoenlatierramedia.Usuario;
-
 public class PromocionPorcentualTest {
 
 	Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo;

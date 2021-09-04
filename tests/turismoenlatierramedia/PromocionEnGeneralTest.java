@@ -8,11 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import turismoenlatierramedia.Atraccion;
-import turismoenlatierramedia.AtraccionException;
-import turismoenlatierramedia.PromocionAbsoluta;
-import turismoenlatierramedia.TipoDeAtraccion;
-
 public class PromocionEnGeneralTest {
 	
 	Atraccion moria, minasDeTirith, laComarca, mordor, 

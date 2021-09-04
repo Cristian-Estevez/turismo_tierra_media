@@ -8,10 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import turismoenlatierramedia.Atraccion;
-import turismoenlatierramedia.PromocionAxB;
-import turismoenlatierramedia.TipoDeAtraccion;
-
 public class PromocionAxBTest {
 
 	Atraccion 	minasDeTirith, abismoDeHelm, erebor;
