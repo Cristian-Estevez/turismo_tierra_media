@@ -20,7 +20,7 @@ public class App {
 		ArrayList<Usuario> usuarios = null;
 		
 		String rutaArchivoAtracciones = "archivos/atracciones.in";
-		ConstructorDeAtraccion constructorAtraccion;
+		ConstructorDeAtraccion constructorAtraccion = null;
 		ArrayList<Atraccion> atracciones = null;
 		
 		String rutaArchivoPromociones = "archivos/promociones.in";
@@ -43,13 +43,15 @@ public class App {
 		}
 
 		// leer atracciones y llenar la lista
-		try {			
+		try {
 			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
-			atracciones = constructorAtraccion.crearListaAtracciones();
-			System.out.println("Se cargaron satisfacoriamente "+ atracciones.size() + " atracciones a la lista de atracciones.");
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo de atracciones al momento de crearlas.");
+		} catch (FileNotFoundException e1) {
+			System.err.println("La ruta al [" + rutaArchivoAtracciones + "] no es válida. Por favor corrijala y reinicie la aplicación.");
+			System.exit(1);
 		}
+		atracciones = constructorAtraccion.crearListaAtracciones();
+		System.out.println("Se cargaron satisfacoriamente "+ atracciones.size() + " atracciones a la lista de atracciones.");
+		
 		
 
 		// leer promos
