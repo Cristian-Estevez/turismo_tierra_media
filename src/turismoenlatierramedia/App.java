@@ -15,8 +15,8 @@ public class App {
 		
 //		scan.next();
 		
-		String rutaArchivoUsuarios = "archivos/usuarios.in";
-		ConstructorDeUsuario constructorUsuario;
+		String rutaArchivoUsuarios = "archivos/usuaris.in";
+		ConstructorDeUsuario constructorUsuario = null;
 		ArrayList<Usuario> usuarios = null;
 		
 		String rutaArchivoAtracciones = "archivos/atracciones.in";
@@ -24,7 +24,7 @@ public class App {
 		ArrayList<Atraccion> atracciones = null;
 		
 		String rutaArchivoPromociones = "archivos/promociones.in";
-		ConstructorDePromociones constructorPromocion;
+		ConstructorDePromociones constructorPromocion = null;
 		ArrayList<Promocion> promociones = null;
 		
 		ArrayList<Producto> productos = null;
@@ -34,19 +34,23 @@ public class App {
 		
 		// los try y catch deben ir en los constructores
 		// leer usuarios y llenar la lista
-		try {			
+				
+		try {
 			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
-			usuarios =  constructorUsuario.crearListaUsuarios();
-			System.out.println("Se cargaron satisfacoriamente "+ usuarios.size() + " usuarios a la lista de usuarios.");
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo de usuarios al momento de crearlos.");
+		} catch (FileNotFoundException e2) {
+			System.err.println("La ruta al [" + rutaArchivoAtracciones + "] no es válida."
+					+ " No se pueden cargar los Usuarios al sistema. Por favor corrijala y reinicie la aplicación.");
+			System.exit(1);
 		}
-
+		usuarios = constructorUsuario.crearListaUsuarios();
+		System.out.println("Se cargaron satisfacoriamente "+ usuarios.size() + " usuarios a la lista de usuarios.");
+		
 		// leer atracciones y llenar la lista
 		try {
 			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
 		} catch (FileNotFoundException e1) {
-			System.err.println("La ruta al [" + rutaArchivoAtracciones + "] no es válida. Por favor corrijala y reinicie la aplicación.");
+			System.err.println("La ruta al [" + rutaArchivoAtracciones + "] no es válida. No se pueden cargar las atraccioens al sistema."
+					+ " Por favor corrijala y reinicie la aplicación.");
 			System.exit(1);
 		}
 		atracciones = constructorAtraccion.crearListaAtracciones();
