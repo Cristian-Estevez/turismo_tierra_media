@@ -13,7 +13,7 @@ public class App {
 		System.out.println("Bienvenido a la agencia de turismo de tierra Media");
 		System.out.println("Presione la tecla 'Enter' Para comenzar:");
 		
-//		scan.next();		
+//		scan.next();
 		
 		String rutaArchivoUsuarios = "archivos/usuarios.in";
 		ConstructorDeUsuario constructorUsuario;
@@ -30,6 +30,9 @@ public class App {
 		ArrayList<Producto> productos = null;
 		
 		
+		
+		
+		// los try y catch deben ir en los constructores
 		// leer usuarios y llenar la lista
 		try {			
 			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
@@ -62,7 +65,7 @@ public class App {
 		
 		// CREAR ARRAY productos (ya está declarado arriba, debe contener todas las promos y las atracciones por separado
 		
-		
+		// productos.addAll(lista a mergear);
 		// loopear por cada usuario
 		
 		/**

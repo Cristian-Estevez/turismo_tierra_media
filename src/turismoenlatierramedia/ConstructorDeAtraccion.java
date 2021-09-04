@@ -24,7 +24,7 @@ public class ConstructorDeAtraccion {
 		while(miLector.hasNextLine()){
 			String[] u = miLector.nextLine().split(",");			
 			atracciones.add(new Atraccion(u[0], Double.parseDouble(u[1]), Double.parseDouble(u[2]), Integer.parseInt(u[3]), TipoDeAtraccion.valueOf(u[4])));
-		}
+		} // CHECKEAR!!!
 		miLector.close();
 		return atracciones;
 	}
