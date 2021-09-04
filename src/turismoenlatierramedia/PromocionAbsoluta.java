@@ -1,6 +1,5 @@
 package turismoenlatierramedia;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PromocionAbsoluta extends Promocion {

@@ -1,9 +1,9 @@
 package turismoenlatierramedia;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -11,6 +11,7 @@ import org.junit.Test;
 
 public class ConstructorDePromocionesTest {
 
+	// TODO Armar los tests completo
 	ConstructorDePromociones cons1;
 	String rutaArchivoAtracciones = "archivos/atracciones.in";
 	String rutaArchivoPromociones = "archivos/promociones.in";
@@ -41,7 +42,7 @@ public class ConstructorDePromocionesTest {
 	}
 	
 	@Test
-	public void construccionDePromosDesdeArchivo() throws ConstructorDePromocionException {
+	public void construccionDePromosDesdeArchivo() throws PromocionException, IOException {
 		promociones = cons1.crearListaPromociones();
 //		assertEquals(promociones.get(0).getAtraccionesIncluidas().get(0), atracciones.get(1));
 //		for (Promocion promo : promociones) {
@@ -52,7 +53,7 @@ public class ConstructorDePromocionesTest {
 	
 	
 	@Test
-	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws ConstructorDePromocionException, UsuarioException {
+	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws PromocionException, UsuarioException, IOException {
 		promociones = cons1.crearListaPromociones();
 		int plazasDisponiblesEsperadas = promociones.get(0).getLugaresDisponibles() - 1;
 		userAdineradoYConMuchoTiempo.comprarProducto(promociones.get(0));

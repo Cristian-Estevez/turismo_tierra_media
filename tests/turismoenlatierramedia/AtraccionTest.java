@@ -5,12 +5,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import turismoenlatierramedia.Atraccion;
-import turismoenlatierramedia.AtraccionException;
-import turismoenlatierramedia.TipoDeAtraccion;
-import turismoenlatierramedia.Usuario;
-import turismoenlatierramedia.UsuarioException;
-
 public class AtraccionTest {
 
 	Usuario eowyn, gandalf, sam, galadriel;

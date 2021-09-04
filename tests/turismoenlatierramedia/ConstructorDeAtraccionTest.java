@@ -8,10 +8,6 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import turismoenlatierramedia.Atraccion;
-import turismoenlatierramedia.ConstructorDeAtraccion;
-import turismoenlatierramedia.TipoDeAtraccion;
-
 public class ConstructorDeAtraccionTest {
 	
 	ConstructorDeAtraccion cons1;
