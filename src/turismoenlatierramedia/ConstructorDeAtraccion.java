@@ -35,6 +35,12 @@ public class ConstructorDeAtraccion {
 		return atracciones;
 	}
 
+	/**
+	 * Se encarga de las validaciones a la hora de crear una atracción
+	 * @param datos
+	 * @return Atraccion
+	 * @throws AtraccionException
+	 */
 	private Atraccion crearAtraccion(String[] datos) throws AtraccionException {
 		String nombre = datos[0];
 		double costo = 0;
