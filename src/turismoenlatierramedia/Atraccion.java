@@ -30,8 +30,8 @@ public class Atraccion extends Producto {
 
 	@Override
 	public String toString() {
-		return "\n- " + nombre + ", Costo = " + costo + ", Tiempo De Duracion = " + tiempoDeDuracion
-				+ ", Tipo De Atraccion = " + tipoDeAtraccion + ", Lugares Disponibles = " + getLugaresDisponibles() + "]";
+		return "- " + nombre + ", Costo = " + costo + ", Tiempo De Duracion = " + tiempoDeDuracion
+				+ ", Tipo De Atraccion = " + tipoDeAtraccion + ", Lugares Disponibles = " + getLugaresDisponibles() + "]\n";
 	}
 
 	@Override

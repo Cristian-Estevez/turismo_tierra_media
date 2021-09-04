@@ -28,7 +28,7 @@ public class App {
 		ConstructorDePromociones constructorPromocion = null;
 		ArrayList<Promocion> promociones = null;
 
-		ArrayList<Producto> productos = null;
+		ArrayList<Producto> productos = new ArrayList<Producto>();
 
 		
 		// leer usuarios y llenar la lista
@@ -73,13 +73,19 @@ public class App {
 					);
 		}
 		
-
-		// CREAR ARRAY productos (ya está declarado arriba, debe contener todas las
-		// promos y las atracciones por separado
-
-		// productos.addAll(lista a mergear);
+		// Se agregan todos los productos en una misma lista
+		productos.addAll(promociones);
+		productos.addAll(atracciones);
+		
+		System.out.println(productos);
+		
 		// loopear por cada usuario
-
+		for (Usuario usuario : usuarios) {
+			TipoDeAtraccion preferencia = usuario.getTipoDeAtraccionFavorita();
+			productos.sort(new ProductosPorPreferencia(preferencia));
+		}
+		
+		System.out.println(productos);
 		/**
 		 * pregunto preferencia al user, ordeno el array productos
 		 */
