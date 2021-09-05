@@ -7,16 +7,19 @@ public class ProductosPorPreferencia implements Comparator<Producto> {
 	
 
 	public ProductosPorPreferencia(TipoDeAtraccion preferencia) {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public int compare(Producto o1, Producto o2) {
-		int retorno = 0;
-		if (o1.tipoDeAtraccion == o2.tipoDeAtraccion) {
-			retorno = 0;
+		int valorARetornar = 0;
+		valorARetornar = -(o1.getTipo().compareTo(o2.getTipo()));
+		if (valorARetornar != 0)
+			return valorARetornar;
+		valorARetornar = -(((Double) o1.getCosto()).compareTo(((Double)o2.getCosto())));
+		if (valorARetornar != 0) {
+			return valorARetornar;
 		}
-		return retorno;
+		return valorARetornar;
 	}
 
 }

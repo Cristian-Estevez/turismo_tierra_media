@@ -77,18 +77,16 @@ public class App {
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
 		
-		System.out.println(productos);
+//		System.out.println("\n\n ##############################################");
+//		System.out.println("Sin ordenar: \n" + productos);
 		
 		// loopear por cada usuario
-		for (Usuario usuario : usuarios) {
-			TipoDeAtraccion preferencia = usuario.getTipoDeAtraccionFavorita();
-			productos.sort(new ProductosPorPreferencia(preferencia));
-		}
-		
-		System.out.println(productos);
-		/**
-		 * pregunto preferencia al user, ordeno el array productos
-		 */
+//		for (Usuario usuario : usuarios) {
+//			TipoDeAtraccion preferencia = usuario.getTipoDeAtraccionFavorita();
+//			productos.sort(new ProductosPorPreferencia(preferencia));
+//		}
+//		System.out.println("\n\n ##############################################");
+//		System.out.println("Ordenados por tipo: \n" + productos);
 
 		// sugerir promos
 		// hay cupo? monedas? tiempo?
