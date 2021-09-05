@@ -49,7 +49,7 @@ public abstract class Producto {
 		return tiempoDeDuracion;
 	}
 
-	public void setTiempoDeduracion(double tiempoDeduracion) {
+	protected void setTiempoDeduracion(double tiempoDeduracion) {
 		this.tiempoDeDuracion = tiempoDeduracion;
 	}
 

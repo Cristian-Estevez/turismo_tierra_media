@@ -5,12 +5,24 @@ import java.util.ListIterator;
 
 public class PromocionAxB extends Promocion{
 
-	//de la forma en que está implementado este constructor, la última atraccion de la lista que recibe como parámetro es la que vien de regalo
+	/**
+	 * 
+	 * @param nombre, tipo, List<Atraccion> atraccionesIncluidas.
+	 *	El constuctor llama al método calcularCosto para determinar su precio
+	 * 
+	 */
 	
 	public PromocionAxB(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
 		super(nombre, tipo, atraccionesIncluidas);
-		this.setCosto(this.calcularCosto(atraccionesIncluidas));
+		super.setCosto(this.calcularCosto(atraccionesIncluidas));
 	}
+	
+	/**
+	 * 
+	 * @param atraccionesIncluidas
+	 * @return la suma del costo de todas las atraccionesIncluidas 
+	 * menos la última que será gratuita
+	 */
 
 	private double calcularCosto(List<Atraccion> atraccionesIncluidas) {
 		double costo = 0;

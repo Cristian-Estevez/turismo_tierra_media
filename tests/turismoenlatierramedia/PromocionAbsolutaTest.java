@@ -49,14 +49,14 @@ public class PromocionAbsolutaTest {
 	}
 	
 	@Test
-	public void reduceCuposDisponiblesAlComprar() throws UsuarioException {
+	public void reduceCuposDisponiblesAlComprar() throws UsuarioException, AtraccionException {
 		int lugaresDespuesDeUnaCompra = packDegustacion.getLugaresDisponibles() - 1;
 		userAdineradoYConMuchoTiempo.comprarProducto(packDegustacion);
 		assertEquals(lugaresDespuesDeUnaCompra, packDegustacion.getLugaresDisponibles());
 	}
 	
 	@Test
-	public void lugaresDisponiblesReducenAlComprarPromoYAtraccionPorSeparado() throws UsuarioException {
+	public void lugaresDisponiblesReducenAlComprarPromoYAtraccionPorSeparado() throws UsuarioException, AtraccionException {
 		int lugaresDespuesDeDosCompras = packDegustacion.getLugaresDisponibles() - 2;
 		userAdineradoYConMuchoTiempo.comprarProducto(packDegustacion);
 		sam.comprarProducto(lothlorien);

@@ -10,38 +10,60 @@ import org.junit.Test;
 
 public class PromocionPorcentualTest {
 
-	Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo;
+	/*Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo; */
 
-	Atraccion minasDeTirith, abismoDeHelm;
+	Atraccion minasDeTirith, abismoDeHelm, laComarca, lothlorien, delicatessen, cataratasDeChocolate;
 
-	List<Atraccion> listaDeAtraccionesA;
-	PromocionPorcentual promoPaisajes;
+	List<Atraccion> listaDeAtraccionesA, listaDeAtraccionesB;
+	PromocionPorcentual promoPaisajes, promoDegustacion;
 
 	@Before
 	public void setup() {
-		eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
+		/*eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
 		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
 		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
 		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
 		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
-
+*/
 		minasDeTirith = new Atraccion("Minas de Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
 		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
+		lothlorien = new Atraccion("Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
+		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
+		delicatessen = new Atraccion("Una con poco cupo", 3, 1, 2, TipoDeAtraccion.DEGUSTACION);
+		cataratasDeChocolate = new Atraccion("Cataratas de Chocolate", 13, 3, 10, TipoDeAtraccion.DEGUSTACION);
+
 
 
 		listaDeAtraccionesA = new ArrayList<Atraccion>();
 		listaDeAtraccionesA.add(abismoDeHelm);
 		listaDeAtraccionesA.add(minasDeTirith);
-
+		
+		listaDeAtraccionesB = new ArrayList<Atraccion>();
+		listaDeAtraccionesB.add(lothlorien);
+		listaDeAtraccionesB.add(laComarca);
+		listaDeAtraccionesB.add(delicatessen);
+		listaDeAtraccionesB.add(cataratasDeChocolate);
+		
 //		tipo Porcentual: Minas Tirith + Abismo de Helm 20% off = $ 8
-		promoPaisajes = new PromocionPorcentual("Pack Degustación", TipoDeAtraccion.DEGUSTACION, 20,
+		promoPaisajes = new PromocionPorcentual("Promo Paisajes", TipoDeAtraccion.PAISAJE, 20,
 				listaDeAtraccionesA);
+		
+		promoDegustacion = new PromocionPorcentual("Promo Degustacion", TipoDeAtraccion.DEGUSTACION, 50, listaDeAtraccionesB);
 	}
 
 	@Test
 	public void seAsignaElCostoConDescuentoCorrectamente() {
 		double costoEsperado = 8;
 		assertEquals(costoEsperado, promoPaisajes.getCosto(), 0);
+	}
+	
+	@Test
+	public void seAsignaElCostoConDescuentoCorrectamentePruebaDos() {
+		double porcentajeAplicado = 0.5;
+		double costoEsperado = (lothlorien.getCosto() + laComarca.getCosto() + delicatessen.getCosto() +
+				cataratasDeChocolate.getCosto()) * porcentajeAplicado;
+		assertEquals(costoEsperado, promoDegustacion.getCosto(), 0);
+		
 	}
 
 }

@@ -51,7 +51,7 @@ public class ConstructorDePromocionesTest {
 	
 	
 	@Test
-	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws PromocionException, UsuarioException, IOException {
+	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws PromocionException, UsuarioException, IOException, AtraccionException {
 		promociones = cons1.crearListaPromociones();
 		int plazasDisponiblesEsperadas = promociones.get(0).getLugaresDisponibles() - 1;
 		userAdineradoYConMuchoTiempo.comprarProducto(promociones.get(0));

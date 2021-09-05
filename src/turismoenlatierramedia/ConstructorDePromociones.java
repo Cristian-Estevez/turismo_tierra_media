@@ -40,25 +40,19 @@ public class ConstructorDePromociones {
 			if (cantidadDeParametros >= CANTIDAD_MINIMA_DE_PARAMETROS) {
 				tipoDePromocion = tmp[0].toLowerCase();
 				try {
-					switch (tipoDePromocion) {
-					case "axb": {
-						agregaPromocionAxB(tmp, cantidadDeParametros);
-						break;
-					}
-					case "absoluta": {
-						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
-						break;
-					}
-					case "porcentual": {
+					
+					if (tipoDePromocion != "axb" && tipoDePromocion != "absoluta") {
 						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
-						break;
 					}
-					default: {
-						System.err.println("El primer parámetro recibido en [" + this.rutaArchivo + "] para la Promocion ["
-								+ tmp[1] + "] no es un tipo de promoción válido.");
-						break;
+					if (tipoDePromocion != "absoluta" && tipoDePromocion != "porcentual") {
+						agregaPromocionAxB(tmp, cantidadDeParametros);
 					}
+					if (tipoDePromocion != "porcentual" && tipoDePromocion != "axb") {
+						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
 					}
+					
+		
+				
 				} catch (PromocionException e) {
 					System.err.println(e.getMessage());
 				}

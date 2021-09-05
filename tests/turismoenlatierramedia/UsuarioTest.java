@@ -28,27 +28,27 @@ public class UsuarioTest {
 	}
 	
 	@Test
-	public void ususarioCompraProductoYLoGuarda() throws UsuarioException {
+	public void ususarioCompraProductoYLoGuarda() throws UsuarioException, AtraccionException {
 		gandalf.comprarProducto(mordor);
 		productosEsperados.add(mordor);
 		assertEquals(productosEsperados, gandalf.getProductosComprados());
 	}
 	
 	@Test
-	public void descuentaMonedasDeOroCorrectamente() throws UsuarioException {
+	public void descuentaMonedasDeOroCorrectamente() throws UsuarioException, AtraccionException {
 		int monedasEsperadas = 75;
 		gandalf.comprarProducto(mordor);
 		assertEquals(monedasEsperadas, gandalf.getMonedasDeOro(), 0);
 	}
 	
-	@Test (expected=UsuarioException.class)
-	public void arrojaExcepcionSiNoLeAlcanzanLasMonedas() throws UsuarioException {
+	@Test (expected = UsuarioException.class)
+	public void arrojaExcepcionSiNoLeAlcanzanLasMonedas() throws UsuarioException, AtraccionException {
 		atraccionMuyCostosa = new Atraccion("Atraccion Muy Costosa", 500000, 3, 6, TipoDeAtraccion.DEGUSTACION);
 		gandalf.comprarProducto(atraccionMuyCostosa);
 	}
 	
-	@Test (expected=UsuarioException.class)
-	public void arrojaExcepcionSiNoLeAlcanzaElTiempo() throws UsuarioException {
+	@Test (expected = UsuarioException.class)
+	public void arrojaExcepcionSiNoLeAlcanzaElTiempo() throws UsuarioException, AtraccionException {
 		atraccionMuyLarga = new Atraccion("Atraccion Muy Costosa", 1, 24, 6, TipoDeAtraccion.DEGUSTACION);
 		gandalf.comprarProducto(atraccionMuyLarga);
 	}
@@ -60,7 +60,7 @@ public class UsuarioTest {
 	}
 	
 	@Test
-	public void descuentaCorrectamenteElTiempoDisponibleAlComprar() throws UsuarioException {
+	public void descuentaCorrectamenteElTiempoDisponibleAlComprar() throws UsuarioException, AtraccionException {
 		double tiempoDesponibleEsperado = 1;
 		galadriel.comprarProducto(mordor);
 		assertEquals(tiempoDesponibleEsperado, galadriel.getTiempoDisponible(), 0);
