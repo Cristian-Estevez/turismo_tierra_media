@@ -4,10 +4,10 @@ import java.util.Objects;
 
 public abstract class Producto {
 
-	protected String nombre;
-	protected double costo;
-	protected double tiempoDeDuracion;
-	protected TipoDeAtraccion tipoDeAtraccion;
+	private String nombre;
+	private double costo;
+	private double tiempoDeDuracion;
+	private TipoDeAtraccion tipoDeAtraccion;
 
 	public Producto(String nombre, double costo
 					, double tiempoDeDuracion

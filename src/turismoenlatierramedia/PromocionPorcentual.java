@@ -6,7 +6,7 @@ public class PromocionPorcentual extends Promocion{
 
 	public PromocionPorcentual(String nombre, TipoDeAtraccion tipo, double porcentajeDescuento, List<Atraccion> atraccionesIncluidas) {
 		super(nombre, tipo, atraccionesIncluidas);
-		this.costo = getCostoConDescuento(porcentajeDescuento, atraccionesIncluidas);
+		this.setCosto(getCostoConDescuento(porcentajeDescuento, atraccionesIncluidas));
 	}
 
 	private double getCostoConDescuento(double porcentajeDescuento, List<Atraccion> atraccionesIncluidas) {

@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class ConstructorDeAtraccion {
 
-	Scanner miLector;
-	ArrayList<Atraccion> atracciones;
-	String rutaRecibida;
+	private Scanner miLector;
+	private ArrayList<Atraccion> atracciones;
+	private String rutaRecibida;
 	
 	public ConstructorDeAtraccion(String nombreArchivo) throws FileNotFoundException {
 		miLector = new Scanner(new File(nombreArchivo));

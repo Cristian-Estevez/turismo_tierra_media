@@ -9,7 +9,7 @@ public class PromocionAxB extends Promocion{
 	
 	public PromocionAxB(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
 		super(nombre, tipo, atraccionesIncluidas);
-		this.costo = calcularCosto(atraccionesIncluidas);
+		this.setCosto(this.calcularCosto(atraccionesIncluidas));
 	}
 
 	private double calcularCosto(List<Atraccion> atraccionesIncluidas) {

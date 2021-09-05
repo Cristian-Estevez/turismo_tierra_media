@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class ConstructorDeUsuario {
 
-	Scanner miLector;
-	ArrayList<Usuario> usuarios;
-	String rutaArchivo;
+	private Scanner miLector;
+	private ArrayList<Usuario> usuarios;
+	private String rutaArchivo;
 
 	public ConstructorDeUsuario(String nombreArchivo) throws FileNotFoundException {
 		miLector = new Scanner(new File(nombreArchivo));

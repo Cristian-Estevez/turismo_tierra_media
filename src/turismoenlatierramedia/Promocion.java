@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public abstract class Promocion extends Producto {
 	
-	protected List<Atraccion> atraccionesIncluidas;
+	private List<Atraccion> atraccionesIncluidas;
 
 	public Promocion(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion
 			, List<Atraccion> atraccionesIncluidas) {
@@ -70,7 +70,7 @@ public abstract class Promocion extends Producto {
 			deAtracciones += "        -" + atraccion;
 		}
 		return "\n\nPromocion de tipo "+ this.getTipoDePromocion() + ": \n    -Nombre = " + this.getNombre()  +  "\n    -Costo en promoción = "
-				+ costo + "\n    -Tiempo De Duracion = " + this.getTiempoDeDuracion() + "\n    -Tipo De Atraccion = " + tipoDeAtraccion
+				+ this.getCosto() + "\n    -Tiempo De Duracion = " + this.getTiempoDeDuracion() + "\n    -Tipo De Atraccion = " + this.getTipoDePromocion()
 				+ "\n    -Lugares Disponibles() = " + getLugaresDisponibles()   + "\n    -Atracciones Incluidas = \n" + deAtracciones + "\n";
 	}
 
