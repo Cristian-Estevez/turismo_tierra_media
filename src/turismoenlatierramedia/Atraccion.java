@@ -13,7 +13,7 @@ public class Atraccion extends Producto {
 	}
 
 	public String getNombre() {
-		return this.getNombre();
+		return super.getNombre();
 	}
 
 	public int getLugaresDisponibles() {
