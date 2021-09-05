@@ -13,7 +13,7 @@ public class Atraccion extends Producto {
 	}
 
 	public String getNombre() {
-		return nombre;
+		return this.getNombre();
 	}
 
 	public int getLugaresDisponibles() {
@@ -30,8 +30,8 @@ public class Atraccion extends Producto {
 
 	@Override
 	public String toString() {
-		return "- " + nombre + ", Costo = " + costo + ", Tiempo De Duracion = " + tiempoDeDuracion
-				+ ", Tipo De Atraccion = " + tipoDeAtraccion + ", Lugares Disponibles = " + getLugaresDisponibles() + "]\n";
+		return "- " + this.getNombre() + ", Costo = " + this.getCosto() + ", Tiempo De Duracion = " + this.getTiempoDeDuracion()
+				+ ", Tipo De Atraccion = " + this.getTipo() + ", Lugares Disponibles = " + getLugaresDisponibles() + "]\n";
 	}
 
 	@Override
