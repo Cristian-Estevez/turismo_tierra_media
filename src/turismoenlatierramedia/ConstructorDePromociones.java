@@ -54,7 +54,8 @@ public class ConstructorDePromociones {
 						break;
 					}
 					default: {
-						System.err.println("El primer parámetro recibido no es un tipo de promoción válido.");
+						System.err.println("El primer parámetro recibido en [" + this.rutaArchivo + "] para la Promocion ["
+								+ tmp[1] + "] no es un tipo de promoción válido.");
 						break;
 					}
 					}
