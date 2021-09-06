@@ -40,20 +40,16 @@ public class ConstructorDePromociones {
 			if (cantidadDeParametros >= CANTIDAD_MINIMA_DE_PARAMETROS) {
 				tipoDePromocion = tmp[0].toLowerCase();
 				try {
-					
-					if (tipoDePromocion != "axb" && tipoDePromocion != "absoluta") {
-						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
-					}
-					if (tipoDePromocion != "absoluta" && tipoDePromocion != "porcentual") {
+					if (tipoDePromocion.contains("axb")) {
 						agregaPromocionAxB(tmp, cantidadDeParametros);
-					}
-					if (tipoDePromocion != "porcentual" && tipoDePromocion != "axb") {
+					} else if (tipoDePromocion.contains("absoluta")) {
 						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
-					}
-					
-		
-				
-				} catch (PromocionException e) {
+					} else
+						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
+
+				}
+
+				catch (PromocionException e) {
 					System.err.println(e.getMessage());
 				}
 
@@ -63,17 +59,20 @@ public class ConstructorDePromociones {
 			}
 		}
 		return promociones;
+
 	}
 
 	/**
 	 * Maneja el input de parámetros para agregar la Promocion al
 	 * ArrayList<Promocion> promociones
+	 * 
 	 * @param tmp
 	 * @param cantidadDeParametros
 	 * @param empezarDesde
 	 * @throws PromocionException
 	 */
-	private void agregaPromocionPorcentual(String[] tmp, int cantidadDeParametros, int empezarDesde) throws PromocionException {
+	private void agregaPromocionPorcentual(String[] tmp, int cantidadDeParametros, int empezarDesde)
+			throws PromocionException {
 		ArrayList<Atraccion> atraccionesParaConstruirPromo;
 		String[] atraccionesABuscar = new String[cantidadDeParametros - empezarDesde];
 		for (int i = empezarDesde, k = 0; i < tmp.length; i++, k++) {
@@ -85,6 +84,7 @@ public class ConstructorDePromociones {
 
 	/**
 	 * Valida los parámetros de input y crea un objeto de tipo PromocionPorcentual
+	 * 
 	 * @param tmp
 	 * @param atraccionesParaConstruirPromo
 	 * @return
