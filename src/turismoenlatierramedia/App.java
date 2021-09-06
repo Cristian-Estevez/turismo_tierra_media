@@ -78,6 +78,17 @@ public class App {
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
 		
+		System.out.println("sin ordenar ");
+		System.out.println(productos);
+		
+		TipoDeAtraccion atraccionFavorita = usuarios.get(0).getTipoDeAtraccionFavorita();
+		productos.sort(new ProductosPorPreferencia(atraccionFavorita));
+		
+		System.out.println("ordenados ");
+		System.out.println(productos);
+		
+		
+		
 //		System.out.println("\n\n ##############################################");
 //		System.out.println("Sin ordenar: \n" + productos);
 		

@@ -40,13 +40,14 @@ public class ConstructorDePromociones {
 			if (cantidadDeParametros >= CANTIDAD_MINIMA_DE_PARAMETROS) {
 				tipoDePromocion = tmp[0].toLowerCase();
 				try {
-					if (tipoDePromocion.contains("axb")) {
+					if (tipoDePromocion.equals("axb")) {
 						agregaPromocionAxB(tmp, cantidadDeParametros);
-					} else if (tipoDePromocion.contains("absoluta")) {
+					} else if (tipoDePromocion.equals("absoluta")) {
 						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
-					} else
+					} else if (tipoDePromocion.equals("porcentual")) {
 						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
 
+					} else System.err.println("El primer parámetro no es válido");
 				}
 
 				catch (PromocionException e) {
