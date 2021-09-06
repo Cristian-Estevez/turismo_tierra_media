@@ -11,8 +11,8 @@ public class App {
 
 		Scanner scan = new Scanner(System.in);
 
-		System.out.println("Bienvenido a la agencia de turismo de tierra Media");
-		System.out.println("Presione la tecla 'Enter' Para comenzar:");
+		System.out.println("Bienvenido a la agencia de turismo de Tierra Media");
+		System.out.println("Presione la tecla 'Enter' para comenzar:");
 
 //		scan.next();
 
@@ -36,7 +36,7 @@ public class App {
 			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
 		} catch (FileNotFoundException e2) {
 			System.err.println("La ruta al [" + rutaArchivoAtracciones + "] no es válida."
-					+ " No se pueden cargar los Usuarios al sistema. Por favor corrijala y reinicie la aplicación.");
+					+ " No se pueden cargar los Usuarios al sistema. Por favor corríjala y reinicie la aplicación.");
 			System.exit(1);
 		}
 		usuarios = constructorUsuario.crearListaUsuarios();
@@ -69,8 +69,9 @@ public class App {
 		} catch (NullPointerException | IOException e) {
 			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
 					+ "\nPuede corregir el inconveniente y reiniciar la aplicación."
-					+ "\nO si lo desea, puede continuar la ejecución del programa, pero solo tendrá acceso a las atracciones por separado."
+					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles."
 					);
+			System.exit(1);
 		}
 		
 		// Se agregan todos los productos en una misma lista
@@ -81,9 +82,7 @@ public class App {
 //		System.out.println("Sin ordenar: \n" + productos);
 		
 		// loopear por cada usuario
-//		for (Usuario usuario : usuarios) {
-//			TipoDeAtraccion preferencia = usuario.getTipoDeAtraccionFavorita();
-//			productos.sort(new ProductosPorPreferencia(preferencia));
+		
 //		}
 //		System.out.println("\n\n ##############################################");
 //		System.out.println("Ordenados por tipo: \n" + productos);

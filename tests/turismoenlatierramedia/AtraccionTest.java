@@ -33,7 +33,7 @@ public class AtraccionTest {
 		
 	}
 	@Test
-	public void lasPlazasDisponiblesSeDescuentanCorrectamenteAlComprarAtraccion() throws UsuarioException {
+	public void lasPlazasDisponiblesSeDescuentanCorrectamenteAlComprarAtraccion() throws UsuarioException, AtraccionException {
 		int cupoDisponibleEsperado1 = moria.getLugaresDisponibles() - 1;
 		int cupoDisponibleEsperado2 = moria.getLugaresDisponibles() - 3;
 		eowyn.comprarProducto(moria);
@@ -44,8 +44,8 @@ public class AtraccionTest {
 		assertEquals(cupoDisponibleEsperado2, moria.getLugaresDisponibles());		
 	}
 
-	@Test 
-	public void unaVezOcupadosTodosLosCuposNoSigueDescontando() throws UsuarioException {
+	@Test (expected = AtraccionException.class)
+	public void unaVezOcupadosTodosLosCuposNoSigueDescontando() throws UsuarioException, AtraccionException {
 		int cupoEsperado1 = 1;
 		int cupoEsperado2 = 0;
 		eowyn.comprarProducto(unaConPocoCupo);
