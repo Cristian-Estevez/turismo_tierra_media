@@ -46,13 +46,10 @@ public abstract class Promocion extends Producto {
 		return lugaresDisponibles;
 	}
 
-	public void ocuparPlaza() throws AtraccionException {
-		try {
-			for (Atraccion atraccion : atraccionesIncluidas) {
-				atraccion.ocuparPlaza();
-			}
-		} catch (AtraccionException e) {
-			System.out.println("No hay mas lugares");
+	public void ocuparPlaza() {
+
+		for (Atraccion atraccion : atraccionesIncluidas) {
+			atraccion.ocuparPlaza();
 		}
 	}
 
@@ -74,7 +71,7 @@ public abstract class Promocion extends Producto {
 		}
 		return "\n\nPromocion de tipo " + this.getTipoDePromocion() + ": \n    -Nombre = " + this.getNombre()
 				+ "\n    -Costo en promoción = " + this.getCosto() + "\n    -Tiempo De Duracion = "
-				+ this.getTiempoDeDuracion() + "\n    -Tipo De Atraccion = " + this.getTipoDePromocion()
+				+ this.getTiempoDeDuracion() + "\n    -Tipo De Atraccion = " + this.getTipo()
 				+ "\n    -Lugares Disponibles() = " + getLugaresDisponibles() + "\n    -Atracciones Incluidas = \n"
 				+ deAtracciones + "\n";
 	}

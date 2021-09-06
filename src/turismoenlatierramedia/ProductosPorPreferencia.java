@@ -25,6 +25,14 @@ public class ProductosPorPreferencia implements Comparator<Producto> {
 						return -Double.compare(o1.getTiempoDeDuracion(), o2.getTiempoDeDuracion());
 					} else { 
 						return -Double.compare(o1.getCosto(), o2.getCosto());
+					} 
+				} else if (!o1.esPromocion() && !o2.esPromocion()) {
+					// ninguna es promo, compara por costo
+					if (Double.compare(o1.getCosto(), o2.getCosto()) == 0) {
+						// mismo costo, comparo por tiempo finalmente
+						return -Double.compare(o1.getTiempoDeDuracion(), o2.getTiempoDeDuracion());
+					} else {
+						return -Double.compare(o1.getCosto(), o2.getCosto());
 					}
 				} else {
 					return -Boolean.compare(o1.esPromocion(), o2.esPromocion());

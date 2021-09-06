@@ -63,7 +63,9 @@ public abstract class Producto {
 	
 	protected abstract boolean esPromocion(); 
 	
-	protected abstract void ocuparPlaza() throws AtraccionException;
+	protected abstract void ocuparPlaza();
+	
+	public abstract int getLugaresDisponibles();
 	
 	@Override
 	public int hashCode() {

@@ -28,8 +28,7 @@ public class Usuario {
 	 * @param
 	 * 
 	 */
-	public void comprarProducto(Producto atraccion) throws UsuarioException, AtraccionException {
-
+	public void comprarProducto(Producto atraccion) {
 		this.monedasDeOro -= atraccion.getCosto();
 		this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
 		this.productos.add(atraccion);
