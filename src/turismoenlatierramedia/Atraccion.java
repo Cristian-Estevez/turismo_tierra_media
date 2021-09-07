@@ -20,18 +20,15 @@ public class Atraccion extends Producto {
 		return cupoDiario - plazasOcupadas;
 	}
 
-	public void ocuparPlaza() throws AtraccionException {
-		if (cupoDiario == plazasOcupadas) {
-			throw new AtraccionException("No hay más cupo para esta atracción");
-		} else {
-			plazasOcupadas++;
-		}
+	public void ocuparPlaza() {
+		plazasOcupadas++;
 	}
 
 	@Override
 	public String toString() {
-		return "- " + this.getNombre() + ", Costo = " + this.getCosto() + ", Tiempo De Duracion = " + this.getTiempoDeDuracion()
-				+ ", Tipo De Atraccion = " + this.getTipo() + ", Lugares Disponibles = " + getLugaresDisponibles() + "]\n";
+		return "- " + this.getNombre() + ", Costo = " + this.getCosto() + ", Tiempo De Duracion = "
+				+ this.getTiempoDeDuracion() + ", Tipo De Atraccion = " + this.getTipo() + ", Lugares Disponibles = "
+				+ getLugaresDisponibles() + "]\n";
 	}
 
 	@Override
@@ -59,5 +56,4 @@ public class Atraccion extends Producto {
 		return cupoDiario == other.cupoDiario && plazasOcupadas == other.plazasOcupadas;
 	}
 
-	
 }

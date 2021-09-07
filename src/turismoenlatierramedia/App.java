@@ -1,15 +1,20 @@
 package turismoenlatierramedia;
 
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		Scanner scan = new Scanner(System.in);
+		String respuesta = "";
+		
+		
 
 		System.out.println("Bienvenido a la agencia de turismo de Tierra Media");
 		System.out.println("Presione la tecla 'Enter' para comenzar:");
@@ -30,7 +35,6 @@ public class App {
 
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 
-		
 		// leer usuarios y llenar la lista
 		try {
 			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
@@ -60,7 +64,8 @@ public class App {
 		try {
 			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
 		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo de promociones en la ruta [" + rutaArchivoPromociones + "] al momento de crearlas.");
+			System.err.println("No se encontró el archivo de promociones en la ruta [" + rutaArchivoPromociones
+					+ "] al momento de crearlas.");
 		}
 		try {
 			promociones = constructorPromocion.crearListaPromociones();
@@ -69,20 +74,82 @@ public class App {
 		} catch (NullPointerException | IOException e) {
 			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
 					+ "\nPuede corregir el inconveniente y reiniciar la aplicación."
-					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles."
-					);
+					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles.");
 			System.exit(1);
 		}
-		
+
 		// Se agregan todos los productos en una misma lista
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
+
+		for (Usuario user : usuarios) {
+			TipoDeAtraccion atraccionFavorita = user.getTipoDeAtraccionFavorita();
+			productos.sort(new ProductosPorPreferencia(atraccionFavorita));
+			
+			
+			System.out.println("________________________________________");
+			System.out.println("                                        ");
+			System.out.println("Hola " + user.getNombre() + "!");
+			System.out.println("Tenemos preparadas sorpresas para vos!");
+
+			for (Producto prod : productos) {
+
+				if (puedeComprar(user, prod)) {
+
+					do {
+						System.out.println("Creemos que te va a gustar " + prod.getNombre());
+						System.out.println("¿Te interesa?");
+						System.out.println("S/N");
+						respuesta = scan.nextLine().toUpperCase();
+						if (respuesta.equals("S")) {
+							user.comprarProducto(prod);
+							escribirArchivosDeUsuarios(user, "Usuario " + user.getNombre() + "-adquisiciones"
+							+ ".out");
+							
+							
+							
+
+						} else if (respuesta.equals("N")) {
+							System.out.println("Qué pena! Veamos qué más tenemos para vos...");
+							continue;
+						}
+
+					} while (!respuesta.equals("S") && !respuesta.equals("N"));
+				}
+			}
+			System.out.println(user.getNombre() + " compraste estos productos: ");
+			for (Producto prod : user.getProductosComprados()) {
+				System.out.println("-" + prod.getNombre());
+				
+			}
+		}
+	}
 		
+		public static void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
+
+			PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));
+			
+			if (u.getProductosComprados() != null) {
+				for (Producto prod : u.getProductosComprados())
+				salidaUsuario.println(u.getNombre() + " compró: " + prod.getNombre());
+				salidaUsuario.println("Le quedan " + u.getMonedasDeOro() + " monedas");
+				salidaUsuario.println("Y tiene " + u.getTiempoDisponible() + " tiempo disponible");
+			} else salidaUsuario.println(u.getNombre() + " no realizó ninguna compra.");  //esta linea es inutil
+			
+			salidaUsuario.close();
+
+		}
+			
+		
+		
+		
+		
+
 //		System.out.println("\n\n ##############################################");
 //		System.out.println("Sin ordenar: \n" + productos);
-		
+
 		// loopear por cada usuario
-		
+
 //		}
 //		System.out.println("\n\n ##############################################");
 //		System.out.println("Ordenados por tipo: \n" + productos);
@@ -93,6 +160,11 @@ public class App {
 //		mostrar resume itinerario
 		// crear archivo salida
 
+	
+
+	private static boolean puedeComprar(Usuario user, Producto prod) {
+		return user.getMonedasDeOro() >= prod.getCosto() && user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
+				&& prod.getLugaresDisponibles() > 0;
 	}
 
 }
