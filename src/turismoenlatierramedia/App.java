@@ -103,7 +103,7 @@ public class App {
 						respuesta = scan.nextLine().toUpperCase();
 						if (respuesta.equals("S")) {
 							user.comprarProducto(prod);
-							escribirArchivosDeUsuarios(user, "Usuario " + user.getNombre() + "-adquisiciones"
+							escribirArchivosDeUsuarios(user, "archivosDeSalida/" + "Usuario " + user.getNombre() + "-adquisiciones"
 							+ ".out");
 							
 							
@@ -126,24 +126,26 @@ public class App {
 	}
 		
 		public static void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
+			
+			
 
 			PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));
 			
 			if (u.getProductosComprados() != null) {
 				for (Producto prod : u.getProductosComprados())
-				salidaUsuario.println(u.getNombre() + " compró: " + prod.getNombre());
-				salidaUsuario.println("Le quedan " + u.getMonedasDeOro() + " monedas");
+				salidaUsuario.println("RESUMEN DE COMPRAS" + "\n" + u.getNombre() + " compró " + prod.getNombre() 
+				+ ". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
+			
+				salidaUsuario.println("A " + u.getNombre() + " le quedan " + u.getMonedasDeOro() + " monedas");
 				salidaUsuario.println("Y tiene " + u.getTiempoDisponible() + " tiempo disponible");
 			} else salidaUsuario.println(u.getNombre() + " no realizó ninguna compra.");  //esta linea es inutil
 			
+			salidaUsuario.println("¡Gracias por confiar en nuestras recomendaciones!");
 			salidaUsuario.close();
 
 		}
-			
 		
-		
-		
-		
+	
 
 //		System.out.println("\n\n ##############################################");
 //		System.out.println("Sin ordenar: \n" + productos);
