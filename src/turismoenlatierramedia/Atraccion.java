@@ -25,13 +25,6 @@ public class Atraccion extends Producto {
 	}
 
 	@Override
-	public String toString() {
-		return "- " + this.getNombre() + ", Costo = " + this.getCosto() + ", Tiempo De Duracion = "
-				+ this.getTiempoDeDuracion() + ", Tipo De Atraccion = " + this.getTipo() + ", Lugares Disponibles = "
-				+ getLugaresDisponibles() + "]\n";
-	}
-
-	@Override
 	protected boolean esPromocion() {
 		return false;
 	}

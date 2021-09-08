@@ -63,19 +63,6 @@ public abstract class Promocion extends Producto {
 
 	public abstract String getTipoDePromocion();
 
-	@Override
-	public String toString() {
-		String deAtracciones = "";
-		for (Atraccion atraccion : atraccionesIncluidas) {
-			deAtracciones += "        -" + atraccion;
-		}
-		return "\n\nPromocion de tipo " + this.getTipoDePromocion() + ": \n    -Nombre = " + this.getNombre()
-				+ "\n    -Costo en promoción = " + this.getCosto() + "\n    -Tiempo De Duracion = "
-				+ this.getTiempoDeDuracion() + "\n    -Tipo De Atraccion = " + this.getTipo()
-				+ "\n    -Lugares Disponibles() = " + getLugaresDisponibles() + "\n    -Atracciones Incluidas = \n"
-				+ deAtracciones + "\n";
-	}
-
 	public boolean esPromocion() {
 		return true;
 	}
