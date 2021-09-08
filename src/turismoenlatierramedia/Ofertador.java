@@ -51,7 +51,7 @@ public class Ofertador {
 					} while (!respuesta.equals("S") && !respuesta.equals("N"));
 				}
 			}
-			System.out.println(user.getNombre() + " compraste estos productos: ");
+			System.out.println(user.getNombre() + ", compraste estos productos: ");
 			for (Producto prod : user.getProductosComprados()) {
 				System.out.println("-" + prod.getNombre());				
 			}
@@ -65,9 +65,10 @@ public class Ofertador {
 
 		PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));
 		
+		salidaUsuario.println("\n" + "RESUMEN DE COMPRAS DEL USUARIO " + u.getNombre().toUpperCase() + "\n" + "\n");
 		if (u.getProductosComprados() != null) {
 			for (Producto prod : u.getProductosComprados())
-			salidaUsuario.println("RESUMEN DE COMPRAS" + "\n" + u.getNombre() + " compró " + prod.getNombre() 
+			salidaUsuario.println("Compró " + prod.getNombre() 
 			+ ". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
 		
 			salidaUsuario.println("A " + u.getNombre() + " le quedan " + u.getMonedasDeOro() + " monedas");
