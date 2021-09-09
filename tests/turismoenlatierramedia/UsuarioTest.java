@@ -41,18 +41,6 @@ public class UsuarioTest {
 		assertEquals(monedasEsperadas, gandalf.getMonedasDeOro(), 0);
 	}
 	
-	@Test (expected = UsuarioException.class)
-	public void arrojaExcepcionSiNoLeAlcanzanLasMonedas() throws UsuarioException, AtraccionException {
-		atraccionMuyCostosa = new Atraccion("Atraccion Muy Costosa", 500000, 3, 6, TipoDeAtraccion.DEGUSTACION);
-		gandalf.comprarProducto(atraccionMuyCostosa);
-	}
-	
-	@Test (expected = UsuarioException.class)
-	public void arrojaExcepcionSiNoLeAlcanzaElTiempo() throws UsuarioException, AtraccionException {
-		atraccionMuyLarga = new Atraccion("Atraccion Muy Costosa", 1, 24, 6, TipoDeAtraccion.DEGUSTACION);
-		gandalf.comprarProducto(atraccionMuyLarga);
-	}
-
 	@Test
 	public void devuelveAtraccionFavoritaCorrectamente() {
 		TipoDeAtraccion atraccionEsperada = TipoDeAtraccion.AVENTURA;

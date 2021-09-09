@@ -20,8 +20,12 @@ public class Atraccion extends Producto {
 		return cupoDiario - plazasOcupadas;
 	}
 
+	/*
+	 * Solo ocupa una plaza si hay lugares disponibles
+	 */
 	public void ocuparPlaza() {
-		plazasOcupadas++;
+		if (getLugaresDisponibles() > 0)
+			plazasOcupadas++;
 	}
 
 	@Override

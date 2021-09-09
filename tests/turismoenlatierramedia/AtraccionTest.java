@@ -44,8 +44,8 @@ public class AtraccionTest {
 		assertEquals(cupoDisponibleEsperado2, moria.getLugaresDisponibles());		
 	}
 
-	@Test (expected = AtraccionException.class)
-	public void unaVezOcupadosTodosLosCuposNoSigueDescontando() throws UsuarioException, AtraccionException {
+	@Test 
+	public void unaVezOcupadosTodosLosCuposNoSigueDescontando() {
 		int cupoEsperado1 = 1;
 		int cupoEsperado2 = 0;
 		eowyn.comprarProducto(unaConPocoCupo);

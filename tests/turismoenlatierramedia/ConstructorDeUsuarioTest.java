@@ -18,7 +18,7 @@ public class ConstructorDeUsuarioTest {
 	@Before
 	public void setup() {
 		usuarios = new ArrayList<Usuario>();
-		rutaArchivo = "archivos/usuarios.in";
+		rutaArchivo = "archivosParaTests/usuariosParaTests.in";
 		
 		usuariosEsperados = new ArrayList<Usuario>();
 		eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
