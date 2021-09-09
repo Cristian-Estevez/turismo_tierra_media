@@ -18,7 +18,7 @@ public class ConstructorDeAtraccionTest {
 	
 	@Before
 	public void setup() {
-		rutaArchivo = "archivos/atracciones.in";
+		rutaArchivo = "archivosParaTests/atraccionesParaTests.in";
 
 		atracciones = new ArrayList<Atraccion>();
 		atraccionesEsperadas = new ArrayList<Atraccion>();
@@ -44,11 +44,9 @@ public class ConstructorDeAtraccionTest {
 	}
 	
 	@Test
-	public void test() throws FileNotFoundException {
+	public void creaLasAtraccionesCorrectamenteDesdeArchivo() throws FileNotFoundException {
 		cons1 = new ConstructorDeAtraccion(rutaArchivo);
 		atracciones = cons1.crearListaAtracciones();
 		assertEquals(atraccionesEsperadas, atracciones);
-		
 	}
-
 }

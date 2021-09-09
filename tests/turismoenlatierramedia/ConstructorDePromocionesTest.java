@@ -13,8 +13,8 @@ import org.junit.Test;
 public class ConstructorDePromocionesTest {
 
 	ConstructorDePromociones cons1, consConArchivoMalFormateado;
-	String rutaArchivoAtracciones = "archivos/atracciones.in";
-	String rutaArchivoPromociones = "archivos/promociones.in";
+	String rutaArchivoAtracciones = "archivosParaTests/atraccionesParaTests.in";
+	String rutaArchivoPromociones = "archivosParaTests/promocionesParaTests.in";
 	ConstructorDeAtraccion constructorAtraccion;
 	ArrayList<Atraccion> atracciones;
 	ArrayList<Promocion> promociones;
