@@ -13,9 +13,8 @@ import org.junit.Test;
 public class ConstructorDePromocionesTest {
 
 	ConstructorDePromociones cons1, consConArchivoMalFormateado;
-	String rutaArchivoAtracciones = "archivos/atracciones.in";
-	String rutaArchivoPromociones = "archivos/promociones.in";
-	String rutaArchivoErroneo = "archivosErroneos/promocionesErroneas.in";
+	String rutaArchivoAtracciones = "archivosParaTests/atraccionesParaTests.in";
+	String rutaArchivoPromociones = "archivosParaTests/promocionesParaTests.in";
 	ConstructorDeAtraccion constructorAtraccion;
 	ArrayList<Atraccion> atracciones;
 	ArrayList<Promocion> promociones;
@@ -29,15 +28,9 @@ public class ConstructorDePromocionesTest {
 		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
 		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
 		
-		atracciones = new ArrayList<Atraccion>();
-		try {			
-			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
-			atracciones = constructorAtraccion.crearListaAtracciones();
-			System.out.println("Se cargaron satisfacoriamente "+ atracciones.size() + " atracciones a la lista de atracciones.");
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo de atracciones al momento de crearlas.");
-		}
-		consConArchivoMalFormateado = new ConstructorDePromociones(rutaArchivoErroneo, atracciones);
+		atracciones = new ArrayList<Atraccion>();			
+		constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
+		atracciones = constructorAtraccion.crearListaAtracciones();
 		cons1 = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
 		promociones = new ArrayList<Promocion>();
 	}

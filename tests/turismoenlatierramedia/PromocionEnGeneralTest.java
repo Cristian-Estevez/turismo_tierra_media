@@ -108,16 +108,4 @@ public class PromocionEnGeneralTest {
 		assertEquals(lugaresEsperadosMarDelPlata, mardelplata.getLugaresDisponibles());
 		assertEquals(lugaresEsperadoslLothlorien, lothlorien.getLugaresDisponibles());
 	}
-	
-	@Test (expected = AtraccionException.class)
-	public void noQuedanMasLugaresDisponibles() throws AtraccionException {
-		
-		elVaticano.ocuparPlaza();
-		laBaticueva.ocuparPlaza();	
-		
-		elVaticano.ocuparPlaza();
-		laBaticueva.ocuparPlaza();
-
-	}
-
 }

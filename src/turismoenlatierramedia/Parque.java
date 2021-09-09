@@ -3,11 +3,9 @@ package turismoenlatierramedia;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Parque {
 
-	private Scanner scan;
 	private String rutaArchivoUsuarios = "archivos/usuarios.in";
 	private ConstructorDeUsuario constructorUsuario = null;
 	private ArrayList<Usuario> usuarios = null;
@@ -26,7 +24,6 @@ public class Parque {
 	
 	public Parque() {
 		imprimirBienvenida();
-		scan = new Scanner(System.in);		
 	}
 
 	private void imprimirBienvenida() {
