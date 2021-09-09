@@ -4,12 +4,11 @@ import java.util.Objects;
 
 public class Atraccion extends Producto {
 
-	private int cupoDiario; // checkear
-	private int plazasOcupadas;
+	private int cupo; // checkear
 
 	public Atraccion(String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
 		super(nombre, costo, tiempoDeDuracion, tipoDeAtraccion);
-		this.cupoDiario = cupo;
+		this.cupo = cupo;
 	}
 
 	public String getNombre() {
@@ -17,15 +16,12 @@ public class Atraccion extends Producto {
 	}
 
 	public int getLugaresDisponibles() {
-		return cupoDiario - plazasOcupadas;
+		return cupo;
 	}
 
-	/*
-	 * Solo ocupa una plaza si hay lugares disponibles
-	 */
 	public void ocuparPlaza() {
 		if (getLugaresDisponibles() > 0)
-			plazasOcupadas++;
+			cupo--;
 	}
 
 	@Override
@@ -37,7 +33,7 @@ public class Atraccion extends Producto {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(cupoDiario, plazasOcupadas);
+		result = prime * result + Objects.hash(cupo);
 		return result;
 	}
 
@@ -50,7 +46,7 @@ public class Atraccion extends Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Atraccion other = (Atraccion) obj;
-		return cupoDiario == other.cupoDiario && plazasOcupadas == other.plazasOcupadas;
+		return cupo == other.cupo;
 	}
 
 }
