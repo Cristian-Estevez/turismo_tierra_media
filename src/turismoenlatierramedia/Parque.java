@@ -27,7 +27,7 @@ public class Parque {
 	}
 
 	private void imprimirBienvenida() {
-		System.out.println("\n	  --Bienvenido a la agencia de turismo de Tierra Media--\n");
+		System.out.println("\n	  --Bienvenidx a la agencia de turismo de Tierra Media--\n");
 		System.out.println("                    . .:.:.:.:. .:\\     /:. .:.:.:.:. ,\n"
 				+ "               .-._  `..:.:. . .:.:`- -':.:. . .:.:.,'  _.-.\n"
 				+ "              .:.:.`-._`-._..-''_...---..._``-.._.-'_.-'.:.:.\n"
