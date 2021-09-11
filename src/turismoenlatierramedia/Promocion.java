@@ -70,11 +70,10 @@ public abstract class Promocion extends Producto {
 	public String imprimeLoQueIncluye() {
 		String nombres = "";
 		for (Atraccion atraccion : atraccionesIncluidas) {
-			nombres += (atraccion.getNombre() + " - "); 
+			nombres += (" -" + atraccion.getNombre()); 
 			
 		} return (" que incluye " +  nombres);
-	}
-		
+	}	
 	
 	public boolean esPromocion() {
 		return true;
