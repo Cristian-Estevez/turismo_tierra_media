@@ -32,7 +32,14 @@ public class Ofertador {
 			for (Producto prod : productos) {
 				if (puedeComprar(user, prod)) {
 					do {
-						System.out.println("Creemos que te va a gustar " + prod.getNombre());
+						if(prod.esPromocion() == true) {
+							System.out.println("Creemos que te va a gustar esta promocion: " + prod.getNombre());
+						}
+						else
+						{
+							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre());
+						}
+						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + "horas");
 						System.out.println("¿Te interesa?");
 						System.out.println("S/N");
 						respuesta = scan.nextLine().toUpperCase();
