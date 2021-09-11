@@ -59,7 +59,7 @@ public class Ofertador {
 		}
 	}
 	
-	private static void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
+	private void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
 		
 		
 
@@ -68,8 +68,8 @@ public class Ofertador {
 		salidaUsuario.println("\n" + "RESUMEN DE COMPRAS DEL USUARIO " + u.getNombre().toUpperCase() + "\n" + "\n");
 		if (u.getProductosComprados() != null) {
 			for (Producto prod : u.getProductosComprados())
-			salidaUsuario.println("Compró " + prod.getNombre() 
-			+ ". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
+			salidaUsuario.println("Compró " + prod.esPromocionOAtraccion() + " " + prod.getNombre() + prod.imprimeLoQueIncluye() +
+			". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
 		
 			salidaUsuario.println("A " + u.getNombre() + " le quedan " + u.getMonedasDeOro() + " monedas");
 			salidaUsuario.println("Y tiene " + u.getTiempoDisponible() + " tiempo disponible");
@@ -80,8 +80,11 @@ public class Ofertador {
 
 	}
 	
-	private static boolean puedeComprar(Usuario user, Producto prod) {
-		return user.getMonedasDeOro() >= prod.getCosto() && user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
+	private boolean puedeComprar(Usuario user, Producto prod) {
+		return user.getMonedasDeOro() >= prod.getCosto() 
+				&& user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
 				&& prod.getLugaresDisponibles() > 0;
 	}
+	
 }
+
