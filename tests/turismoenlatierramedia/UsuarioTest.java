@@ -1,6 +1,8 @@
 package turismoenlatierramedia;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,9 +12,12 @@ import org.junit.Test;
 
 public class UsuarioTest {
 
-	Usuario eowyn, gandalf, sam, galadriel;
-	Atraccion mordor, atraccionMuyCostosa, atraccionMuyLarga;
+	Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo;
+	Atraccion mordor, abismoDeHelm, moria, bosqueNegro;
+	
 	List<Producto> productosEsperados;  
+	List<Atraccion> listaDeAtraccionesA;
+	PromocionAbsoluta promoNueva;
 	
 	@Before
 	public void setup() {
@@ -20,11 +25,25 @@ public class UsuarioTest {
 		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
 		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
 		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
 		
 		// orden de los parametros para construir atracción:
 		// (nombre, costo, tiempoDeDuracion, cupo, tipoDeAtraccion)
 		mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
+		moria = new Atraccion("Moria", 10, 2, 6,  TipoDeAtraccion.AVENTURA);
+		bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
+		abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
+
+		
 		productosEsperados = new ArrayList<Producto>();
+		
+		listaDeAtraccionesA= new ArrayList<Atraccion>();
+		listaDeAtraccionesA.add(mordor);
+		listaDeAtraccionesA.add(moria);
+		listaDeAtraccionesA.add(bosqueNegro);
+		
+		promoNueva = new PromocionAbsoluta("Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
+		
 	}
 	
 	@Test
@@ -53,4 +72,15 @@ public class UsuarioTest {
 		galadriel.comprarProducto(mordor);
 		assertEquals(tiempoDesponibleEsperado, galadriel.getTiempoDisponible(), 0);
 	}
+	
+	@Test
+	public void alComprarPromocionYaComproDevuelveSiContieneDeterminadaAtraccion() {
+		userAdineradoYConMuchoTiempo.comprarProducto(promoNueva);
+		assertTrue(userAdineradoYConMuchoTiempo.yaCompro(moria));
+		assertTrue(userAdineradoYConMuchoTiempo.yaCompro(mordor));
+		assertTrue(userAdineradoYConMuchoTiempo.yaCompro(bosqueNegro));
+		assertFalse(userAdineradoYConMuchoTiempo.yaCompro(abismoDeHelm));
+	}
+	
+	
 }
