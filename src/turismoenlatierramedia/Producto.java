@@ -63,6 +63,11 @@ public abstract class Producto {
 	
 	protected abstract boolean esPromocion(); 
 	
+	protected abstract String esPromocionOAtraccion();
+	
+	protected abstract String imprimeLoQueIncluye();
+		
+	
 	protected abstract void ocuparPlaza();
 	
 	public abstract int getLugaresDisponibles();

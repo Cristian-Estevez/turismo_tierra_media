@@ -32,7 +32,14 @@ public class Ofertador {
 			for (Producto prod : productos) {
 				if (puedeComprar(user, prod)) {
 					do {
-						System.out.println("Creemos que te va a gustar " + prod.getNombre());
+						if(prod.esPromocion() == true) {
+							System.out.println("Creemos que te va a gustar esta promocion: " + prod.getNombre());
+						}
+						else
+						{
+							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre());
+						}
+						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + "horas");
 						System.out.println("¿Te interesa?");
 						System.out.println("S/N");
 						respuesta = scan.nextLine().toUpperCase();
@@ -59,13 +66,13 @@ public class Ofertador {
 		}
 	}
 	
-	private static void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
-		PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));		
+	private void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
+		PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));
 		salidaUsuario.println("\n" + "RESUMEN DE COMPRAS DEL USUARIO " + u.getNombre().toUpperCase() + "\n" + "\n");
 		if (u.getProductosComprados() != null) {
 			for (Producto prod : u.getProductosComprados())
-			salidaUsuario.println("Compró " + prod.getNombre() 
-			+ ". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
+			salidaUsuario.println("Compró " + prod.esPromocionOAtraccion() + " " + prod.getNombre() + prod.imprimeLoQueIncluye() +
+			". Le costó " + prod.getCosto() + " monedas y duró " + prod.getTiempoDeDuracion() + " horas.");
 		
 			salidaUsuario.println("A " + u.getNombre() + " le quedan " + u.getMonedasDeOro() + " monedas");
 			salidaUsuario.println("Y tiene " + u.getTiempoDisponible() + " tiempo disponible");
@@ -78,4 +85,6 @@ public class Ofertador {
 		return user.getMonedasDeOro() >= prod.getCosto() && user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
 				&& prod.getLugaresDisponibles() > 0 && !user.yaCompro(prod);
 	}
+	
 }
+

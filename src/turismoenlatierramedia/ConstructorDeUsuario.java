@@ -52,7 +52,8 @@ public class ConstructorDeUsuario {
 			tiempo = Double.parseDouble(datos[2]);
 			tipo = TipoDeAtraccion.valueOf(datos[3].toUpperCase());
 		} catch (NumberFormatException e) {
-			throw new UsuarioException("Los parámetros para crear al Usuario [" + datos[0] + "] son erroneos, en el archivo [" + this.rutaArchivo + "]");
+			throw new UsuarioException("Los parámetros para crear al Usuario "
+					+ "[" + datos[0] + "] son erroneos, en el archivo [" + this.rutaArchivo + "]");
 		} catch (IllegalArgumentException e) {
 			throw new UsuarioException("El parámetro para [Tipo de Atracción Favorita] del Usuario [" + datos[0] + "] es erroneo, en el archivo [" + this.rutaArchivo + "]");
 		}
