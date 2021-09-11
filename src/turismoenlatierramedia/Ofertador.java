@@ -21,25 +21,20 @@ public class Ofertador {
 		String respuesta = "";
 		for (Usuario user : usuarios) {
 			TipoDeAtraccion atraccionFavorita = user.getTipoDeAtraccionFavorita();
-			productos.sort(new ProductosPorPreferencia(atraccionFavorita));
-			
-			
-			System.out.println("________________________________________");
-			System.out.println("                                        ");
-			System.out.println("Hola " + user.getNombre() + "!");
-			System.out.println("Tenemos preparadas sorpresas para vos!\n");
-
+			productos.sort(new ProductosPorPreferencia(atraccionFavorita));			
+			saludarUsuario(user);
 			for (Producto prod : productos) {
 				if (puedeComprar(user, prod)) {
 					do {
-						if(prod.esPromocion() == true) {
+						if(prod.esPromocion()) {
 							System.out.println("Creemos que te va a gustar esta promocion: " + prod.getNombre());
+							System.out.println(prod.imprimeLoQueIncluye());
 						}
 						else
 						{
 							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre());
 						}
-						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + "horas");
+						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + " horas");
 						System.out.println("¿Te interesa?");
 						System.out.println("S/N");
 						respuesta = scan.nextLine().toUpperCase();
@@ -64,6 +59,13 @@ public class Ofertador {
 			}
 			System.out.print("Gracias por visitarnos. Volvé pronto\n\n");
 		}
+	}
+
+	private void saludarUsuario(Usuario user) {
+		System.out.println("________________________________________");
+		System.out.println("                                        ");
+		System.out.println("Hola " + user.getNombre() + "!");
+		System.out.println("Tenemos preparadas sorpresas para vos!\n");
 	}
 	
 	private void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
