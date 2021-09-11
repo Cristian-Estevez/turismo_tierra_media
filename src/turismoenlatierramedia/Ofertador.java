@@ -67,11 +67,7 @@ public class Ofertador {
 	}
 	
 	private void escribirArchivosDeUsuarios(Usuario u, String file) throws IOException {
-		
-		
-
 		PrintWriter salidaUsuario = new PrintWriter(new FileWriter(file));
-		
 		salidaUsuario.println("\n" + "RESUMEN DE COMPRAS DEL USUARIO " + u.getNombre().toUpperCase() + "\n" + "\n");
 		if (u.getProductosComprados() != null) {
 			for (Producto prod : u.getProductosComprados())
@@ -80,17 +76,14 @@ public class Ofertador {
 		
 			salidaUsuario.println("A " + u.getNombre() + " le quedan " + u.getMonedasDeOro() + " monedas");
 			salidaUsuario.println("Y tiene " + u.getTiempoDisponible() + " tiempo disponible");
-		} else salidaUsuario.println(u.getNombre() + " no realizó ninguna compra.");  //esta linea es inutil
-		
+		} else salidaUsuario.println(u.getNombre() + " no realizó ninguna compra.");  //esta linea es inutil		
 		salidaUsuario.println("¡Gracias por confiar en nuestras recomendaciones!");
 		salidaUsuario.close();
-
 	}
 	
-	private boolean puedeComprar(Usuario user, Producto prod) {
-		return user.getMonedasDeOro() >= prod.getCosto() 
-				&& user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
-				&& prod.getLugaresDisponibles() > 0;
+	private static boolean puedeComprar(Usuario user, Producto prod) {
+		return user.getMonedasDeOro() >= prod.getCosto() && user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
+				&& prod.getLugaresDisponibles() > 0 && !user.yaCompro(prod);
 	}
 	
 }

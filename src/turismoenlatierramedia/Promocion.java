@@ -104,4 +104,21 @@ public abstract class Promocion extends Producto {
 		return Objects.equals(atraccionesIncluidas, other.atraccionesIncluidas);
 	}
 
+	public boolean incluye(Producto otroProducto) {
+		if (otroProducto.esPromocion()) {
+			for (Producto prod : this.atraccionesIncluidas) {
+				Promocion otraPromo = (Promocion) otroProducto;
+				if (otraPromo.atraccionesIncluidas.contains(prod)) {
+					return true;
+				} 
+			}
+			return false;
+		} else {
+			return this.atraccionesIncluidas.contains(otroProducto);
+		}
+	}
+	
+	public int getCantidadAtraccionesIncluidas() {
+		return this.atraccionesIncluidas.size();
+	}
 }
