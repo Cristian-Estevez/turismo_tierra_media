@@ -6,21 +6,11 @@ import java.util.ArrayList;
 
 public class Parque {
 
-	private String rutaArchivoUsuarios = "archivos/usuarios.in";
-	private ConstructorDeUsuario constructorUsuario = null;
-	private ArrayList<Usuario> usuarios = null;
-	
-	private String rutaArchivoAtracciones = "archivos/atracciones.in";
-	private ConstructorDeAtraccion constructorAtraccion = null;
-	private ArrayList<Atraccion> atracciones = null;
-	
-	private String rutaArchivoPromociones = "archivos/promociones.in";
-	private ConstructorDePromociones constructorPromocion = null;
-	private ArrayList<Promocion> promociones = null;
-
+	private ArrayList<Usuario> usuarios;	
+	private ArrayList<Atraccion> atracciones;		
+	private ArrayList<Promocion> promociones;
 	private ArrayList<Producto> productos = new ArrayList<Producto>();
-
-	private Ofertador ofertador = null;
+	
 	
 	public Parque() {
 		imprimirBienvenida();
@@ -58,6 +48,11 @@ public class Parque {
 	}
 	
 	private void inicializarUsuarios() {
+		
+		String rutaArchivoUsuarios = "archivos/usuarios.in";
+		ConstructorDeUsuario constructorUsuario = null;
+		
+		
 		try {
 			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
 		} catch (FileNotFoundException e2) {
@@ -69,6 +64,9 @@ public class Parque {
 	}
 	
 	private void inicializarAtracciones() {
+		String rutaArchivoAtracciones = "archivos/atracciones.in";
+		ConstructorDeAtraccion constructorAtraccion = null;
+		
 		try {
 			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
 		} catch (FileNotFoundException e1) {
@@ -81,6 +79,10 @@ public class Parque {
 	}
 	
 	private void inicializarPromociones() {
+		
+		String rutaArchivoPromociones = "archivos/promociones.in";
+		ConstructorDePromociones constructorPromocion = null;
+		
 		try {
 			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
 		} catch (FileNotFoundException e) {
@@ -103,6 +105,8 @@ public class Parque {
 	}
 	
 	public void correrPrograma() {
+		
+		Ofertador ofertador;
 		this.inicializarUsuarios();
 		this.inicializarAtracciones();
 		this.inicializarPromociones();

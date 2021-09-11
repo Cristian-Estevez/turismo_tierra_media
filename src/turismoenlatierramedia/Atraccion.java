@@ -28,6 +28,16 @@ public class Atraccion extends Producto {
 	protected boolean esPromocion() {
 		return false;
 	}
+	
+	@Override
+	protected String esPromocionOAtraccion() {
+		return "la atracción";
+	}
+	
+	@Override
+	protected String imprimeLoQueIncluye() {
+		return "";
+	}
 
 	@Override
 	public int hashCode() {

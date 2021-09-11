@@ -62,7 +62,20 @@ public abstract class Promocion extends Producto {
 	}
 
 	public abstract String getTipoDePromocion();
-
+	
+	public String esPromocionOAtraccion() {
+		return "la promoción";
+	}
+	
+	public String imprimeLoQueIncluye() {
+		String nombres = "";
+		for (Atraccion atraccion : atraccionesIncluidas) {
+			nombres += (atraccion.getNombre() + " - "); 
+			
+		} return (" que incluye " +  nombres);
+	}
+		
+	
 	public boolean esPromocion() {
 		return true;
 	}
