@@ -38,5 +38,5 @@ public class ConstructorDeUsuarioTest {
 		usuarios = con1.crearListaUsuarios();
 		assertEquals(usuariosEsperados, usuarios);
 	}
-
+	
 }

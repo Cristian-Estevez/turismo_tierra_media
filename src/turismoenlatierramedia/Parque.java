@@ -3,6 +3,7 @@ package turismoenlatierramedia;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Parque {
 
@@ -45,6 +46,9 @@ public class Parque {
 				+ ".:.:,' \\/\\/--\\/--------------------------------------------`._',;'`. `.:.:.\n"
 				+ ":.,' ,' ,'  ,'  /   /   /   ,-------------------.   \\   \\   \\  `. `.`. `..:\n"
 				+ ",' ,'  '   /   /   /   /   //                   \\\\   \\   \\   \\   \\  ` `.");
+		Scanner scan = new Scanner(System.in);
+		System.out.println("\n\n                       Presiona 'Enter' para comenzar" );
+		scan.nextLine();
 	}
 	
 	private void inicializarUsuarios() {
