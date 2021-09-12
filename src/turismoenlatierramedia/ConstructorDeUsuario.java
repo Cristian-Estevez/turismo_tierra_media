@@ -46,19 +46,30 @@ public class ConstructorDeUsuario {
 		String nombre = datos[0];
 		double monedasDeOro = 0;
 		double tiempo = 0;
-		TipoDeAtraccion tipo = null;
+		TipoDeAtraccion tipo = null;		
 		try {
 			monedasDeOro = Double.parseDouble(datos[1]);
+			esValorPositivo(monedasDeOro);
 			tiempo = Double.parseDouble(datos[2]);
+			esValorPositivo(tiempo);
 			tipo = TipoDeAtraccion.valueOf(datos[3].toUpperCase());
+		} catch (UsuarioException e){
+			throw new UsuarioException("La cantidad de monedas de oro o tiempo disponible del usuario [" + nombre + "] deben ser mayores a 0.");
 		} catch (NumberFormatException e) {
 			throw new UsuarioException("Los parámetros para crear al Usuario "
 					+ "[" + datos[0] + "] son erroneos, en el archivo [" + this.rutaArchivo + "]");
 		} catch (IllegalArgumentException e) {
 			throw new UsuarioException("El parámetro para [Tipo de Atracción Favorita] del Usuario [" + datos[0] + "] es erroneo, en el archivo [" + this.rutaArchivo + "]");
 		}
+		
 		Usuario usuario = new Usuario(nombre, monedasDeOro, tiempo, tipo);		
 		return usuario;
+	}
+	
+	private void esValorPositivo(double num) throws UsuarioException {
+		if (num <= 0) {
+			throw new UsuarioException("El número pasado por parámetro es igual o menor a [0]");
+		}
 	}
 	
 }

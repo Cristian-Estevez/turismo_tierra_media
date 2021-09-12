@@ -32,10 +32,9 @@ public class Usuario {
 		this.monedasDeOro -= atraccion.getCosto();
 		this.tiempoDisponible -= atraccion.getTiempoDeDuracion();
 		this.productos.add(atraccion);
-
 		atraccion.ocuparPlaza();
-
 	}
+	
 
 	public boolean yaCompro(Producto otroProducto) {
 		boolean retornable = false;
