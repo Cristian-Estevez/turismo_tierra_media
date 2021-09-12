@@ -46,21 +46,17 @@ public class ConstructorDePromociones {
 						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
 					} else if (tipoDePromocion.equals("porcentual")) {
 						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
-
 					} else System.err.println("El primer parámetro no es válido");
 				}
-
 				catch (PromocionException e) {
 					System.err.println(e.getMessage());
 				}
-
 			} else {
 				System.err.println("La cantidad de parámetros para construir la promoción [" + tmp[1]
 						+ "] en el archivo con nombre [" + this.rutaArchivo + "] es menor de la esperada");
 			}
 		}
 		return promociones;
-
 	}
 
 	/**
@@ -140,7 +136,6 @@ public class ConstructorDePromociones {
 		String nombre = tmp[1];
 		TipoDeAtraccion tipo = null;
 		double costo = 0;
-		;
 		try {
 			tipo = TipoDeAtraccion.valueOf(tmp[2].toUpperCase());
 			costo = Double.parseDouble(tmp[3]);
@@ -151,7 +146,6 @@ public class ConstructorDePromociones {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
 					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
 		}
-
 		return new PromocionAbsoluta(nombre, tipo, costo, atraccionesParaConstruirPromo);
 	}
 
@@ -216,5 +210,4 @@ public class ConstructorDePromociones {
 		}
 		return listaDeAtracciones;
 	}
-
 }
