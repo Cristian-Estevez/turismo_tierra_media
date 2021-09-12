@@ -27,12 +27,10 @@ public class Ofertador {
 				if (puedeComprar(user, prod)) {
 					do {
 						if(prod.esPromocion()) {
-							System.out.println("Creemos que te va a gustar esta promocion: " + prod.getNombre());
-							System.out.println(prod.imprimeLoQueIncluye());
-						}
-						else
-						{
-							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre());
+							System.out.println("Creemos que te va a gustar esta promocion: " + prod.getNombre() + "\nQue es de tipo " + prod.getTipo() + ".");
+							System.out.println("y " + prod.imprimeLoQueIncluye());
+						} else {
+							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre() + "\nQue es de tipo " + prod.getTipo() + ".");
 						}
 						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + " horas");
 						System.out.println("¿Te interesa?");
@@ -65,6 +63,7 @@ public class Ofertador {
 		System.out.println("________________________________________");
 		System.out.println("                                        ");
 		System.out.println("Hola " + user.getNombre() + "!");
+		System.out.println("Sabemos que te gustan las atracciones de " + user.getTipoDeAtraccionFavorita() + ": ");
 		System.out.println("Tenemos preparadas sorpresas para vos!\n");
 	}
 	
