@@ -34,8 +34,8 @@ public class ConstructorDeUsuarioTest {
 		
 	@Test
 	public void creaUsuariosDesdeArchivoCorrectamente() throws FileNotFoundException {
-		con1 = new ConstructorDeUsuario(rutaArchivo);
-		usuarios = con1.crearListaUsuarios();
+		con1 = new ConstructorDeUsuario();
+		usuarios = con1.crearListaUsuarios(rutaArchivo);
 		assertEquals(usuariosEsperados, usuarios);
 	}
 	

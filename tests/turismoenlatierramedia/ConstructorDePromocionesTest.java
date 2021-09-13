@@ -29,15 +29,15 @@ public class ConstructorDePromocionesTest {
 		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
 		
 		atracciones = new ArrayList<Atraccion>();			
-		constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
-		atracciones = constructorAtraccion.crearListaAtracciones();
-		cons1 = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
+		constructorAtraccion = new ConstructorDeAtraccion();
+		atracciones = constructorAtraccion.crearListaAtracciones(rutaArchivoAtracciones);
+		cons1 = new ConstructorDePromociones();
 		promociones = new ArrayList<Promocion>();
 	}
 	
 	@Test
 	public void construccionDePromosDesdeArchivo() throws PromocionException, IOException {
-		promociones = cons1.crearListaPromociones();
+		promociones = cons1.crearListaPromociones(rutaArchivoPromociones, atracciones);
 		assertEquals(promociones.get(0).getAtraccionesIncluidas().get(0), atracciones.get(7));
 		assertTrue(promociones.get(0).getAtraccionesIncluidas().contains(atracciones.get(3)));
 	}
@@ -45,7 +45,7 @@ public class ConstructorDePromocionesTest {
 	
 	@Test
 	public void lugaresDisponiblesDisminuyeAlComprarPromo() throws PromocionException, UsuarioException, IOException, AtraccionException {
-		promociones = cons1.crearListaPromociones();
+		promociones = cons1.crearListaPromociones(rutaArchivoPromociones, atracciones);
 		int plazasDisponiblesEsperadas = promociones.get(0).getLugaresDisponibles() - 1;
 		userAdineradoYConMuchoTiempo.comprarProducto(promociones.get(0));
 		assertEquals(plazasDisponiblesEsperadas, promociones.get(0).getLugaresDisponibles());

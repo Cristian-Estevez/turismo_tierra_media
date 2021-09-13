@@ -45,8 +45,8 @@ public class ConstructorDeAtraccionTest {
 	
 	@Test
 	public void creaLasAtraccionesCorrectamenteDesdeArchivo() throws FileNotFoundException {
-		cons1 = new ConstructorDeAtraccion(rutaArchivo);
-		atracciones = cons1.crearListaAtracciones();
+		cons1 = new ConstructorDeAtraccion();
+		atracciones = cons1.crearListaAtracciones(rutaArchivo);
 		assertEquals(atraccionesEsperadas, atracciones);
 	}
 }
