@@ -1,7 +1,6 @@
 package turismoenlatierramedia;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,19 +8,7 @@ import java.util.Iterator;
 
 public class ConstructorDePromociones {
 
-	private ArrayList<Promocion> promociones;
-	private BufferedReader br;
-	private ArrayList<Atraccion> atraccionesDesdeApp;
 	private static final int CANTIDAD_MINIMA_DE_PARAMETROS = 5;
-	private String rutaArchivo;
-
-	public ConstructorDePromociones(String nombreArchivo, ArrayList<Atraccion> atraccionesCargadasEnApp)
-			throws FileNotFoundException {
-		br = new BufferedReader(new FileReader(nombreArchivo));
-		promociones = new ArrayList<Promocion>();
-		atraccionesDesdeApp = atraccionesCargadasEnApp;
-		rutaArchivo = nombreArchivo;
-	}
 
 	/**
 	 * los tres primeros parámetros de cada línea siempre son del mismo tipo
@@ -30,9 +17,11 @@ public class ConstructorDePromociones {
 	 * @throws IOException
 	 * @throws ConstructorDePromocionException
 	 */
-	public ArrayList<Promocion> crearListaPromociones() throws IOException {
+	public ArrayList<Promocion> crearListaPromociones(String nombreArchivo, ArrayList<Atraccion> atraccionesCargadasEnApp) throws IOException {
 		String[] tmp;
 		String tipoDePromocion, linea;
+		BufferedReader br = new BufferedReader(new FileReader(nombreArchivo));
+		ArrayList<Promocion> promociones = new ArrayList<Promocion>();
 		br.readLine();// descartamos primer linea del archivo
 		while ((linea = br.readLine()) != null) {
 			tmp = linea.split(",");
@@ -41,11 +30,11 @@ public class ConstructorDePromociones {
 				tipoDePromocion = tmp[0].toLowerCase();
 				try {
 					if (tipoDePromocion.equals("axb")) {
-						agregaPromocionAxB(tmp, cantidadDeParametros);
+						agregaPromocionAxB(tmp, cantidadDeParametros, promociones, atraccionesCargadasEnApp);
 					} else if (tipoDePromocion.equals("absoluta")) {
-						agregaPromocionAbsoluta(tmp, cantidadDeParametros);
+						agregaPromocionAbsoluta(tmp, cantidadDeParametros, promociones, atraccionesCargadasEnApp);
 					} else if (tipoDePromocion.equals("porcentual")) {
-						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4);
+						agregaPromocionPorcentual(tmp, cantidadDeParametros, 4, promociones, atraccionesCargadasEnApp);
 					} else System.err.println("El primer parámetro no es válido");
 				}
 				catch (PromocionException e) {
@@ -53,9 +42,10 @@ public class ConstructorDePromociones {
 				}
 			} else {
 				System.err.println("La cantidad de parámetros para construir la promoción [" + tmp[1]
-						+ "] en el archivo con nombre [" + this.rutaArchivo + "] es menor de la esperada");
+						+ "] es menor de la esperada");
 			}
 		}
+		br.close();
 		return promociones;
 	}
 
@@ -68,14 +58,14 @@ public class ConstructorDePromociones {
 	 * @param empezarDesde
 	 * @throws PromocionException
 	 */
-	private void agregaPromocionPorcentual(String[] tmp, int cantidadDeParametros, int empezarDesde)
+	private void agregaPromocionPorcentual(String[] tmp, int cantidadDeParametros, int empezarDesde, ArrayList<Promocion> promociones, ArrayList<Atraccion> objetosAtraccion)
 			throws PromocionException {
 		ArrayList<Atraccion> atraccionesParaConstruirPromo;
 		String[] atraccionesABuscar = new String[cantidadDeParametros - empezarDesde];
 		for (int i = empezarDesde, k = 0; i < tmp.length; i++, k++) {
 			atraccionesABuscar[k] = tmp[i];
 		}
-		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
+		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar, objetosAtraccion);
 		promociones.add(creaPromoPorcentual(tmp, atraccionesParaConstruirPromo));
 	}
 
@@ -97,10 +87,10 @@ public class ConstructorDePromociones {
 			porcentajeBonificacion = Double.parseDouble(tmp[3]);
 		} catch (NumberFormatException e) {
 			throw new PromocionException("El argumento de [Costo] para crear la Promoción [" + tmp[1]
-					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
+					+ "] es erróneo.");
 		} catch (IllegalArgumentException e) {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
-					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
+					+ "] es erróneo.");
 		}
 		return new PromocionPorcentual(nombre, tipo, porcentajeBonificacion, atraccionesParaConstruirPromo);
 	}
@@ -113,13 +103,13 @@ public class ConstructorDePromociones {
 	 * @param cantidadDeParametros
 	 * @throws PromocionException
 	 */
-	private void agregaPromocionAbsoluta(String[] tmp, int cantidadDeParametros) throws PromocionException {
+	private void agregaPromocionAbsoluta(String[] tmp, int cantidadDeParametros, ArrayList<Promocion> promociones, ArrayList<Atraccion> objetosAtraccion) throws PromocionException {
 		ArrayList<Atraccion> atraccionesParaConstruirPromo;
 		String[] atraccionesABuscar = new String[cantidadDeParametros - 4];
 		for (int i = 4, k = 0; i < tmp.length; i++, k++) {
 			atraccionesABuscar[k] = tmp[i];
 		}
-		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
+		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar, objetosAtraccion);
 		promociones.add(crearPromoAbsoluta(tmp, atraccionesParaConstruirPromo));
 	}
 
@@ -141,10 +131,10 @@ public class ConstructorDePromociones {
 			costo = Double.parseDouble(tmp[3]);
 		} catch (NumberFormatException e) {
 			throw new PromocionException("El argumento de [Costo] para crear la Promoción [" + tmp[1]
-					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
+					+ "] es erróneo.");
 		} catch (IllegalArgumentException e) {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
-					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
+					+ "] es erróneo.");
 		}
 		return new PromocionAbsoluta(nombre, tipo, costo, atraccionesParaConstruirPromo);
 	}
@@ -157,13 +147,13 @@ public class ConstructorDePromociones {
 	 * @param cantidadDeParametros
 	 * @throws PromocionException
 	 */
-	private void agregaPromocionAxB(String[] tmp, int cantidadDeParametros) throws PromocionException {
+	private void agregaPromocionAxB(String[] tmp, int cantidadDeParametros, ArrayList<Promocion> promociones, ArrayList<Atraccion> objetosAtraccion) throws PromocionException {
 		ArrayList<Atraccion> atraccionesParaConstruirPromo;
 		String[] atraccionesABuscar = new String[cantidadDeParametros - 3];
 		for (int i = 3, k = 0; i < tmp.length; i++, k++) {
 			atraccionesABuscar[k] = tmp[i];
 		}
-		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar);
+		atraccionesParaConstruirPromo = this.getObjetosAtracciones(atraccionesABuscar, objetosAtraccion);
 		promociones.add(crearPromoAxB(tmp, atraccionesParaConstruirPromo));
 	}
 
@@ -183,7 +173,7 @@ public class ConstructorDePromociones {
 			tipo = TipoDeAtraccion.valueOf(tmp[2].toUpperCase());
 		} catch (IllegalArgumentException e) {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
-					+ "] en el archivo [" + this.rutaArchivo + "] es erróneo.");
+					+ "] es erróneo.");
 		}
 		return new PromocionAxB(nombre, tipo, atraccionesParaConstruirPromo);
 	}
@@ -195,7 +185,7 @@ public class ConstructorDePromociones {
 	 * @param atraccionesABuscar
 	 * @return ArrayList<Atraccion> listaDeAtracciones
 	 */
-	private ArrayList<Atraccion> getObjetosAtracciones(String[] atraccionesABuscar) {
+	private ArrayList<Atraccion> getObjetosAtracciones(String[] atraccionesABuscar, ArrayList<Atraccion> atraccionesDesdeApp) {
 		ArrayList<Atraccion> listaDeAtracciones = new ArrayList<Atraccion>();
 		for (String atraccion : atraccionesABuscar) {
 			boolean encontrado = false;

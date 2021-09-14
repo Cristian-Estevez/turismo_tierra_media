@@ -6,24 +6,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ConstructorDeUsuario {
-
-	private Scanner miLector;
-	private ArrayList<Usuario> usuarios;
-	private String rutaArchivo;
-
-	public ConstructorDeUsuario(String nombreArchivo) throws FileNotFoundException {
-		miLector = new Scanner(new File(nombreArchivo));
-		this.rutaArchivo = nombreArchivo;
-	}
-
 	
 	/**
 	 * Crea lista de usuarios a partir del archivo this.rutaArchivo
 	 * @return ArrayList<Usuario>
+	 * @throws FileNotFoundException 
 	 */
-	public ArrayList<Usuario> crearListaUsuarios(){
-		miLector.nextLine(); // Descarta primer línea
-		usuarios = new ArrayList<Usuario>();
+	public ArrayList<Usuario> crearListaUsuarios(String nombreArchivo) throws FileNotFoundException{
+		Scanner miLector = new Scanner(new File(nombreArchivo));
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		miLector.nextLine(); // Descarta primer línea		
 		while(miLector.hasNextLine()){
 			String[] datos = miLector.nextLine().split(",");	
 			try {
@@ -57,9 +49,9 @@ public class ConstructorDeUsuario {
 			throw new UsuarioException("La cantidad de monedas de oro o tiempo disponible del usuario [" + nombre + "] deben ser mayores a 0.");
 		} catch (NumberFormatException e) {
 			throw new UsuarioException("Los parámetros para crear al Usuario "
-					+ "[" + datos[0] + "] son erroneos, en el archivo [" + this.rutaArchivo + "]");
+					+ "[" + datos[0] + "] son erroneos.");
 		} catch (IllegalArgumentException e) {
-			throw new UsuarioException("El parámetro para [Tipo de Atracción Favorita] del Usuario [" + datos[0] + "] es erroneo, en el archivo [" + this.rutaArchivo + "]");
+			throw new UsuarioException("El parámetro para [Tipo de Atracción Favorita] del Usuario [" + datos[0] + "] es erroneo.");
 		}
 		
 		Usuario usuario = new Usuario(nombre, monedasDeOro, tiempo, tipo);		

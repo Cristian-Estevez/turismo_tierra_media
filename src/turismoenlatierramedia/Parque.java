@@ -6,17 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Parque {
-
-	private ArrayList<Usuario> usuarios;	
-	private ArrayList<Atraccion> atracciones;		
-	private ArrayList<Promocion> promociones;
-	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	
-	
-	public Parque() {
-		imprimirBienvenida();
-	}
-
 	private void imprimirBienvenida() {
 		System.out.println("\n	  --Bienvenidx a la agencia de turismo de Tierra Media--\n");
 		System.out.println("                    . .:.:.:.:. .:\\     /:. .:.:.:.:. ,\n"
@@ -46,77 +36,52 @@ public class Parque {
 				+ ".:.:,' \\/\\/--\\/--------------------------------------------`._',;'`. `.:.:.\n"
 				+ ":.,' ,' ,'  ,'  /   /   /   ,-------------------.   \\   \\   \\  `. `.`. `..:\n"
 				+ ",' ,'  '   /   /   /   /   //                   \\\\   \\   \\   \\   \\  ` `.");
+		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
 		System.out.println("\n\n                       Presiona 'Enter' para comenzar" );
 		scan.nextLine();
 	}
 	
-	private void inicializarUsuarios() {
-		
-		String rutaArchivoUsuarios = "archivos/usuarios.in";
-		ConstructorDeUsuario constructorUsuario = null;
-		
-		
-		try {
-			constructorUsuario = new ConstructorDeUsuario(rutaArchivoUsuarios);
-		} catch (FileNotFoundException e2) {
-			System.err.println("La ruta al [" + rutaArchivoUsuarios + "] no es válida."
-					+ " No se pueden cargar los Usuarios al sistema. Por favor corríjala y reinicie la aplicación.");
-			System.exit(1);
-		}
-		usuarios = constructorUsuario.crearListaUsuarios();
-	}
-	
-	private void inicializarAtracciones() {
-		String rutaArchivoAtracciones = "archivos/atracciones.in";
-		ConstructorDeAtraccion constructorAtraccion = null;
-		
-		try {
-			constructorAtraccion = new ConstructorDeAtraccion(rutaArchivoAtracciones);
-		} catch (FileNotFoundException e1) {
-			System.err.println("La ruta al [" + rutaArchivoAtracciones
-					+ "] no es válida. No se pueden cargar las atraccioens al sistema."
-					+ " Por favor corrijala y reinicie la aplicación.");
-			System.exit(1);
-		}
-		atracciones = constructorAtraccion.crearListaAtracciones();
-	}
-	
-	private void inicializarPromociones() {
-		
-		String rutaArchivoPromociones = "archivos/promociones.in";
-		ConstructorDePromociones constructorPromocion = null;
-		
-		try {
-			constructorPromocion = new ConstructorDePromociones(rutaArchivoPromociones, atracciones);
+	private ArrayList<Usuario> inicializarUsuarios(String rutaArchivoUsuarios) {
+		 try {
+			return new ConstructorDeUsuario().crearListaUsuarios(rutaArchivoUsuarios);
 		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo de promociones en la ruta [" + rutaArchivoPromociones
-					+ "] al momento de crearlas.");
+			System.err.println("No se encontró archivo para crear los Usuarios del parque. \nEl programa se cerrará.");
+			System.exit(-1);
 		}
+		return null;
+	}
+	
+	private ArrayList<Atraccion> inicializarAtracciones(String rutaArchivoAtracciones) {		
 		try {
-			promociones = constructorPromocion.crearListaPromociones();
+			return new ConstructorDeAtraccion().crearListaAtracciones(rutaArchivoAtracciones);
+		} catch (FileNotFoundException e) {
+			System.err.println("No se encontró el archivo para crear las atracciones del parque. \nSe cerrará el programa.");
+			System.exit(-1);
+		}
+		return null;
+	}
+	
+	private ArrayList<Promocion> inicializarPromociones(String rutaArchivoPromociones, ArrayList<Atraccion> atracciones) {
+		try {
+			return new ConstructorDePromociones().crearListaPromociones(rutaArchivoPromociones, atracciones);
 		} catch (NullPointerException | IOException e) {
 			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
-					+ "\nPuede corregir el inconveniente y reiniciar la aplicación."
+					+ "\nPuede corregir el inconveniente y volver iniciar el programa."
 					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles.");
-			System.exit(1);
 		}
-	}
-	
-	private void listarProductos() {
-		productos.addAll(promociones);
-		productos.addAll(atracciones);
+		return null;
 	}
 	
 	public void correrPrograma() {
-		
-		Ofertador ofertador;
-		this.inicializarUsuarios();
-		this.inicializarAtracciones();
-		this.inicializarPromociones();
-		this.listarProductos();
-		ofertador = new Ofertador(usuarios, productos);
-		ofertador.ofertar();		
+		imprimirBienvenida();
+		ArrayList<Usuario> usuarios = this.inicializarUsuarios("archivos/usuarios.in");
+		ArrayList<Atraccion> atracciones = this.inicializarAtracciones("archivos/atracciones.in");
+		ArrayList<Promocion> promociones = this.inicializarPromociones("archivos/promociones.in", atracciones);
+		ArrayList<Producto> productos = new ArrayList<Producto>();
+		productos.addAll(promociones);
+		productos.addAll(atracciones);
+		new Ofertador().ofertar(usuarios, productos);				
 	}
 	
 }

@@ -7,22 +7,15 @@ import java.util.Scanner;
 
 public class ConstructorDeAtraccion {
 
-	private Scanner miLector;
-	private ArrayList<Atraccion> atracciones;
-	private String rutaRecibida;
-	
-	public ConstructorDeAtraccion(String nombreArchivo) throws FileNotFoundException {
-		miLector = new Scanner(new File(nombreArchivo));
-		this.rutaRecibida = nombreArchivo;
-	}
-
 	/**
 	 * @pre debe instanciarse el objeto satisfactoriamente con el archivo de input
 	 * @return ArrayList<Usuario>
+	 * @throws FileNotFoundException 
 	 */
-	public ArrayList<Atraccion> crearListaAtracciones() {
+	public ArrayList<Atraccion> crearListaAtracciones(String nombreArchivo) throws FileNotFoundException {
+		Scanner miLector = new Scanner(new File(nombreArchivo));
 		miLector.nextLine(); // Descarta primer línea
-		atracciones = new ArrayList<Atraccion>();
+		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
 		while (miLector.hasNextLine()) {
 			String[] datos = miLector.nextLine().split(",");
 			try {
@@ -54,9 +47,9 @@ public class ConstructorDeAtraccion {
 			tipo = TipoDeAtraccion.valueOf(datos[4].toUpperCase());
 			
 		} catch (NumberFormatException e) {
-			throw new AtraccionException("Uno de los parametros para crear la Atracción [" + datos[0] + "] es erroneo en el archivo [" + this.rutaRecibida +"]");
+			throw new AtraccionException("Uno de los parametros para crear la Atracción [" + datos[0] + "] es erroneo en el archivo.");
 		} catch (IllegalArgumentException e) {
-			throw new AtraccionException("El argumento de [Tipo de atracción] en la Atracción [" + datos[0] + "] es erroneo en el archivo [" + this.rutaRecibida +"]");
+			throw new AtraccionException("El argumento de [Tipo de atracción] en la Atracción [" + datos[0] + "] es erroneo en el archivo.");
 		}
 		Atraccion atraccion = new Atraccion(nombre, costo, duracionHs, cupo, tipo);
 

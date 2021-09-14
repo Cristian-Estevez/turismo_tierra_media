@@ -7,17 +7,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ofertador {
-
-	private Scanner scan = new Scanner(System.in);
-	private ArrayList<Usuario> usuarios = null;
-	private ArrayList<Producto> productos = null;
-	
-	public Ofertador(ArrayList<Usuario> usuarios, ArrayList<Producto> productos) {
-		this.usuarios = usuarios;
-		this.productos = productos;
-	}
-	
-	public void ofertar() {
+		
+	public void ofertar(ArrayList<Usuario> usuarios, ArrayList<Producto> productos) {
+		Scanner scan = new Scanner(System.in);
 		String respuesta = "";
 		for (Usuario user : usuarios) {
 			TipoDeAtraccion atraccionFavorita = user.getTipoDeAtraccionFavorita();
@@ -57,10 +49,12 @@ public class Ofertador {
 			}
 			System.out.print("Gracias por visitarnos. Volvé pronto\n\n");
 		}
+		scan.close();
+	
 	}
 
 	private void saludarUsuario(Usuario user) {
-		System.out.println("________________________________________");
+		System.out.println("______________________________________________________________________________________");
 		System.out.println("                                        ");
 		System.out.println("Hola " + user.getNombre() + "!");
 		System.out.println("Sabemos que te gustan las atracciones de " + user.getTipoDeAtraccionFavorita() + ": ");
