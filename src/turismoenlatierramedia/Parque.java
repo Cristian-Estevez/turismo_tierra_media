@@ -7,10 +7,6 @@ import java.util.Scanner;
 
 public class Parque {
 	
-	{
-		imprimirBienvenida();
-	}
-
 	private void imprimirBienvenida() {
 		System.out.println("\n	  --Bienvenidx a la agencia de turismo de Tierra Media--\n");
 		System.out.println("                    . .:.:.:.:. .:\\     /:. .:.:.:.:. ,\n"
@@ -78,6 +74,7 @@ public class Parque {
 	}
 	
 	public void correrPrograma() {
+		imprimirBienvenida();
 		ArrayList<Usuario> usuarios = this.inicializarUsuarios("archivos/usuarios.in");
 		ArrayList<Atraccion> atracciones = this.inicializarAtracciones("archivos/atracciones.in");
 		ArrayList<Promocion> promociones = this.inicializarPromociones("archivos/promociones.in", atracciones);
