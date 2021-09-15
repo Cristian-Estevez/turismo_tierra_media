@@ -116,8 +116,5 @@ public abstract class Promocion extends Producto {
 			return this.atraccionesIncluidas.contains(otroProducto);
 		}
 	}
-	
-	public int getCantidadAtraccionesIncluidas() {
-		return this.atraccionesIncluidas.size();
-	}
+
 }
