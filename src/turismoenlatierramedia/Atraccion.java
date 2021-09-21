@@ -58,5 +58,15 @@ public class Atraccion extends Producto {
 		Atraccion other = (Atraccion) obj;
 		return cupo == other.cupo;
 	}
+	
+	public boolean incluye(Producto unProducto) {
+		if (unProducto.esPromocion()) {
+			return unProducto.incluye(this);
+		}
+		return this.equals(unProducto);
+		
+	}
+	
+	
 
 }

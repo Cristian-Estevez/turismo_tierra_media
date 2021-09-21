@@ -62,19 +62,20 @@ public abstract class Promocion extends Producto {
 	}
 
 	public abstract String getTipoDePromocion();
-	
+
 	public String esPromocionOAtraccion() {
 		return "la promoción";
 	}
-	
+
 	public String imprimeLoQueIncluye() {
 		String nombres = "";
 		for (Atraccion atraccion : atraccionesIncluidas) {
-			nombres += (" -" + atraccion.getNombre()); 
-			
-		} return (" que incluye " +  nombres);
-	}	
-	
+			nombres += (" -" + atraccion.getNombre());
+
+		}
+		return (" que incluye " + nombres);
+	}
+
 	public boolean esPromocion() {
 		return true;
 	}
@@ -104,17 +105,13 @@ public abstract class Promocion extends Producto {
 	}
 
 	public boolean incluye(Producto otroProducto) {
-		if (otroProducto.esPromocion()) {
-			for (Producto prod : this.atraccionesIncluidas) {
-				Promocion otraPromo = (Promocion) otroProducto;
-				if (otraPromo.atraccionesIncluidas.contains(prod)) {
-					return true;
-				} 
+		for (Producto prod : this.atraccionesIncluidas) {
+			if (otroProducto.incluye(prod)) {
+				return true;
 			}
-			return false;
-		} else {
-			return this.atraccionesIncluidas.contains(otroProducto);
 		}
+		return false;
+
 	}
 
 }

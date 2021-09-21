@@ -91,6 +91,8 @@ public abstract class Producto {
 				&& Double.doubleToLongBits(tiempoDeDuracion) == Double.doubleToLongBits(other.tiempoDeDuracion)
 				&& tipoDeAtraccion == other.tipoDeAtraccion;
 	}
+
+	public abstract boolean incluye(Producto prod) ;
 	
 	
 }

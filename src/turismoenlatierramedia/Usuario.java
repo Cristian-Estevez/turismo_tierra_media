@@ -37,19 +37,12 @@ public class Usuario {
 	
 
 	public boolean yaCompro(Producto otroProducto) {
-		boolean retornable = false;
 		for (Producto miProducto : productos) {
-			if (miProducto.esPromocion() && !otroProducto.esPromocion()) {
-				retornable = ((Promocion) miProducto).incluye(otroProducto);
-			} else if (!miProducto.esPromocion() && !otroProducto.esPromocion()) {
-				retornable = miProducto.equals(otroProducto);
-			} else if (!miProducto.esPromocion() && otroProducto.esPromocion()) {
-				retornable = ((Promocion) otroProducto).incluye(miProducto);
-			} else if (miProducto.esPromocion() && otroProducto.esPromocion()) {
-				retornable = ((Promocion) miProducto).incluye(otroProducto);				
-			}			
+			if (miProducto.incluye(otroProducto)) {
+				return true;
+			}
 		}
-		return retornable;
+		return false;
 	}
 	
 	
