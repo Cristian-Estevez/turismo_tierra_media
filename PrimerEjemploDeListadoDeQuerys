@@ -1,0 +1,11 @@
+CLASE ConstructorDeUsuarios
+Para el método crearListaUsuarios:
+
+SELECT *
+FROM usuario
+
+Arma el arrayList<Usuario> desde la BD
+
+
+
+
