@@ -14,15 +14,12 @@ public class UsuarioDAO {
 	
 	public ArrayList<Usuario> getAll(){
 
-		String query = "SELECT usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, "
-				+ "tipo_atraccion.nombre "
-				+ "FROM usuario "
-				+ "JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
+		String query = "SELECT usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, tipo_atraccion.nombre AS tipo_favorito FROM usuario JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
 		
 		ResultSet resultado = null;
 		
 		ArrayList<Usuario>  usuarios = new ArrayList<Usuario>();
-
+		
 		try {
 			Connection conn = MiConector.getConnection();
 			PreparedStatement statement = conn.prepareStatement(query);
