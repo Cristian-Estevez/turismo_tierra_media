@@ -39,6 +39,7 @@ public class ConstructorDeAtraccion {
 		double costo = 0;
 		double duracionHs = 0;
 		int cupo = 0;
+		int atraccionId = 0;
 		TipoDeAtraccion tipo = null;
 		try {
 			costo = Double.parseDouble(datos[1]);
@@ -51,7 +52,7 @@ public class ConstructorDeAtraccion {
 		} catch (IllegalArgumentException e) {
 			throw new AtraccionException("El argumento de [Tipo de atracción] en la Atracción [" + datos[0] + "] es erroneo en el archivo.");
 		}
-		Atraccion atraccion = new Atraccion(nombre, costo, duracionHs, cupo, tipo);
+		Atraccion atraccion = new Atraccion(atraccionId, nombre, costo, duracionHs, cupo, tipo);
 
 		return atraccion;
 	}

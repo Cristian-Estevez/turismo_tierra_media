@@ -13,7 +13,7 @@ import turismoenlatierramedia.TipoDeAtraccion;
 public class AtraccionDAO {
 	public ArrayList<Atraccion> getAll() {
 
-		String query = "SELECT atraccion.nombre, atraccion.costo, atraccion.cupo, atraccion.duracion, tipo_atraccion.nombre as TipoDeAtraccion FROM atraccion JOIN tipo_atraccion ON tipo_atraccion.id = atraccion.tipo;";
+		String query = "SELECT atraccion.id, atraccion.nombre, atraccion.costo, atraccion.cupo, atraccion.duracion, tipo_atraccion.nombre as TipoDeAtraccion FROM atraccion JOIN tipo_atraccion ON tipo_atraccion.id = atraccion.tipo;";
 
 		ResultSet resultado = null;
 
@@ -25,7 +25,7 @@ public class AtraccionDAO {
 			resultado = statement.executeQuery();
 
 			while (resultado.next()) {
-				Atraccion atraccion = new Atraccion(resultado.getString(1), resultado.getDouble(2), resultado.getDouble(4), resultado.getInt(3),TipoDeAtraccion.valueOf(resultado.getString(5)));
+				Atraccion atraccion = new Atraccion(resultado.getInt(1), resultado.getString(2), resultado.getDouble(3), resultado.getDouble(5), resultado.getInt(4),TipoDeAtraccion.valueOf(resultado.getString(6)));
 				atracciones.add(atraccion);
 			}
 

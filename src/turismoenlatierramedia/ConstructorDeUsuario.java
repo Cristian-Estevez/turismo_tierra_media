@@ -38,6 +38,7 @@ public class ConstructorDeUsuario {
 		String nombre = datos[0];
 		double monedasDeOro = 0;
 		double tiempo = 0;
+		int usuarioId = 0;
 		TipoDeAtraccion tipo = null;		
 		try {
 			monedasDeOro = Double.parseDouble(datos[1]);
@@ -53,8 +54,8 @@ public class ConstructorDeUsuario {
 		} catch (IllegalArgumentException e) {
 			throw new UsuarioException("El parámetro para [Tipo de Atracción Favorita] del Usuario [" + datos[0] + "] es erroneo.");
 		}
-		
-		Usuario usuario = new Usuario(nombre, monedasDeOro, tiempo, tipo);		
+	
+		Usuario usuario = new Usuario(usuarioId, nombre, monedasDeOro, tiempo, tipo);		
 		return usuario;
 	}
 	

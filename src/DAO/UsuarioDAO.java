@@ -14,7 +14,7 @@ public class UsuarioDAO {
 	
 	public ArrayList<Usuario> getAll(){
 
-		String query = "SELECT usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, tipo_atraccion.nombre AS tipo_favorito FROM usuario JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
+		String query = "SELECT usuario.id, usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, tipo_atraccion.nombre AS tipo_favorito FROM usuario JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
 		
 		ResultSet resultado = null;
 		
@@ -26,7 +26,8 @@ public class UsuarioDAO {
 			resultado = statement.executeQuery();
 			
 			while (resultado.next()) {
-				Usuario usuario = new Usuario(resultado.getString(1), resultado.getInt(2), resultado.getDouble(3), TipoDeAtraccion.valueOf(resultado.getString(4)));
+				Usuario usuario = new Usuario(resultado.getInt(1), resultado.getString(2), resultado.getInt(3), resultado.getDouble(4), TipoDeAtraccion.valueOf(resultado.getString(5)));
+				System.out.println(usuario);
 				usuarios.add(usuario);
 				}
 			

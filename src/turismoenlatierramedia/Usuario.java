@@ -5,20 +5,23 @@ import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
-
+	
+    private int usuarioId;
 	private String nombre;
 	private double monedasDeOro;
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
 	private List<Producto> productos;
 
-	public Usuario(String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
+	public Usuario(int usuarioId, String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
+		this.usuarioId = usuarioId;
 		this.nombre = nombre;
 		this.monedasDeOro = monedasDeOro;
 		this.tiempoDisponible = tiempoDisponible;
 		this.atraccionFavorita = atraccionFavorita;
 		this.productos = new ArrayList<Producto>();
 	}
+
 
 	/*
 	 * @pre app envía la confirmación de la compra, se asigna el producto comprado
@@ -52,6 +55,10 @@ public class Usuario {
 
 	public String getNombre() {
 		return this.nombre;
+	}
+	
+	public int getId() {
+		return this.usuarioId;
 	}
 
 	public double getMonedasDeOro() {
