@@ -49,7 +49,7 @@ public class PromocionEnGeneralTest {
 		listaDeAtraccionesA.add(mardelplata);
 		listaDeAtraccionesA.add(lothlorien);
 		
-		promoNueva = new PromocionAbsoluta("Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
+		promoNueva = new PromocionAbsoluta(2,"Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
 		
 		listaDeAtraccionesB = new ArrayList<Atraccion>();
 		listaDeAtraccionesB.add(minasDeTirith);
@@ -57,13 +57,13 @@ public class PromocionEnGeneralTest {
 		listaDeAtraccionesB.add(erebor);
 		listaDeAtraccionesB.add(chascomus);
 		
-		promoFantastica = new PromocionPorcentual("Fantastica", TipoDeAtraccion.PAISAJE, 20, listaDeAtraccionesB);
+		promoFantastica = new PromocionPorcentual(1,"Fantastica", TipoDeAtraccion.PAISAJE, 20, listaDeAtraccionesB);
 		
 		listaDeAtraccionesC = new ArrayList<Atraccion>();
 		listaDeAtraccionesC.add(elVaticano);
 		listaDeAtraccionesC.add(laBaticueva);
 		
-		promoGenial = new PromocionAxB("Genial", TipoDeAtraccion.AVENTURA, listaDeAtraccionesC);
+		promoGenial = new PromocionAxB(4,"Genial", TipoDeAtraccion.AVENTURA, listaDeAtraccionesC);
 	}
 
 	@Test

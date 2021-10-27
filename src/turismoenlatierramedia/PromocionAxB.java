@@ -12,8 +12,8 @@ public class PromocionAxB extends Promocion{
 	 * 
 	 */
 	
-	public PromocionAxB(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
-		super(nombre, tipo, atraccionesIncluidas);
+	public PromocionAxB(int NumeroId, String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
+		super(NumeroId, nombre, tipo, atraccionesIncluidas);
 		super.setCosto(this.calcularCosto(atraccionesIncluidas));
 	}
 	

@@ -4,8 +4,8 @@ import java.util.List;
 
 public class PromocionAbsoluta extends Promocion {
 
-	public PromocionAbsoluta(String nombre, TipoDeAtraccion tipo, double costo, List<Atraccion> atraccionesIncluidas) {
-		super(nombre, tipo, costo, atraccionesIncluidas);
+	public PromocionAbsoluta(int NumeroId, String nombre, TipoDeAtraccion tipo, double costo, List<Atraccion> atraccionesIncluidas) {
+		super(NumeroId, nombre, tipo, costo, atraccionesIncluidas);
 	}
 
 	@Override

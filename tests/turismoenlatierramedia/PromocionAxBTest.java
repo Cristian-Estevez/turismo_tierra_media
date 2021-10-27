@@ -39,9 +39,9 @@ public class PromocionAxBTest {
 		listaDeAtraccionesB.add(delicatessen);
 		listaDeAtraccionesB.add(cataratasDeChocolate);
 		
-		packDegustacion = new PromocionAxB("Pack Degustacion", TipoDeAtraccion.DEGUSTACION, listaDeAtraccionesB);
+		packDegustacion = new PromocionAxB(4,"Pack Degustacion", TipoDeAtraccion.DEGUSTACION, listaDeAtraccionesB);
 		
-		packPaisajes = new PromocionAxB("Pack Paisajes", TipoDeAtraccion.PAISAJE, listaDeAtraccionesA);
+		packPaisajes = new PromocionAxB(5,"Pack Paisajes", TipoDeAtraccion.PAISAJE, listaDeAtraccionesA);
 	}
 
 	@Test

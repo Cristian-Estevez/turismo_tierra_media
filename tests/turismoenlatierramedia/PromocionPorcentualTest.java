@@ -45,10 +45,10 @@ public class PromocionPorcentualTest {
 		listaDeAtraccionesB.add(cataratasDeChocolate);
 		
 //		tipo Porcentual: Minas Tirith + Abismo de Helm 20% off = $ 8
-		promoPaisajes = new PromocionPorcentual("Promo Paisajes", TipoDeAtraccion.PAISAJE, 20,
+		promoPaisajes = new PromocionPorcentual(1,"Promo Paisajes", TipoDeAtraccion.PAISAJE, 20,
 				listaDeAtraccionesA);
 		
-		promoDegustacion = new PromocionPorcentual("Promo Degustacion", TipoDeAtraccion.DEGUSTACION, 50, listaDeAtraccionesB);
+		promoDegustacion = new PromocionPorcentual(2,"Promo Degustacion", TipoDeAtraccion.DEGUSTACION, 50, listaDeAtraccionesB);
 	}
 
 	@Test

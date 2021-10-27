@@ -33,7 +33,7 @@ public class PromocionAbsolutaTest {
 		listaDeAtraccionesA.add(laComarca);
 		listaDeAtraccionesA.add(lothlorien);
 		
-		packDegustacion = new PromocionAbsoluta("Pack Degustación", TipoDeAtraccion.DEGUSTACION, 36, listaDeAtraccionesA);
+		packDegustacion = new PromocionAbsoluta(6,"Pack Degustación", TipoDeAtraccion.DEGUSTACION, 36, listaDeAtraccionesA);
 	}
 	
 	@Test

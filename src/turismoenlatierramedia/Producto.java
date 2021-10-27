@@ -3,37 +3,46 @@ package turismoenlatierramedia;
 import java.util.Objects;
 
 public abstract class Producto {
-
+	
+	
+    private int NumeroId;
 	private String nombre;
 	private double costo;
 	private double tiempoDeDuracion;
 	private TipoDeAtraccion tipoDeAtraccion;
 
-	public Producto(String nombre, double costo
+	public Producto(int NumeroId, String nombre, double costo
 					, double tiempoDeDuracion
 					, TipoDeAtraccion tipoDeAtraccion) {
-
+        this.NumeroId = NumeroId;
 		this.nombre = nombre;
 		this.costo = costo;
 		this.tiempoDeDuracion = tiempoDeDuracion;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
 
-	public Producto(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
+	public Producto(int NumeroId, String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion) {
+		this.NumeroId = NumeroId;
 		this.nombre = nombre;
 		this.tiempoDeDuracion = tiempoDeDuracion;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
 
-	public Producto(String nombre, TipoDeAtraccion tipo, double costo) {
+	public Producto(int NumeroId, String nombre, TipoDeAtraccion tipo, double costo) {
+		this.NumeroId = NumeroId;
 		this.nombre = nombre;
 		this.tipoDeAtraccion = tipo;
 		this.costo = costo;
 	}
 
-	public Producto(String nombre, TipoDeAtraccion tipo) {
+	public Producto(int NumeroId, String nombre, TipoDeAtraccion tipo) {
+		this.NumeroId = NumeroId;
 		this.nombre = nombre;
 		this.tipoDeAtraccion = tipo;
+	}
+	
+	public int getId() {
+		return NumeroId;
 	}
 
 		

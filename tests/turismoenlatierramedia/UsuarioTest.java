@@ -42,7 +42,7 @@ public class UsuarioTest {
 		listaDeAtraccionesA.add(moria);
 		listaDeAtraccionesA.add(bosqueNegro);
 		
-		promoNueva = new PromocionAbsoluta("Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
+		promoNueva = new PromocionAbsoluta(0,"Nueva", TipoDeAtraccion.AVENTURA, 22, listaDeAtraccionesA);
 		
 	}
 	
