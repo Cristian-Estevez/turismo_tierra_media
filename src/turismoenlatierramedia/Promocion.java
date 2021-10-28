@@ -8,21 +8,21 @@ public abstract class Promocion extends Producto {
 
 	private List<Atraccion> atraccionesIncluidas;
 
-	public Promocion(String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion,
+	public Promocion(int NumeroId,String nombre, double tiempoDeDuracion, TipoDeAtraccion tipoDeAtraccion,
 			List<Atraccion> atraccionesIncluidas) {
-		super(nombre, tiempoDeDuracion, tipoDeAtraccion);
+		super(NumeroId, nombre, tiempoDeDuracion, tipoDeAtraccion);
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 
 	// Constructor llamado por PromocionAbsoluta
-	public Promocion(String nombre, TipoDeAtraccion tipo, double costo, List<Atraccion> atraccionesIncluidas) {
-		super(nombre, tipo, costo);
+	public Promocion(int NumeroId, String nombre, TipoDeAtraccion tipo, double costo, List<Atraccion> atraccionesIncluidas) {
+		super(NumeroId, nombre, tipo, costo);
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 
 	// Constructor para PromocionPorcentual
-	public Promocion(String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
-		super(nombre, tipo);
+	public Promocion(int NumeroId, String nombre, TipoDeAtraccion tipo, List<Atraccion> atraccionesIncluidas) {
+		super(NumeroId, nombre, tipo);
 		this.atraccionesIncluidas = atraccionesIncluidas;
 	}
 

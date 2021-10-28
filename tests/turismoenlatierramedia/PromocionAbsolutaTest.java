@@ -20,20 +20,20 @@ public class PromocionAbsolutaTest {
 	
 	@Before
 	public void setup() {
-		eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
-		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
-		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
-		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
-		userAdineradoYConMuchoTiempo = new Usuario("Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
+		eowyn = new Usuario(1,"Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
+		gandalf = new Usuario(2,"Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
+		sam = new Usuario(3,"Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
+		galadriel = new Usuario(4,"Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		userAdineradoYConMuchoTiempo = new Usuario(0,"Adinerado y con tiempo", 500, 24, TipoDeAtraccion.AVENTURA);
 		
-		laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
-		lothlorien = new Atraccion("Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
+		laComarca = new Atraccion(3, "La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
+		lothlorien = new Atraccion(6, "Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
 		
 		listaDeAtraccionesA = new ArrayList<Atraccion>();
 		listaDeAtraccionesA.add(laComarca);
 		listaDeAtraccionesA.add(lothlorien);
 		
-		packDegustacion = new PromocionAbsoluta("Pack Degustación", TipoDeAtraccion.DEGUSTACION, 36, listaDeAtraccionesA);
+		packDegustacion = new PromocionAbsoluta(6,"Pack Degustación", TipoDeAtraccion.DEGUSTACION, 36, listaDeAtraccionesA);
 	}
 	
 	@Test

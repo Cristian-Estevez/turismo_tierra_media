@@ -92,7 +92,7 @@ public class ConstructorDePromociones {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
 					+ "] es erróneo.");
 		}
-		return new PromocionPorcentual(nombre, tipo, porcentajeBonificacion, atraccionesParaConstruirPromo);
+		return new PromocionPorcentual(0, nombre, tipo, porcentajeBonificacion, atraccionesParaConstruirPromo);
 	}
 
 	/**
@@ -136,7 +136,7 @@ public class ConstructorDePromociones {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
 					+ "] es erróneo.");
 		}
-		return new PromocionAbsoluta(nombre, tipo, costo, atraccionesParaConstruirPromo);
+		return new PromocionAbsoluta( 0, nombre, tipo, costo, atraccionesParaConstruirPromo);
 	}
 
 	/**
@@ -175,7 +175,7 @@ public class ConstructorDePromociones {
 			throw new PromocionException("El argumento de [Tipo de Atraccion] para crear la Promoción [" + tmp[1]
 					+ "] es erróneo.");
 		}
-		return new PromocionAxB(nombre, tipo, atraccionesParaConstruirPromo);
+		return new PromocionAxB(0, nombre, tipo, atraccionesParaConstruirPromo);
 	}
 
 	/**

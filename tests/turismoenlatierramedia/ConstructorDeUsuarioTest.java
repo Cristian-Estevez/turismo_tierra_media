@@ -21,10 +21,10 @@ public class ConstructorDeUsuarioTest {
 		rutaArchivo = "archivosParaTests/usuariosParaTests.in";
 		
 		usuariosEsperados = new ArrayList<Usuario>();
-		eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
-		gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
-		sam = new Usuario("Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
-		galadriel = new Usuario("Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		eowyn = new Usuario(1,"Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
+		gandalf = new Usuario(2,"Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
+		sam = new Usuario(3,"Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
+		galadriel = new Usuario(45,"Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
 		
 		usuariosEsperados.add(eowyn);
 		usuariosEsperados.add(gandalf);

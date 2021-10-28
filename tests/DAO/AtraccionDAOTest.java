@@ -24,29 +24,29 @@ public class AtraccionDAOTest {
 	
 		
 	
-	Atraccion moria = new Atraccion("Moria", 10, 2, 6,  TipoDeAtraccion.AVENTURA);
+	Atraccion moria = new Atraccion(1, "Moria", 10, 2, 6,  TipoDeAtraccion.AVENTURA);
 	atraccionesCreadasEnJava.add(moria);
-	Atraccion minasDeTirith = new Atraccion("Minas de Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
+	Atraccion minasDeTirith = new Atraccion(2, "Minas de Tirith", 5, 2.5, 25, TipoDeAtraccion.PAISAJE);
 	atraccionesCreadasEnJava.add(minasDeTirith);
-	Atraccion laComarca = new Atraccion("La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
+	Atraccion laComarca = new Atraccion(3, "La Comarca", 3, 6.5, 150, TipoDeAtraccion.DEGUSTACION);
 	atraccionesCreadasEnJava.add(laComarca);
-	Atraccion mordor = new Atraccion("Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
+	Atraccion mordor = new Atraccion(4, "Mordor", 25, 3, 4, TipoDeAtraccion.AVENTURA);
 	atraccionesCreadasEnJava.add(mordor);
-	Atraccion abismoDeHelm = new Atraccion("Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
+	Atraccion abismoDeHelm = new Atraccion(5, "Abismo de Helm", 5, 2, 15, TipoDeAtraccion.PAISAJE);
 	atraccionesCreadasEnJava.add(abismoDeHelm);
-	Atraccion lothlorien = new Atraccion("Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
+	Atraccion lothlorien = new Atraccion(6, "Lothlórien", 35, 1, 30, TipoDeAtraccion.DEGUSTACION);
 	atraccionesCreadasEnJava.add(lothlorien);
-	Atraccion erebor = new Atraccion("Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
+	Atraccion erebor = new Atraccion(7, "Erebor", 12, 3, 32, TipoDeAtraccion.PAISAJE);
 	atraccionesCreadasEnJava.add(erebor);
-	Atraccion bosqueNegro = new Atraccion("Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
+	Atraccion bosqueNegro = new Atraccion(8, "Bosque Negro", 3, 4, 12, TipoDeAtraccion.AVENTURA);
 	atraccionesCreadasEnJava.add(bosqueNegro);
-	Atraccion marDelPlata = new Atraccion("Mar del Plata", 4, 5, 13, TipoDeAtraccion.DEGUSTACION);
+	Atraccion marDelPlata = new Atraccion(9, "Mar del Plata", 4, 5, 13, TipoDeAtraccion.DEGUSTACION);
 	atraccionesCreadasEnJava.add(marDelPlata);
-	Atraccion chascomus = new Atraccion("Chascomus", 5, 3, 65, TipoDeAtraccion.PAISAJE);
+	Atraccion chascomus = new Atraccion(10, "Chascomus", 5, 3, 65, TipoDeAtraccion.PAISAJE);
 	atraccionesCreadasEnJava.add(chascomus);
-	Atraccion bolivia = new Atraccion("Bolivia", 3, 2, 60, TipoDeAtraccion.AVENTURA);
+	Atraccion bolivia = new Atraccion(11, "Bolivia", 3, 2, 60, TipoDeAtraccion.AVENTURA);
 	atraccionesCreadasEnJava.add(bolivia);
-	Atraccion chile = new Atraccion("Chile", 7, 30, 7, TipoDeAtraccion.PAISAJE);
+	Atraccion chile = new Atraccion(12, "Chile", 7, 30, 7, TipoDeAtraccion.PAISAJE);
 	atraccionesCreadasEnJava.add(chile);
 	}
 	
