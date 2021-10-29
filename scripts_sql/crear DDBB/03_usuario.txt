@@ -1,0 +1,9 @@
+CREATE TABLE "usuario" (
+	"id"	INTEGER,
+	"tipo_atraccion_favorita"	INTEGER NOT NULL,
+	"nombre"	TEXT NOT NULL,
+	"tiempo"	REAL NOT NULL,
+	"cantidad_monedas"	INTEGER NOT NULL,
+	FOREIGN KEY("tipo_atraccion_favorita") REFERENCES "tipo_atraccion"("id"),
+	PRIMARY KEY("id" AUTOINCREMENT)
+)

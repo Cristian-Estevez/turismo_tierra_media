@@ -1,0 +1,5 @@
+CREATE TABLE "tipo_atraccion" (
+	"id"	INTEGER,
+	"nombre"	TEXT NOT NULL,
+	PRIMARY KEY("id" AUTOINCREMENT)
+)
