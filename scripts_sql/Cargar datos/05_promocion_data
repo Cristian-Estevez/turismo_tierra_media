@@ -1,0 +1,7 @@
+INSERT INTO promocion (tipo_atraccion, nombre, descuento_costo, tipo_promocion, atraccion_id)
+VALUES
+(1, "Promo Aventura", 20, 1, NULL),
+(1, "Todo Aventura", 30, 2, NULL),
+(2, "Promo Paisajes", 20, 1, NULL),
+(2, "Pack Paisajes", NULL, 3, 5),
+(3, "Sabores de Tierra Media", 36, 2, NULL);
