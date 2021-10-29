@@ -3,10 +3,15 @@ package DAO;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import DAO.DAOFactory.UsuarioDAOFactory;
+import turismoenlatierramedia.Atraccion;
+import turismoenlatierramedia.Producto;
+import turismoenlatierramedia.PromocionAbsoluta;
 import turismoenlatierramedia.TipoDeAtraccion;
 import turismoenlatierramedia.Usuario;
 
@@ -15,11 +20,18 @@ public class UsuarioDAOTest {
 	ArrayList<Usuario> usuariosCreadosDesdeJava;
 	ArrayList<Usuario> usuariosCreadosDesdeDDBB;
 
+	Usuario eowyn, gandalf, sam, galadriel, userAdineradoYConMuchoTiempo;
+	Atraccion mordor, abismoDeHelm, moria, bosqueNegro;
+
+	List<Producto> productosEsperados;
+	List<Atraccion> listaDeAtraccionesA;
+	PromocionAbsoluta promoNueva;
+
 	@Before
 	public void setup() {
 		usuariosCreadosDesdeDDBB = new ArrayList<Usuario>();
 		usuariosCreadosDesdeJava = new ArrayList<Usuario>();
-		
+
 		Usuario eowyn = new Usuario(1, "Eowyn", 10, 8.0, TipoDeAtraccion.AVENTURA);
 		usuariosCreadosDesdeJava.add(eowyn);
 		Usuario gandalf = new Usuario(2, "Gandalf", 100, 5.0, TipoDeAtraccion.PAISAJE);
@@ -58,12 +70,12 @@ public class UsuarioDAOTest {
 		usuariosCreadosDesdeJava.add(chavela);
 		Usuario alfonsina = new Usuario(19, "Alfonsina", 93, 8, TipoDeAtraccion.AVENTURA);
 		usuariosCreadosDesdeJava.add(alfonsina);
-				
+
 	}
-	
+
 	@Test
 	public void arrayCreadoDesdeBBDDEsIgualAlCreadoManualmente() {
-		UsuarioDAO miUserDAO = new UsuarioDAO();
+		UsuarioDAO miUserDAO = UsuarioDAOFactory.getUsuarioDAO("Usuario");
 		usuariosCreadosDesdeDDBB = miUserDAO.getAll();
 		assertEquals(usuariosCreadosDesdeJava, usuariosCreadosDesdeDDBB);
 	}

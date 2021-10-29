@@ -4,11 +4,10 @@ import java.util.Objects;
 
 public class Atraccion extends Producto {
 
-	private static int NumeroId;
 	private int cupo; // checkear
  
 
-	public Atraccion(int atraccionId, String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
+	public Atraccion(int NumeroId, String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
 		super(NumeroId, nombre, costo, tiempoDeDuracion, tipoDeAtraccion);
 		this.cupo = cupo;
 	}
@@ -16,7 +15,8 @@ public class Atraccion extends Producto {
 	public String getNombre() {
 		return super.getNombre();
 	}
-
+	
+ 
 	public int getLugaresDisponibles() {
 		return cupo;
 	}
