@@ -24,7 +24,7 @@ public class Ofertador {
 						} else {
 							System.out.println("Creemos que te va a gustar esta atraccion: " + prod.getNombre() + "\nQue es de tipo " + prod.getTipo() + ".");
 						}
-						System.out.println("Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + " horas");
+						System.out.println("Su Id es: " + prod.getId() + ". Tiene un costo de: " + prod.getCosto() + " monedas de oro" + " y una duracion de: " + prod.getTiempoDeDuracion() + " horas");
 						System.out.println("¿Te interesa?");
 						System.out.println("S/N");
 						respuesta = scan.nextLine().toUpperCase();

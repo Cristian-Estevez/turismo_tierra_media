@@ -1,9 +1,14 @@
 package turismoenlatierramedia;
 
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import DAO.AtraccionDAO;
+import DAO.UsuarioDAO;
+import DAO.DAOFactory.AtraccionDAOFactory;
+import DAO.DAOFactory.UsuarioDAOFactory;
 
 public class Parque {
 	
@@ -42,25 +47,25 @@ public class Parque {
 		scan.nextLine();
 	}
 	
-	private ArrayList<Usuario> inicializarUsuarios(String rutaArchivoUsuarios) {
-		 try {
-			return new ConstructorDeUsuario().crearListaUsuarios(rutaArchivoUsuarios);
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró archivo para crear los Usuarios del parque. \nEl programa se cerrará.");
-			System.exit(-1);
-		}
-		return null;
-	}
-	
-	private ArrayList<Atraccion> inicializarAtracciones(String rutaArchivoAtracciones) {		
-		try {
-			return new ConstructorDeAtraccion().crearListaAtracciones(rutaArchivoAtracciones);
-		} catch (FileNotFoundException e) {
-			System.err.println("No se encontró el archivo para crear las atracciones del parque. \nSe cerrará el programa.");
-			System.exit(-1);
-		}
-		return null;
-	}
+//	private ArrayList<Usuario> inicializarUsuarios(String rutaArchivoUsuarios) {
+//		 try {
+//			return new ConstructorDeUsuario().crearListaUsuarios(rutaArchivoUsuarios);
+//		} catch (FileNotFoundException e) {
+//			System.err.println("No se encontró archivo para crear los Usuarios del parque. \nEl programa se cerrará.");
+//			System.exit(-1);
+//		}
+//		return null;
+//	}
+//	
+//	private ArrayList<Atraccion> inicializarAtracciones(String rutaArchivoAtracciones) {		
+//		try {
+//			return new ConstructorDeAtraccion().crearListaAtracciones(rutaArchivoAtracciones);
+//		} catch (FileNotFoundException e) {
+//			System.err.println("No se encontró el archivo para crear las atracciones del parque. \nSe cerrará el programa.");
+//			System.exit(-1);
+//		}
+//		return null;
+//	}
 	
 	private ArrayList<Promocion> inicializarPromociones(String rutaArchivoPromociones, ArrayList<Atraccion> atracciones) {
 		try {
@@ -75,8 +80,13 @@ public class Parque {
 	
 	public void correrPrograma() {
 		imprimirBienvenida();
-		ArrayList<Usuario> usuarios = this.inicializarUsuarios("archivos/usuarios.in");
-		ArrayList<Atraccion> atracciones = this.inicializarAtracciones("archivos/atracciones.in");
+		
+	UsuarioDAO miUserDAO = UsuarioDAOFactory.getUsuarioDAO("Usuario");
+	ArrayList<Usuario> usuarios = miUserDAO.getAll(); 
+	AtraccionDAO miAtraccionDAO  = AtraccionDAOFactory.getAtraccionDAO("Atraccion");  //AtraccionDAOFactory.getAtraccionDAO("Atraccion")
+	ArrayList<Atraccion> atracciones = miAtraccionDAO.getAll();
+	//		ArrayList<Usuario> usuarios = this.inicializarUsuarios("archivos/usuarios.in");
+//		ArrayList<Atraccion> atracciones = this.inicializarAtracciones("archivos/atracciones.in");
 		ArrayList<Promocion> promociones = this.inicializarPromociones("archivos/promociones.in", atracciones);
 		ArrayList<Producto> productos = new ArrayList<Producto>();
 		productos.addAll(promociones);
