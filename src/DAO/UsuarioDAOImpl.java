@@ -28,7 +28,6 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			while (resultado.next()) {
 				Usuario usuario = new Usuario(resultado.getInt(1), resultado.getString(2), resultado.getDouble(3),
 						resultado.getDouble(4), TipoDeAtraccion.valueOf(resultado.getString(5)));
-				System.out.println(usuario);
 				usuarios.add(usuario);
 			}
 

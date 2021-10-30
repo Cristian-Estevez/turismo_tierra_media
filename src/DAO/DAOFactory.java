@@ -3,7 +3,7 @@ package DAO;
 public class DAOFactory {
 	
 	
-	public class UsuarioDAOFactory {
+	public static class UsuarioDAOFactory {
 	    public static  UsuarioDAO getUsuarioDAO(String type) { 
 	        if (type.equalsIgnoreCase("Usuario")) {
 	            return (UsuarioDAO) new UsuarioDAOImpl();
@@ -14,7 +14,7 @@ public class DAOFactory {
 	}
 	
 	
-	public class AtraccionDAOFactory {
+	public static class AtraccionDAOFactory {
 	    public static AtraccionDAO getAtraccionDAO(String type) { 
 	        if (type.equalsIgnoreCase("Atraccion")) {
 	            return (AtraccionDAO) new AtraccionDAOImpl();
@@ -23,4 +23,15 @@ public class DAOFactory {
 	        }
 	    }
 	}
+	
+	public static class PromocionDAOFactory{
+		public static PromocionDAO getPromocionDAO(String type) {
+			if (type.equalsIgnoreCase("Promocion")) {
+				return (PromocionDAO) new PromocionDAOImpl();
+			} else {
+				return (PromocionDAO) new PromocionDAOImpl();
+			}
+		}
+	}
+	
 }
