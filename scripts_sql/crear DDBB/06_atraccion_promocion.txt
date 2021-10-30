@@ -1,8 +1,0 @@
-CREATE TABLE "atraccion_promocion" (
-	"id"	INTEGER,
-	"atraccion_id"	INTEGER NOT NULL,
-	"promocion_id"	INTEGER NOT NULL,
-	FOREIGN KEY("atraccion_id") REFERENCES "atraccion"("id"),
-	FOREIGN KEY("promocion_id") REFERENCES "promocion"("id"),
-	PRIMARY KEY("id" AUTOINCREMENT)
-)

@@ -1,5 +1,0 @@
-CREATE TABLE "tipo_promocion" (
-	"id"	INTEGER,
-	"nombre"	TEXT NOT NULL,
-	PRIMARY KEY("id" AUTOINCREMENT)
-)
