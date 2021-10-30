@@ -75,7 +75,6 @@ public abstract class Producto {
 	protected abstract String esPromocionOAtraccion();
 	
 	protected abstract String imprimeLoQueIncluye();
-		
 	
 	protected abstract void ocuparPlaza();
 	
