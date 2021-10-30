@@ -1,5 +1,0 @@
-INSERT INTO tipo_atraccion (nombre)
-VALUES
-("AVENTURA"),
-("PAISAJE"),
-("DEGUSTACION");
