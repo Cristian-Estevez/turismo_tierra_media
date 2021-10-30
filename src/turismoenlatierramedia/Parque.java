@@ -101,7 +101,7 @@ public class Parque {
 		new Ofertador().ofertar(usuarios, productos);
 		
 		miUserDAO.persistirUsuario(usuarios);
-		
+		miAtraccionDAO.persistirAtraccion(atracciones);
 		
 	}
 	

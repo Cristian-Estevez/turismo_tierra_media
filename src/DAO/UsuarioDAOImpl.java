@@ -55,7 +55,7 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 				statement.setString(2, cantidad_monedas);
 				statement.setString(3, idUsuario);
 			
-				System.out.println("Se actualizo la bbdd" + statement.executeUpdate());
+				statement.executeUpdate();
 								
 			} catch(SQLException e) {
 				System.err.println("No se pudo escribir en Base de Datos la información del usuario");
