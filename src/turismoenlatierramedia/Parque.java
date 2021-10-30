@@ -1,7 +1,6 @@
 package turismoenlatierramedia;
 
-//import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +10,7 @@ import DAO.DAOFactory.PromocionDAOFactory;
 import DAO.DAOFactory.UsuarioDAOFactory;
 import DAO.PromocionDAO;
 import DAO.UsuarioDAO;
+import interaccionbbdd.MiConector;
 
 public class Parque {
 
@@ -49,38 +49,6 @@ public class Parque {
 		scan.nextLine();
 	}
 
-//	private ArrayList<Usuario> inicializarUsuarios(String rutaArchivoUsuarios) {
-//		 try {
-//			return new ConstructorDeUsuario().crearListaUsuarios(rutaArchivoUsuarios);
-//		} catch (FileNotFoundException e) {
-//			System.err.println("No se encontró archivo para crear los Usuarios del parque. \nEl programa se cerrará.");
-//			System.exit(-1);
-//		}
-//		return null;
-//	}
-//	
-//	private ArrayList<Atraccion> inicializarAtracciones(String rutaArchivoAtracciones) {		
-//		try {
-//			return new ConstructorDeAtraccion().crearListaAtracciones(rutaArchivoAtracciones);
-//		} catch (FileNotFoundException e) {
-//			System.err.println("No se encontró el archivo para crear las atracciones del parque. \nSe cerrará el programa.");
-//			System.exit(-1);
-//		}
-//		return null;
-//	}
-
-//	private ArrayList<Promocion> inicializarPromociones(String rutaArchivoPromociones,
-//			ArrayList<Atraccion> atracciones) {
-//		try {
-//			return new ConstructorDePromociones().crearListaPromociones(rutaArchivoPromociones, atracciones);
-//		} catch (NullPointerException | IOException e) {
-//			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
-//					+ "\nPuede corregir el inconveniente y volver iniciar el programa."
-//					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles.");
-//		}
-//		return null;
-//	}
-
 	public void correrPrograma() {
 		imprimirBienvenida();
 
@@ -103,6 +71,11 @@ public class Parque {
 		miUserDAO.persistirUsuario(usuarios);
 		miAtraccionDAO.persistirAtraccion(atracciones);
 		
+		try {
+			MiConector.getConnection().close();
+		} catch (SQLException e) {
+			System.err.println("No se pudo cerrar la conección con la base de datos");
+		}
 	}
 	
 

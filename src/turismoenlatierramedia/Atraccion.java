@@ -4,8 +4,7 @@ import java.util.Objects;
 
 public class Atraccion extends Producto {
 
-	private int cupo; // checkear
- 
+	private int cupo; 
 
 	public Atraccion(int NumeroId, String nombre, double costo, double tiempoDeDuracion, int cupo, TipoDeAtraccion tipoDeAtraccion) {
 		super(NumeroId, nombre, costo, tiempoDeDuracion, tipoDeAtraccion);
