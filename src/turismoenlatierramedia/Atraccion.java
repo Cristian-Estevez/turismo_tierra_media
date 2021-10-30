@@ -16,7 +16,6 @@ public class Atraccion extends Producto {
 		return super.getNombre();
 	}
 	
- 
 	public int getLugaresDisponibles() {
 		return cupo;
 	}
@@ -68,9 +67,5 @@ public class Atraccion extends Producto {
 		return this.equals(unProducto);
 		
 	}
-
-
-	
-	
 
 }

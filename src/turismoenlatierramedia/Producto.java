@@ -102,6 +102,5 @@ public abstract class Producto {
 	}
 
 	public abstract boolean incluye(Producto prod) ;
-	
-	
+
 }
