@@ -37,4 +37,30 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 
 		return usuarios;
 	}
+	
+	@Override
+	public void persistirUsuario(ArrayList<Usuario> usuarios) {
+		String query = "UPDATE usuario SET tiempo = ?, cantidad_monedas = ? WHERE usuario.id = ?;";
+				
+		for (Usuario user : usuarios) {
+			
+			String idUsuario = Integer.toString(user.getId());
+			String tiempo = Double.toString(user.getTiempoDisponible());
+			String cantidad_monedas = Double.toString(user.getMonedasDeOro());
+			
+			try {
+				Connection conn = MiConector.getConnection();
+				PreparedStatement statement = conn.prepareStatement(query);
+				statement.setString(1, tiempo);
+				statement.setString(2, cantidad_monedas);
+				statement.setString(3, idUsuario);
+			
+				System.out.println("Se actualizo la bbdd" + statement.executeUpdate());
+								
+			} catch(SQLException e) {
+				System.err.println("No se pudo escribir en Base de Datos la información del usuario");
+			}
+		}
+		
+	}
 }

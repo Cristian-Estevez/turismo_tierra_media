@@ -75,7 +75,7 @@ public class Ofertador {
 		salidaUsuario.println("¡Gracias por confiar en nuestras recomendaciones!");
 		salidaUsuario.close();
 	}
-	
+			
 	private static boolean puedeComprar(Usuario user, Producto prod) {
 		return user.getMonedasDeOro() >= prod.getCosto() && user.getTiempoDisponible() >= prod.getTiempoDeDuracion()
 				&& prod.getLugaresDisponibles() > 0 && !user.yaCompro(prod);
