@@ -38,4 +38,29 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 		return atracciones;
 	}
+
+	@Override
+	public void persistirAtraccion(ArrayList<Atraccion> atracciones) {
+		String query = "UPDATE atraccion SET cupo = ? WHERE atraccion.id = ?";
+		
+		for (Atraccion unaAtraccion : atracciones) {
+			
+			String cupo = Integer.toString(unaAtraccion.getLugaresDisponibles());
+			String idAtraccion = Integer.toString(unaAtraccion.getId());
+			
+			try {
+				Connection conn = MiConector.getConnection();
+				PreparedStatement statement = conn.prepareStatement(query);
+				statement.setString(1, cupo);
+				statement.setString(2, idAtraccion);
+				
+				statement.executeUpdate();
+				
+			} catch(SQLException e) {
+				System.err.println("No se pudo escribir en Base de Datos la información de las atracciones");
+			}
+			
+		}
+		
+	}
 }

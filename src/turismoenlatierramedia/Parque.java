@@ -69,36 +69,41 @@ public class Parque {
 //		return null;
 //	}
 
-	private ArrayList<Promocion> inicializarPromociones(String rutaArchivoPromociones,
-			ArrayList<Atraccion> atracciones) {
-		try {
-			return new ConstructorDePromociones().crearListaPromociones(rutaArchivoPromociones, atracciones);
-		} catch (NullPointerException | IOException e) {
-			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
-					+ "\nPuede corregir el inconveniente y volver iniciar el programa."
-					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles.");
-		}
-		return null;
-	}
+//	private ArrayList<Promocion> inicializarPromociones(String rutaArchivoPromociones,
+//			ArrayList<Atraccion> atracciones) {
+//		try {
+//			return new ConstructorDePromociones().crearListaPromociones(rutaArchivoPromociones, atracciones);
+//		} catch (NullPointerException | IOException e) {
+//			System.err.println("Algo sucedió al intentar leer el archivo para la creacion de promociones."
+//					+ "\nPuede corregir el inconveniente y volver iniciar el programa."
+//					+ "\nO si lo desea, puede continuar la ejecución del programa, pero las promociones no estarán disponibles.");
+//		}
+//		return null;
+//	}
 
 	public void correrPrograma() {
 		imprimirBienvenida();
 
 		UsuarioDAO miUserDAO = UsuarioDAOFactory.getUsuarioDAO("Usuario");
 		ArrayList<Usuario> usuarios = miUserDAO.getAll();
-		AtraccionDAO miAtraccionDAO = AtraccionDAOFactory.getAtraccionDAO("Atraccion"); // AtraccionDAOFactory.getAtraccionDAO("Atraccion")
+		
+		AtraccionDAO miAtraccionDAO = AtraccionDAOFactory.getAtraccionDAO("Atraccion");
 		ArrayList<Atraccion> atracciones = miAtraccionDAO.getAll();
-		// ArrayList<Usuario> usuarios =
-		// this.inicializarUsuarios("archivos/usuarios.in");
-		// ArrayList<Atraccion> atracciones = this.inicializarAtracciones("archivos/atracciones.in");
+		
 		PromocionDAO miPromocionDAO = PromocionDAOFactory.getPromocionDAO("Promocion");
 		ArrayList<Promocion> promociones = miPromocionDAO.getAll(atracciones);
 		
-//		ArrayList<Promocion> promociones = this.inicializarPromociones("archivos/promociones.in", atracciones);
 		ArrayList<Producto> productos = new ArrayList<Producto>();
+		
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
+		
 		new Ofertador().ofertar(usuarios, productos);
+		
+		miUserDAO.persistirUsuario(usuarios);
+		miAtraccionDAO.persistirAtraccion(atracciones);
+		
 	}
+	
 
 }
