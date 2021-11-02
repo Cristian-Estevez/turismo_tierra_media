@@ -25,7 +25,7 @@ public class Atraccion extends Producto {
 	}
 
 	@Override
-	protected boolean esPromocion() {
+	public boolean esPromocion() {
 		return false;
 	}
 	
