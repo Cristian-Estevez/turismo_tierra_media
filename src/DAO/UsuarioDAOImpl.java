@@ -5,12 +5,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import interaccionbbdd.MiConector;
+import turismoenlatierramedia.Producto;
 import turismoenlatierramedia.TipoDeAtraccion;
 import turismoenlatierramedia.Usuario;
 
 public class UsuarioDAOImpl implements UsuarioDAO{
+	
 	@Override
 	public ArrayList<Usuario> getAll() {
 
@@ -60,7 +63,41 @@ public class UsuarioDAOImpl implements UsuarioDAO{
 			} catch(SQLException e) {
 				System.err.println("No se pudo escribir en Base de Datos la información del usuario");
 			}
+			
+			persistirItinerario(user.getId(), user.getProductosComprados());
 		}
 		
 	}
+	
+
+	private void persistirItinerario(int usuarioId, List<Producto> productos) {
+		String query = "";
+		PreparedStatement statement = null;
+		
+		try {
+			Connection conn = MiConector.getConnection();			
+			for (Producto producto : productos) {
+				if (producto.esPromocion()) {
+					query = "INSERT INTO itinerario(usuario_id, promocion_id) VALUES (?, ?);";
+					statement = conn.prepareStatement(query);
+					statement.setString(1, Integer.toString(usuarioId));					
+					statement.setString(2, Integer.toString(producto.getId()));
+				} 
+				else if (!producto.esPromocion()){
+					query = "INSERT INTO itinerario(usuario_id, atraccion_id) VALUES (?, ?);";
+					statement = conn.prepareStatement(query);
+					statement.setString(1, Integer.toString(usuarioId));
+					statement.setString(2, Integer.toString(producto.getId()));
+				}
+				statement.executeUpdate();
+			}			
+		} catch (SQLException e) {
+			System.err.println("No se pudo escribir en Base de Datos la información del itinerario");
+		}
+		
+		
+	}
+	
+	// hacer un drop table de itinerario o clear table al cargar todos los itinerarios o antes de guardar los nuevos
+	
 }

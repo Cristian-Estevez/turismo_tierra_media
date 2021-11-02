@@ -70,7 +70,7 @@ public abstract class Producto {
 		return nombre;
 	}
 	
-	protected abstract boolean esPromocion(); 
+	public abstract boolean esPromocion(); 
 	
 	protected abstract String esPromocionOAtraccion();
 	
