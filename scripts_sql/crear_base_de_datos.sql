@@ -1,3 +1,13 @@
+PRAGMA foreign_keys = OFF;
+DROP TABLE IF EXISTS "atraccion";
+DROP TABLE IF EXISTS "promocion";
+DROP TABLE IF EXISTS "atraccion_promocion";
+DROP TABLE IF EXISTS "itinerario";
+DROP TABLE IF EXISTS "usuario";
+DROP TABLE IF EXISTS "tipo_atraccion";
+DROP TABLE IF EXISTS "tipo_promocion";
+PRAGMA foreign_keys = ON;
+
 CREATE TABLE "tipo_atraccion" (
 	"id"	INTEGER,
 	"nombre"	TEXT NOT NULL,

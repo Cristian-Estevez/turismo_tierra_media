@@ -10,7 +10,7 @@ import interaccionbbdd.MiConector;
 import turismoenlatierramedia.Atraccion;
 import turismoenlatierramedia.TipoDeAtraccion;
 
-public class AtraccionDAOImpl implements AtraccionDAO {
+public class AtraccionDAOImpl extends AtraccionDAO {
 	
 	@Override
 	public ArrayList<Atraccion> getAll() {

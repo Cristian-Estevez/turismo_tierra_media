@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import turismoenlatierramedia.Usuario;
 
-public interface UsuarioDAO {
+public abstract class UsuarioDAO implements GenericDAO {
 
-	public ArrayList<Usuario> getAll();
+	public abstract ArrayList<Usuario> getAll();
 	
-	public void persistirUsuario(ArrayList<Usuario> usuarios);
+	public abstract void persistirUsuario(ArrayList<Usuario> usuarios);
 }

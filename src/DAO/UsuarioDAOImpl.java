@@ -12,7 +12,7 @@ import turismoenlatierramedia.Producto;
 import turismoenlatierramedia.TipoDeAtraccion;
 import turismoenlatierramedia.Usuario;
 
-public class UsuarioDAOImpl implements UsuarioDAO{
+public class UsuarioDAOImpl extends UsuarioDAO{
 	
 	@Override
 	public ArrayList<Usuario> getAll() {

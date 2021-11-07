@@ -14,7 +14,7 @@ import turismoenlatierramedia.PromocionAxB;
 import turismoenlatierramedia.PromocionPorcentual;
 import turismoenlatierramedia.TipoDeAtraccion;
 
-public class PromocionDAOImpl implements PromocionDAO {
+public class PromocionDAOImpl extends PromocionDAO {
 
 	@Override
 	public ArrayList<Promocion> getAll(ArrayList<Atraccion> atracciones) {
@@ -45,17 +45,31 @@ public class PromocionDAOImpl implements PromocionDAO {
 							atraccionesIncluidas.add(tmp);
 						}
 					}
-
 				}
 
 				String tipoDePromocion = resultadoPromociones.getString(1);
+				
 				if (tipoDePromocion.equalsIgnoreCase("axb")) {
-					promocion = new PromocionAxB(resultadoPromociones.getInt(2), resultadoPromociones.getString(4),
-							TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), atraccionesIncluidas);
+					promocion = new PromocionAxB(
+							resultadoPromociones.getInt(2), 
+							resultadoPromociones.getString(4),
+							TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), 
+							atraccionesIncluidas);
+					
 				} else if (tipoDePromocion.equalsIgnoreCase("porcentual")) {
-					promocion = new PromocionPorcentual(resultadoPromociones.getInt(2), resultadoPromociones.getString(4), TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), resultadoPromociones.getDouble(5), atraccionesIncluidas);
+					promocion = new PromocionPorcentual(
+							resultadoPromociones.getInt(2), 
+							resultadoPromociones.getString(4), 
+							TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), 
+							resultadoPromociones.getDouble(5), atraccionesIncluidas);
+					
 				} else if (tipoDePromocion.equalsIgnoreCase("absoluta")) {
-					promocion = new PromocionAbsoluta(resultadoPromociones.getInt(2), resultadoPromociones.getString(4), TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), resultadoPromociones.getDouble(5), atraccionesIncluidas);
+					promocion = new PromocionAbsoluta(
+							resultadoPromociones.getInt(2), 
+							resultadoPromociones.getString(4), 
+							TipoDeAtraccion.valueOf(resultadoPromociones.getString(3)), 
+							resultadoPromociones.getDouble(5), 
+							atraccionesIncluidas);
 				}
 
 				promociones.add(promocion);
@@ -65,8 +79,9 @@ public class PromocionDAOImpl implements PromocionDAO {
 		} catch (SQLException e) {
 			System.out.println("No se pudo establecer la conección con a base de datos");
 		}
-		System.out.println(promociones);
+
 		return promociones;
+		
 	}
 
 }

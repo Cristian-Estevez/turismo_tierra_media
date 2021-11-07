@@ -5,9 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import DAO.AtraccionDAO;
-import DAO.DAOFactory.AtraccionDAOFactory;
-import DAO.DAOFactory.PromocionDAOFactory;
-import DAO.DAOFactory.UsuarioDAOFactory;
+import DAO.DAOFactory;
 import DAO.PromocionDAO;
 import DAO.UsuarioDAO;
 import interaccionbbdd.MiConector;
@@ -52,13 +50,13 @@ public class Parque {
 	public void correrPrograma() {
 		imprimirBienvenida();
 
-		UsuarioDAO miUserDAO = UsuarioDAOFactory.getUsuarioDAO("Usuario");
+		UsuarioDAO miUserDAO = (UsuarioDAO) DAOFactory.getDAO("Usuario");
 		ArrayList<Usuario> usuarios = miUserDAO.getAll();
 		
-		AtraccionDAO miAtraccionDAO = AtraccionDAOFactory.getAtraccionDAO("Atraccion");
+		AtraccionDAO miAtraccionDAO = (AtraccionDAO) DAOFactory.getDAO("Atraccion");
 		ArrayList<Atraccion> atracciones = miAtraccionDAO.getAll();
 		
-		PromocionDAO miPromocionDAO = PromocionDAOFactory.getPromocionDAO("Promocion");
+		PromocionDAO miPromocionDAO = (PromocionDAO) DAOFactory.getDAO("Promocion");
 		ArrayList<Promocion> promociones = miPromocionDAO.getAll(atracciones);
 		
 		ArrayList<Producto> productos = new ArrayList<Producto>();
