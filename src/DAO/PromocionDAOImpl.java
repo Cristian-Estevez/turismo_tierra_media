@@ -14,7 +14,7 @@ import turismoenlatierramedia.PromocionAxB;
 import turismoenlatierramedia.PromocionPorcentual;
 import turismoenlatierramedia.TipoDeAtraccion;
 
-public class PromocionDAOImpl implements PromocionDAO {
+public class PromocionDAOImpl extends PromocionDAO {
 
 	@Override
 	public ArrayList<Promocion> getAll(ArrayList<Atraccion> atracciones) {

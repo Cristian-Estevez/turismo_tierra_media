@@ -8,7 +8,6 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import DAO.DAOFactory.UsuarioDAOFactory;
 import turismoenlatierramedia.Atraccion;
 import turismoenlatierramedia.Producto;
 import turismoenlatierramedia.PromocionAbsoluta;
@@ -75,7 +74,7 @@ public class UsuarioDAOTest {
 
 	@Test
 	public void arrayCreadoDesdeBBDDEsIgualAlCreadoManualmente() {
-		UsuarioDAO miUserDAO = UsuarioDAOFactory.getUsuarioDAO("Usuario");
+		UsuarioDAO miUserDAO = (UsuarioDAO) DAOFactory.getDAO("Usuario");
 		usuariosCreadosDesdeDDBB = miUserDAO.getAll();
 		assertEquals(usuariosCreadosDesdeJava, usuariosCreadosDesdeDDBB);
 	}

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import turismoenlatierramedia.Atraccion;
 import turismoenlatierramedia.Promocion;
 
-public interface PromocionDAO {
+public abstract class PromocionDAO implements GenericDAO {
 
-		public ArrayList<Promocion> getAll(ArrayList<Atraccion> atracciones);
+		public abstract ArrayList<Promocion> getAll(ArrayList<Atraccion> atracciones);
 }
 

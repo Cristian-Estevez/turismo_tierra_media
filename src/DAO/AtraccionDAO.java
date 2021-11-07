@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 import turismoenlatierramedia.Atraccion;
 
-public interface AtraccionDAO {
+public abstract class AtraccionDAO implements GenericDAO{
 	
-	public ArrayList<Atraccion> getAll();
+	public abstract ArrayList<Atraccion> getAll();
 	
-	public void persistirAtraccion(ArrayList<Atraccion> atracciones);
+	public abstract void persistirAtraccion(ArrayList<Atraccion> atracciones);
 }

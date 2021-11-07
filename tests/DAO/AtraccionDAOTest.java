@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import DAO.DAOFactory.AtraccionDAOFactory;
 import turismoenlatierramedia.Atraccion;
 import turismoenlatierramedia.TipoDeAtraccion;
 
@@ -54,7 +53,7 @@ public class AtraccionDAOTest {
 	
 	@Test
 	public void arrayCreadoDesdeBBDDEsIgualAlCreadoManualmente() {
-		AtraccionDAO atraccionDAO = AtraccionDAOFactory.getAtraccionDAO("Atraccion");
+		AtraccionDAO atraccionDAO = (AtraccionDAO) DAOFactory.getDAO("Atraccion");
 		atraccionesCreadasEnDDBB = atraccionDAO.getAll();
 		assertEquals(atraccionesCreadasEnJava, atraccionesCreadasEnDDBB);
 		
