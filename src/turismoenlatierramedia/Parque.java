@@ -67,6 +67,7 @@ public class Parque {
 		new Ofertador().ofertar(usuarios, productos);
 		
 		miUserDAO.persistirUsuario(usuarios);
+		
 		miAtraccionDAO.persistirAtraccion(atracciones);
 		
 		try {
@@ -75,6 +76,5 @@ public class Parque {
 			System.err.println("No se pudo cerrar la conección con la base de datos");
 		}
 	}
-	
 
 }
