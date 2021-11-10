@@ -42,7 +42,13 @@ public class PromocionDAOImpl extends PromocionDAO {
 				while (resultadoAtracciones.next()) {
 					for (Atraccion tmp : atracciones) {
 						if (tmp.getId() == resultadoAtracciones.getInt(1)) {
-							atraccionesIncluidas.add(tmp);
+							
+							// la atraccion gratuita en caso de AxB va al final del Array
+							if (tmp.getId() == resultadoPromociones.getInt(6)) {
+								atraccionesIncluidas.add(tmp);
+							} else {
+								atraccionesIncluidas.add(0, tmp);
+							}
 						}
 					}
 				}
