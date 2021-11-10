@@ -12,6 +12,7 @@ public class Usuario {
 	private double tiempoDisponible;
 	private TipoDeAtraccion atraccionFavorita;
 	private List<Producto> productos;
+	private int cantidadCompradaPreviamente = 0;
 
 	public Usuario(int usuarioId, String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
 		this.usuarioId = usuarioId;
@@ -38,6 +39,9 @@ public class Usuario {
 		atraccion.ocuparPlaza();
 	}
 	
+	public void actualizarItinerario(Producto producto) {
+		this.productos.add(producto);
+	}
 
 	public boolean yaCompro(Producto otroProducto) {
 		for (Producto miProducto : productos) {
@@ -48,6 +52,9 @@ public class Usuario {
 		return false;
 	}
 	
+	public int getItinerarioPrevio(){
+		return this.cantidadCompradaPreviamente;
+	}
 	
 	public double getTiempoDisponible() {
 		return this.tiempoDisponible;
@@ -91,6 +98,11 @@ public class Usuario {
 				&& Double.doubleToLongBits(monedasDeOro) == Double.doubleToLongBits(other.monedasDeOro)
 				&& Objects.equals(nombre, other.nombre) && Objects.equals(productos, other.productos)
 				&& Double.doubleToLongBits(tiempoDisponible) == Double.doubleToLongBits(other.tiempoDisponible);
+	}
+
+
+	public void incrementarItineraioPrevio() {
+		this.cantidadCompradaPreviamente++;
 	}
 
 }

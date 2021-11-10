@@ -64,6 +64,8 @@ public class Parque {
 		productos.addAll(promociones);
 		productos.addAll(atracciones);
 		
+		miUserDAO.cargarItinerarios(usuarios, atracciones, promociones);
+		
 		new Ofertador().ofertar(usuarios, productos);
 		
 		miUserDAO.persistirUsuario(usuarios);
