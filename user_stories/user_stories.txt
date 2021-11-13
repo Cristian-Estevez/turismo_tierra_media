@@ -1,0 +1,35 @@
+Como usuario quiero:
+	1- poder ver mi dinero disponible y tiempo disponible en forma facil y 			constante durante la navegación de la página
+	
+	2- poder ver todas las atracciones/promociones disponibles en el parque.
+	
+	3- poder ver el detalle de que incluye y el costo de cada atracción.
+	
+	4- poder comprar una atracción que me interese en forma sencilla.
+	
+	5- poder ver que atracciones he comprado y que contiene cada una.
+	
+	6- que me ofrezcan las atracciones de acuerdo a mis intereses.
+	
+	7- que se me muestren solo las atracciones que puedo comprar.
+		ESPERAR CONFIRMACIÓN DE LA PREGUNTA DE SLACK
+
+
+Como admin quiero:
+	1- poder ver los usuarios de mi sistema.
+	
+	2- poder crear usuarios.
+	
+	3- poder modificar usuarios.
+	
+	4- poder ver acceder a los productos comprados por cada ususario.
+	
+	5- poder ver los productos de mi parque.
+	
+	6- poder crear atracciones.
+	
+	7- poder crear promociones.
+	
+	8- poder agregar nuevos tipos de atracción.
+	
+	9- poder modificar los productos.
