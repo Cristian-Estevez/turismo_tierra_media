@@ -1,0 +1,127 @@
+Como usuario quiero:
+	User Story 1: 
+		poder ver mi dinero disponible y tiempo disponible en forma facil y 			constante durante la navegación de la página
+	
+	Acceptance Criteria:
+		en la nav bar o header de la página mostrar nombre de usuario, dinero y 		tiempo disponibles
+		
+		
+	User Story 2:
+		poder ver todas las atracciones/promociones disponibles en el parque.
+	
+	Acceptance Criteria:
+		Mostrar listado con todas las atracciones/promociones del parque
+		Por medio de un click acceder al detalle de la atracción/promoción
+		Mostrar imagen de la atracciones/promociones miniatura
+	
+	
+	User Story 3:
+		poder ver el detalle de que incluye y el costo de cada atracción.
+	Acceptance Criteria:
+		Mostrar descripción de la atracción, imágenes de la misma
+		Mostrar Costo, Duración y Cupo
+	
+	
+	User Story 4:
+		poder comprar una atracción que me interese en forma sencilla.
+	Acceptance Criteria:
+		Mostrar en página de detalle de la atracción un botón para la compra
+	
+	
+	User Story 5:
+		poder ver que atracciones he comprado y que contiene cada una.
+	Acceptance Criteria:
+		Mostrar pantalla de Itinerario
+		Ver listado de productos comprados
+		Ver detalle de costo y tiempo de duración de cada producto
+		Poder acceder al detalle de cada producto clickeando en su nombre
+	
+	User Story 6:
+		que me ofrezcan las atracciones de acuerdo a mis intereses
+	Acceptance Criteria:
+		Filtrar en pantalla de muestra de atracciones de según gustos del usuario
+	
+	User Story 7: ??? ESPERAR CONFIRMACIÓN DE LA PREGUNTA DE SLACK
+		que se me muestren solo las atracciones que puedo comprar
+	Acceptance Criteria:
+		No mostrar atracciones que el usuario no puede comprar
+
+Como admin quiero:
+	User Story 1:
+		poder ver los usuarios de mi sistema.
+	Acceptance Criteria:
+		Mostrar listado de usuarios con tiempo y monedas disponibles
+		Mostrar botón para agregar usuario
+		Mostrar botón para eliminar usuario
+		Mostrar botón para editar usuario
+		Mostrar botón para acceder al itinerario del usuario
+		En caso que el usuario no hubiese comprado nada aún el boton de itinerario 				aparece desactivado
+	
+	
+	User Story 2:
+		poder crear usuarios.
+	Acceptance Criteria:
+		Mostrar formulario para creación de usuario
+		Mostrar botón de cancelar por si no desea crear el usuario
+		Validar campos antes de la creación
+		Mostar campos: Nombre usuario, Monedas de oro, Tiempo disponible, Tipo de 				atracción Favorita
+		
+		
+	User Story 3:
+		poder modificar usuarios.
+	Acceptance Criteria:
+		Mostrar formulario de edición e usuario pre cargado con la información que 				ya tenía del usuario en la bbdd
+	
+	
+	User Story 4:
+		poder ver acceder a los productos comprados por cada ususario.
+	Acceptance Criteria:
+		Mostrar pantalla de itinerario
+		Tabla con listado de los productos comprados
+		Mostrar el costo de cada atracción comprada y el total
+		Mostrar el nombre del usuario al cual pertenece el itinerario que estoy 			viendo
+	
+	User Story 5:
+		poder ver los productos de mi parque.
+	Acceptance Criteria:
+		Pantalla de listado de productos del parque
+		Mostrar botón para editar
+		Mostrar botón para eliminar
+		Mostrar botón para agregar producto
+		Poder clickear sobre el nombre del producto para podr ver el detalle
+	
+	
+	User Story 6:
+		poder crear atracciones.
+	Acceptance Criteria:
+		Mostrar formulario para crear atracciones
+		Validar los datos de creación
+		Mostrar un listado de las atracciones existentes ? PARA NO REPETIR
+		Seleccionar el tipo de atracción por un drop-down con las cargadas en bbdd
+		
+		
+	User Story 7:
+		poder crear promociones.
+	Acceptance Criteria:
+		Mostrar formulario de creación
+		Poder seleccionar con un checkbox las atracciones qeu va a incluir la 				promoción
+		Drop-down de tipo de promoción
+		De acuerdo al tipo de promo mostrar casilla para descuento, atraccion 				gratuita o precio por el paquete
+
+
+	User Story 8:
+		poder agregar nuevos tipos de atracción.
+	Acceptance Criteria:
+		Mostrar pantalla de tipos de atraccion
+		Mostrar los tipos ya existentes en forma de lista
+		Mostrar botón para eliminar tipo de atracción
+		Mostrar botón para editar tipo de atracción
+		Mostrar formulario para crear nuevo tipo
+		
+	
+	User Story 9:
+		poder modificar los productos.
+	Acceptance Criteria:
+		Mostrar pantalla de edicion con formulario precargado con la info del 				producto a editar
+		Mostrar botón cancelar
+		
