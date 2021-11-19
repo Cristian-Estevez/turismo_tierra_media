@@ -1,0 +1,13 @@
+
+#footer {
+    min-height: 5000px;
+}
+
+#contenedor-form {
+    background-color: purple;
+}
+
+#logo-footer{
+    max-width: 70px;
+    max-height: 70px;
+}
