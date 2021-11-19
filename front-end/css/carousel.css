@@ -1,0 +1,23 @@
+#imagen-carousel {
+    margin: auto;
+    max-height: 60rem;
+    max-width: 60rem;
+    min-height: 35rem;
+}
+
+#carousel {
+    background-color: rgb(84, 34, 107);    
+}
+
+#footer {
+    min-height: 5000px;
+}
+
+#contenedor-form {
+    background-color: purple;
+}
+
+#logo-footer{
+    max-width: 70px;
+    max-height: 70px;
+}
