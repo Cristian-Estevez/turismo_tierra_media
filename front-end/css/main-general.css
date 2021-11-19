@@ -1,0 +1,23 @@
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(12, 177, 108);
+    
+}
+
+#titulo {
+    font-size: 3rem;
+    font-weight: bold !important;
+}
+
+#membrete {
+    font-size: 1.3rem;
+}
+
+.es-logo{
+    font-family: 'Fruktur', cursive, 'Times New Roman', Times, serif;
+}
+
+main{
+    background-color: rgb(212, 212, 165);
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
