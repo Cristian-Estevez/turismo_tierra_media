@@ -25,6 +25,7 @@ CREATE TABLE "usuario" (
 	"nombre"	TEXT NOT NULL,
 	"tiempo"	REAL NOT NULL,
 	"cantidad_monedas"	INTEGER NOT NULL,
+	"es_admin"	INTEGER NOT NULL DEFAULT 0,
 	FOREIGN KEY("tipo_atraccion_favorita") REFERENCES "tipo_atraccion"("id"),
 	PRIMARY KEY("id" AUTOINCREMENT)
 );
@@ -98,27 +99,28 @@ VALUES
 ("Bolivia", 3, 2, 60, 1),
 ("Chile", 7, 30, 7, 2);
 
-INSERT INTO usuario (nombre, cantidad_monedas, tiempo, tipo_atraccion_favorita) 
+INSERT INTO usuario (nombre, cantidad_monedas, tiempo, tipo_atraccion_favorita, es_admin) 
 VALUES
-("Eowyn", 10, 8, 1),
-("Gandalf", 100, 5, 2),
-("Sam", 36, 8, 3),
-("Galadriel", 120, 4, 2),
-("Ivan", 85, 7, 3),
-("Nahuel", 30, 6, 2),
-("Cristian Joel", 95, 3, 1),
-("Juanjo", 200, 5, 3),
-("Cristian Rigoberto",100, 2, 2),
-("Cristian", 62, 60, 1),
-("Micaela", 98, 10, 2),
-("Federico", 68, 6, 3),
-("Lucas", 160, 9, 2),
-("Quique", 98, 8, 1),
-("Evita", 46, 9, 1),
-("Frida", 320, 9, 2),
-("Silvina", 200, 9, 3),
-("Chavela", 50, 10, 3),
-("Alfonsina", 93, 8, 1);
+("Admin", 0, 0, 1, 1),
+("Eowyn", 10, 8, 1, 0),
+("Gandalf", 100, 5, 2, 0),
+("Sam", 36, 8, 3, 0),
+("Galadriel", 120, 4, 2, 0),
+("Ivan", 85, 7, 3, 0),
+("Nahuel", 30, 6, 2, 0),
+("Cristian Joel", 95, 3, 1, 0),
+("Juanjo", 200, 5, 3, 0),
+("Cristian Rigoberto",100, 2, 2, 0),
+("Cristian", 62, 60, 1, 0),
+("Micaela", 98, 10, 2, 0),
+("Federico", 68, 6, 3, 0),
+("Lucas", 160, 9, 2, 0),
+("Quique", 98, 8, 1, 0),
+("Evita", 46, 9, 1, 0),
+("Frida", 320, 9, 2, 0),
+("Silvina", 200, 9, 3, 0),
+("Chavela", 50, 10, 3, 0),
+("Alfonsina", 93, 8, 1, 0);
 
 INSERT INTO promocion (tipo_atraccion, nombre, descuento_costo, tipo_promocion, atraccion_id)
 VALUES

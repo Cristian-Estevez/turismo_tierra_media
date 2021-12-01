@@ -19,7 +19,7 @@ public class UsuarioDAOImpl extends UsuarioDAO {
 	@Override
 	public ArrayList<Usuario> getAll() {
 
-		String query = "SELECT usuario.id, usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, tipo_atraccion.nombre AS tipo_favorito FROM usuario JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
+		String query = "SELECT usuario.id, usuario.nombre, usuario.cantidad_monedas, usuario.tiempo, tipo_atraccion.nombre AS tipo_favorito, usuario.es_admin FROM usuario JOIN tipo_atraccion ON tipo_atraccion.id = usuario.tipo_atraccion_favorita;";
 
 		ResultSet resultado = null;
 
@@ -32,7 +32,7 @@ public class UsuarioDAOImpl extends UsuarioDAO {
 
 			while (resultado.next()) {
 				Usuario usuario = new Usuario(resultado.getInt(1), resultado.getString(2), resultado.getDouble(3),
-						resultado.getDouble(4), TipoDeAtraccion.valueOf(resultado.getString(5)));
+						resultado.getDouble(4), TipoDeAtraccion.valueOf(resultado.getString(5)), resultado.getBoolean(6));
 				usuarios.add(usuario);
 			}
 

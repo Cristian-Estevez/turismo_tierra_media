@@ -13,14 +13,16 @@ public class Usuario {
 	private TipoDeAtraccion atraccionFavorita;
 	private List<Producto> productos;
 	private int cantidadCompradaPreviamente = 0;
+	private boolean esAdmin = false;
 
-	public Usuario(int usuarioId, String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita) {
+	public Usuario(int usuarioId, String nombre, double monedasDeOro, double tiempoDisponible, TipoDeAtraccion atraccionFavorita, boolean esAdmin) {
 		this.usuarioId = usuarioId;
 		this.nombre = nombre;
 		this.monedasDeOro = monedasDeOro;
 		this.tiempoDisponible = tiempoDisponible;
 		this.atraccionFavorita = atraccionFavorita;
 		this.productos = new ArrayList<Producto>();
+		this.esAdmin = esAdmin;
 	}
 
 
@@ -78,6 +80,10 @@ public class Usuario {
 
 	public TipoDeAtraccion getTipoDeAtraccionFavorita() {
 		return this.atraccionFavorita;
+	}
+	
+	public boolean getEsAdmin() {
+		return esAdmin;
 	}
 
 	@Override

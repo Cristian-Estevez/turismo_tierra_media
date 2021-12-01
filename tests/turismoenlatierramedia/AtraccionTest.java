@@ -14,10 +14,10 @@ public class AtraccionTest {
 	
 	@Before
 	public void setup() {
-		eowyn = new Usuario(1,"Eowyn", 10, 8, TipoDeAtraccion.AVENTURA);
-		gandalf = new Usuario(2,"Gandalf", 100, 5, TipoDeAtraccion.PAISAJE);
-		sam = new Usuario(4,"Sam", 36, 8, TipoDeAtraccion.DEGUSTACION);
-		galadriel = new Usuario(5,"Galadriel", 120, 4, TipoDeAtraccion.PAISAJE);
+		eowyn = new Usuario(1,"Eowyn", 10, 8, TipoDeAtraccion.AVENTURA, false);
+		gandalf = new Usuario(2,"Gandalf", 100, 5, TipoDeAtraccion.PAISAJE, false);
+		sam = new Usuario(4,"Sam", 36, 8, TipoDeAtraccion.DEGUSTACION, false);
+		galadriel = new Usuario(5,"Galadriel", 120, 4, TipoDeAtraccion.PAISAJE, false);
 		
 		// orden de los parametros para construir atracción:
 		// (nombre, costo, tiempoDeDuracion, cupo, tipoDeAtraccion)
